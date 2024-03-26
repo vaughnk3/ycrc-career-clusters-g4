@@ -5,6 +5,8 @@ const { saveAs } = require('file-saver');
 
 export async function ExcelGenerationQueue() 
 {
+
+   try {
    console.log("Excel Generator Clicked");
 
    //Function that allows specified column width
@@ -143,5 +145,9 @@ export async function ExcelGenerationQueue()
         return buf;
     }
 
-   
+    }
+    catch (error)
+    {
+        console.log(error)
+    }
 }
