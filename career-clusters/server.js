@@ -870,7 +870,7 @@ app.post('/wipe-subcluster-clickCounts', checkAuth, (req, res) => {
 // Wipe Demographic Counts
 app.post('/wipe-demographic-counts', checkAuth, (req, res) => {
   pool.query(
-    'DELETE FROM UserDemographicInfo', 
+    'TRUNCATE TABLE UserDemographicInfo', 
     (error, results, fields) => {
       if(error) {
         console.error("Error wiping demographic counts: ", error);

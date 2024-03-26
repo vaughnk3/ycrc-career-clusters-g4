@@ -101,7 +101,7 @@ const DemographicBox = () => {
     }
     else
     {
-    setSchool(e.target.value)
+    setSchool(e.target.selectedOptions[0].text)
     }
   }
 
