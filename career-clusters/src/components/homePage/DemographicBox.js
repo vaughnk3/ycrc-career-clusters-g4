@@ -6,6 +6,7 @@ import './DemographicBox.css';
 const DemographicBox = () => {
   // fetch schools
   const [schools, setSchools] = useState([]);
+  const [otherSelected, setOtherSelected] = useState(false);
 
   useEffect(() => {
       const fetchSchools = async () => {
@@ -91,19 +92,49 @@ const DemographicBox = () => {
     }
   }
 
+  const handleSchoolChange = (e) => {
+    console.log("In handler")
+    if (e.target.value === "other") 
+    {
+      setOtherSelected(true);
+      console.log("in set")
+    }
+    else
+    {
+    setSchool(e.target.value)
+    }
+  }
+
+  const handleCloseOther = () => {
+    setOtherSelected(false);
+  }
+
   return ( 
     <div id="demographic-box">
       <div id="demographic-box-container">
         <div class="demographic-item">
           <h3>School *</h3>
-          <select id="school-select" name="school" class="select" onChange={(e) => setSchool(e.target.selectedOptions[0].text)}>
+          <select id="school-select" name="school" class="select" onChange={handleSchoolChange}>
             <option value="" disabled selected hidden className="hidden">Select one</option>
             {schools.map((school) => (
                 <option key={school.id} value={school.id} >
                     {school.schoolName}
                 </option>
             ))}
+            <option value="other">Other</option>
           </select>
+
+          { otherSelected && (
+            <div className="popup">
+              <div className="popup-content">
+                <h1>Test</h1>
+                <input type="text" placeholder="Please enter your school of attendance." onChange={(e) => setSchool(e.target.value)}></input>
+                <button onClick={handleCloseOther}>Submit</button>
+                <button onClick={handleCloseOther}>Cancel</button>
+              </div>
+            </div>
+          )}
+
         </div>
         <div class="demographic-item">
           <h3>Desired Career Field</h3>

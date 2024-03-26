@@ -221,13 +221,34 @@ const SubClusterManagementPage = () => {
                             <div className="newsc-left">
                             
                             <label class="label-addsc" for="subclusterName">Name</label>
-                            <input type="text" id='subclusterName' name="subclusterName" placeholder='Enter new Name'  value={newSCName} onChange={(e) => setNewName(e.target.value)}></input>
+                            <input
+                                type="text"
+                                id="subclusterName"
+                                name="subclusterName"
+                                placeholder="Enter new Name"
+                                value={newSCName.trim().length ? newSCName : ''}
+                                onChange={(e) => setNewName(e.target.value || ' ')}
+                                />
                             <br/>
                             <label class="label-addsc" for="subclusterSalary">Salary</label>
-                            <input type="text" id="subclusterSalary" name="subclusterSalary" placeholder="Enter new Salary" value={newSCSalary} onChange={(e) => setNewSalary(e.target.value)}></input>
+                            <input
+                                type="text"
+                                id="subclusterSalary"
+                                name="subclusterSalary"
+                                placeholder="Enter new Salary"
+                                value={newSCSalary.trim().length ? newSCSalary : ''}
+                                onChange={(e) => setNewSalary(e.target.value || ' ')}
+                            />
                             <br/>
                             <label class="label-addsc" for="subclusterEducation">Education Level</label>
-                            <input type="text" id="subclusterEducation" name="subclusterEducation" placeholder="Enter new ed level" value={newSCEdLevel} onChange={(e) => setNewEdLevel(e.target.value)}></input>
+                            <input
+                                type="text"
+                                id="subclusterEducation"
+                                name="subclusterEducation"
+                                placeholder="Enter new education level"
+                                value={newSCEdLevel.trim().length ? newSCEdLevel : ''}
+                                onChange={(e) => setNewEdLevel(e.target.value || ' ')}
+                            />
 
                             <label class="label-addsc">Parent Cluster</label>
                             <select id="select-cluster" value={clusterID} onChange={(e) => setClusterID(e.target.value)} >
@@ -242,7 +263,14 @@ const SubClusterManagementPage = () => {
                             </div>
                             <div className="newsc-right">
                             <label class="label-addsc" for="subclusterDescrip">Description</label>
-                            <textarea type="text" id="subclusterDescrip" maxLength="200" name="subclusterDescrip" placeholder=" Enter new description." value={newSCDescrip} onChange={(e) => setNewDescrip(e.target.value)}></textarea>
+                            <textarea
+                                id="subclusterDescrip"
+                                maxLength="200"
+                                name="subclusterDescrip"
+                                placeholder="Enter new description."
+                                value={newSCDescrip.trim().length ? newSCDescrip : ''}
+                                onChange={(e) => setNewDescrip(e.target.value || ' ')}
+                            />
                             
                             <label class="label-addsc" for="rate">Growth Rate</label>
                             <select id="growth-rate" name="rate" value={newSCGrowthRate} onChange={(e) => setNewGrowthRate(e.target.value)} >
@@ -295,3 +323,8 @@ const SubClusterManagementPage = () => {
 }
 
 export default SubClusterManagementPage;
+
+//<input type="text" id='subclusterName' name="subclusterName" placeholder='Enter new Name'  value={newSCName} onChange={(e) => setNewName(e.target.value)}></input>
+//<input type="text" id="subclusterSalary" name="subclusterSalary" placeholder="Enter new Salary" value={newSCSalary} onChange={(e) => setNewSalary(e.target.value)}></input>
+//<textarea type="text" id="subclusterDescrip" maxLength="200" name="subclusterDescrip" placeholder=" Enter new description." value={newSCDescrip} onChange={(e) => setNewDescrip(e.target.value)}></textarea>
+//<input type="text" id="subclusterEducation" name="subclusterEducation" placeholder="Enter new ed level" value={newSCEdLevel} onChange={(e) => setNewEdLevel(e.target.value)}></input>

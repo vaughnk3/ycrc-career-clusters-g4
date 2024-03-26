@@ -182,7 +182,7 @@ const AdminLandingPage = () => {
                 </div>
                 <div class="admin-landing-column">
                 
-
+                <a href="/school-management-page">School Management Page</a>
                 <a onClick={handleButtonClickLogout}>Logout</a>
                 </div>
 
