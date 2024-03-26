@@ -1,0 +1,30 @@
+#demographic-content {
+	width: 100%;
+	text-align: center;
+	margin-top: 4rem;
+	margin-bottom: 6rem;
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+h2 {
+	margin: 0px;
+}
+
+h3 {
+	margin-bottom: 50px;
+}
+
+#topbar {
+	position: relative;
+	width: 100%;
+	min-height: 140px;
+	height: 140px;
+	margin-bottom: -6%;
+
+}
+
+#topbar img {
+	background-color: white;
+	border-radius: 10px;
+}

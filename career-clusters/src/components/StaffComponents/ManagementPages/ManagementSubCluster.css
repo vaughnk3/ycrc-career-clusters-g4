@@ -1,0 +1,304 @@
+.subcluster_m {
+    width: 90%;
+    height: 4rem;
+    margin-bottom:1.50%;
+    background-color: #D9D9D9;
+    border: 6px solid var(--green);
+	border-radius: 60px;
+    margin-left:35px;
+    margin-right:auto;
+	display:flex;
+	flex-direction: row;
+	cursor: pointer;
+}
+
+
+.subcluster_m:hover {
+	background-color: #253251;
+	color:white;
+}
+
+.subcluster_m h2 {
+    width:29%;
+    align-self: center;
+    margin-left:3%;
+    font-size: 20px;
+}
+
+
+/* EDIT NAME BUTTON IN SUBCLUSTER MANAGEMENT PAGE */
+.Name {
+    width:15%;
+    margin:auto;
+    height:100%;
+}
+
+.editName {
+    width:100%;
+    border-radius:20px;
+    border-color: var(--green);
+    border:3px solid var(--green);
+    height:50%;
+    /*margin-top:25%;*/
+}
+
+.editName:hover {
+    background-color: #253251;
+}
+
+
+/* Edit description of subcluster */
+.Description {
+    width:15%;
+    margin:auto;
+    height:100%;
+}
+
+.editDescription {
+    width:100%;
+    border-radius:20px;
+    border-color: var(--green);
+    border:3px solid var(--green);
+    height:50%;
+}
+
+.editDescription:hover {
+    background-color: #253251;
+}
+
+
+/* Edit Salary for subcluster */
+.Salary {
+    width:15%;
+    margin:auto;
+    height:100%;
+}
+
+.editSalary {
+    width:100%;
+    border-radius:20px;
+    border-color: var(--green);
+    border:3px solid var(--green);
+    height:50%;
+}
+
+.editSalary:hover {
+    background-color: #253251;
+}
+
+
+/* For growth rate on subcluster */
+
+.GrowthRate {
+    width:15%;
+    margin:auto;
+    height:100%;
+}
+
+.editGrowthRate {
+    width:100%;
+    border-radius:20px;
+    border-color: var(--green);
+    border:3px solid var(--green);
+    height:50%;
+}
+
+.editGrowthRate:hover{
+    background-color: #253251;
+}
+
+
+
+/* For edit education level*/
+
+.Education {
+    width:15%;
+    margin:auto;
+    height:100%;
+}
+
+.editEducation {
+    width:100%;
+    border-radius:20px;
+    border-color: var(--green);
+    border:3px solid var(--green);
+    height:50%;
+}
+
+.editEducation:hover {
+    background-color: #253251;
+}
+
+
+/* Delete button */
+
+.Delete {
+    width:15%;
+    margin:auto;
+    height:100%;
+}
+
+.deleteButton {
+    border-radius: 40px;
+    border-color:#98ca41;
+    border:3px solid var(--green);
+    width:100px;
+    background-color:var(--green);
+    height:35px;
+    margin-left:5%;
+}
+
+.deleteButton:hover {
+    background-color: #253251;
+}
+
+/* Edit image */
+
+.Image {
+    width:15%;
+    margin:auto;
+    height:100%;
+}
+
+.editImage {
+    width:100%;
+    border-radius:20px;
+    border-color: var(--green);
+    border:3px solid var(--green);
+    height:50%;
+}
+
+.editImage:hover{
+    background-color: #253251;
+}
+
+.addsc-container {
+    background-color:white;
+    border:3px solid var(--green);
+    border-radius:25px;
+    position:absolute;
+    color:black;
+    flex-flow:row wrap;
+    justify-content:center;
+    align-content:center;
+    display:flex;
+    height:320px;
+    width:650px;
+}
+
+.newsc-left {
+    display:flex;
+    flex-flow:column;
+    width:225px;
+    margin-top:30px;
+    padding-right:35px;
+    padding-left:40px;
+}
+
+.newsc-right {
+    display:flex;
+    flex-flow:column;
+    width:225px;
+    padding-left:35px;
+    margin-top:30px;
+    padding-right:40px;
+}
+
+
+.label-addsc {
+    margin-right:24px;
+    font-size:16px;
+    font-weight: bold;
+    display:inline-flex;
+    margin-top:10px;
+}
+
+.label-editsc {
+    margin-right:24px;
+    font-size:22px;
+    font-weight: bold;
+    display:inline-flex;
+    margin-bottom:10px;
+}
+
+.newsc-buttonrow {
+    display:inline-flex;
+    justify-content: center;
+    margin-top:30px;
+    flex-flow:row nowrap;
+    justify-content:center;
+    align-content:center;
+    width:100%;
+    position:relative;
+    margin-bottom:20px;
+}
+
+.scmgmt_list {
+    margin-top:130px;
+}
+
+.sc_editbar {
+    display:inline-flex;
+    flex-flow:row nowrap;
+}
+
+.newsc-right2 {
+    display:flex;
+    flex-flow:column;
+    width:auto;
+    margin-top:auto;
+    height:22px;
+}
+
+
+#subclusterDescrip {
+    height:43%;
+    border:3px solid var(--green);
+    border-radius:5px;
+    
+}
+
+#growth-rate {
+    border:3px solid var(--green);
+    border-radius:30px;
+}
+
+#subclusterName {
+    border:3px solid var(--green);
+    border-radius:30px;
+}
+
+#subclusterSalary {
+    border:3px solid var(--green);
+    border-radius:30px;
+}
+
+#subclusterEducation {
+    border:3px solid var(--green);
+    border-radius:30px;
+}
+
+#select-cluster {
+    border:3px solid var(--green);
+    border-radius:30px;
+}
+
+.sc_editbar {
+    display:inline-flex;
+    height:5rem;
+    padding-top:13px;
+}
+
+.standardIn-popup {
+    padding:10px 10px;
+}
+
+#growth-rate {
+    padding:10px 10px;
+}
+
+#img {
+    display:inline-flex;
+    margin-left:55px;
+    margin-right:auto;
+}

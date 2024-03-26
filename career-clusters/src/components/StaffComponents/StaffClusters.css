@@ -1,0 +1,87 @@
+#c_array {
+	display: flex;
+	flex-wrap:wrap;
+	border:2p solid black;
+	overflow-y:scroll;
+}
+
+#form1 {
+
+	width:40%;
+	height: 15rem;
+	padding-right:3%;
+
+	border-radius: 60px;
+
+	margin-left: 4%;
+	margin-bottom:3%;
+	margin-top:1%;
+
+	display:flex;
+	flex-direction: column;
+}
+
+.staff-button-column-one {
+	float: right;
+	width: 220px;
+	height: 100%;
+	margin-right: 20px;
+	margin-top: 12px;
+  }
+
+  .staff-button-column-two {
+	float: left;
+	width: 220px;
+	height: 100%;
+	margin-left:13%;
+	margin-top: 12px;
+	
+  }
+
+  .staff-button-column-three {
+	float: right;
+	width: 220px;
+	height: 100%;
+	margin-right:1%;
+	margin-top: 12px;
+	
+  }
+  
+  .staff-button {
+	display: block;
+	text-align: center;
+	background-color: var(--green);
+	color: black;
+  
+	font-size: .8rem;
+  
+	padding: 10px 20px;
+	margin-bottom: 12px;
+	border: none;
+	border-radius: 10px;
+  
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+  #loading-animation {
+    border: 16px solid lightgray;
+    width: 120px;
+    height: 120px;
+    margin-left:auto;
+	margin-right:auto;
+	margin-top:3rem;
+    border-top: 16px solid var(--green);
+    border-radius: 50%;
+    
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+      transform: rotate(720deg)
+    }
+  }

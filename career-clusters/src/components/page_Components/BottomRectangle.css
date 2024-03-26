@@ -1,0 +1,54 @@
+
+/*
+Styling page for the light blue rectangle that contains Chamber information.
+This appears at the bottom of most pages.   
+*/
+
+#bottom-rectangle {
+    width: 100%;
+    min-height: 140px;
+    background-color: var(--blue);
+    padding-top: 20px;
+    
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+
+    display: flex;
+
+    
+    z-index: 999;
+  }
+  
+  #bottom-rectangle-container {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  #text-container {
+    
+    display: inline-block;
+    text-align: left;
+  }
+  
+  #bottom-rectangle h1 {
+    font-family: 'League Gothic', sans-serif;
+    font-weight: normal;
+    font-size: 18pt;
+    margin: 0px;
+  }
+  
+  #bottom-rectangle p {
+    font-size: 10pt;
+    color: white;
+    margin: 0px;
+  }
+  
+  #bottom-rectangle img {
+    height: 80px; /* Adjust the height as needed */
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+  

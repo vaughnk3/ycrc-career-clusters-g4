@@ -1,0 +1,84 @@
+#fName {
+    color:var(--darkblue);
+    font-size:4rem;    
+    text-align: left; 
+    margin-bottom:2%;
+}
+
+#fDesc {
+    color:var(--darkblue);
+    font-size:1.25rem;  
+    width:80%;
+    text-align: left;
+}
+
+#topLeft {
+    display: inline-table;
+    float: left;
+    max-width: 80%;
+}
+
+#bottomMiddle {
+    margin-top:5%;
+    margin-bottom: 8%;
+    margin-left:15%;
+    margin-right: 15%;
+}
+
+#row {
+    display: block;
+    overflow: auto;
+    min-height: 200px;
+    
+    margin-left:15%;
+    margin-right: 15%;
+
+    margin-bottom: 20px;
+}
+
+#jobPostings {
+    height:3.5rem;
+    width:15rem;
+    background-color:#98CA41;
+    font-size:1rem;
+    font-weight: 700;
+    color:black;
+    border:0;
+    border-radius:5px;
+    margin-left:5%;
+    cursor: pointer;
+}
+
+#view-button {
+    display: inline-table;
+    float: right;
+
+    height: 24px;
+    background-color: #98ca41;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.field-statistic {
+    margin-right: 6%;
+    margin-left:6%;
+    margin-bottom: 4%;
+    display: inline-table;
+    float: left;
+    text-align: left;
+}
+.field-statistic h1 {
+    color: #98CA41;
+    font-size: 2.4rem;
+    margin-top: 12px;
+}
+
+.field-statistic h2 {
+    font-size: 1.6rem;
+    margin: 0px;
+}

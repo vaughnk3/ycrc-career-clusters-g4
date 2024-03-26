@@ -1,0 +1,40 @@
+body {
+	min-height: 100vh;
+	height: 100%;
+}
+
+#page {
+	min-height: 100vh;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+#_topRectangle {
+    background-color: var(--darkblue);
+    color: white;
+    text-align: center;
+    height: 110px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top:0;
+}
+#_topRectangle p { 
+    font-size:1.25rem;
+    margin-top:2.75rem;
+  
+}
+
+.home-button {
+  
+    height:75px;
+    position:absolute;
+    left:5%;
+    top:15%;
+
+}
+
+ul {
+    list-style-type: none;
+}

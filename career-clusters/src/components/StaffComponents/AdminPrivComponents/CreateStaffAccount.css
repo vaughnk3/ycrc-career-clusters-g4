@@ -1,0 +1,59 @@
+#staff-account-form {
+    width: min(70%, 460px);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 30rem;
+
+    margin-top: 4rem;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 6rem;
+
+    background-color: var(--darkblue);
+    border-radius: 25px; /* Adjust the border-radius for rounded corners */
+    box-shadow: 0 0 50px rgba(0, 0, 0,.3);
+    z-index: 1;
+}
+
+#staff-account-form h3 {
+    color:white;
+    margin: 0;
+    text-align: left !important;
+}
+
+#staff-account-form input {
+    height: 30px;
+    color:black;
+    font-size: 1rem;
+    margin-bottom:2.8rem;
+    border-radius:10px;
+    width:100%;
+    border: none;
+}
+
+#staff-account-form button {
+    margin-top: 80px;
+}
+
+#staff-account-form-content {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+
+
+#createAcc {
+    position: relative;
+    bottom: 20px;
+    margin-top:15%;
+
+    background-color: var(--green);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+
+    text-decoration: none;
+    cursor: pointer;
+}

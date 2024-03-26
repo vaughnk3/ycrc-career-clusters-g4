@@ -1,0 +1,38 @@
+.admin-landing-column {
+	width: 45%;
+
+	display: inline-block;
+
+	text-align: center;
+
+	margin: 20px;
+}
+
+.admin-landing-content {
+	width: 100%;
+	flex: 1;
+
+	text-align: center;
+	padding-top: 4%;
+	padding-bottom: 2rem;
+}
+
+.admin-landing-content a {
+	width: 90%;
+	height: auto;
+	background-color: var(--green);
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 10px;
+	margin-bottom: 40px;
+
+    text-decoration: none;
+    cursor: pointer;
+
+	font-size: 1.2em;
+
+	display: inline-block;
+	text-align: center;
+
+}

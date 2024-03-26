@@ -1,0 +1,97 @@
+/*
+This file contains the styling that will be used for the Cluster Page.
+This page is where all the clusters will be rendered for users of the general public. 
+This includes the header box, bottom rectangle, and all the clusters in between. 
+The actual styling for the clusters can be found in Cluster.css.
+
+LAST EDITED -- 03 / 01 / 2024 --- Ross Friend
+*/
+
+
+#topRectangle {
+    background-color: var(--darkblue);
+    color: white;
+    text-align: center;
+    height: 110px;
+	position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+	margin-top:0;
+  }
+
+#topRectangle h1 {
+	font-size:2rem;
+	margin-top:1%;
+	margin-bottom:0;
+}
+
+#topRectangle p {
+	font-size:1rem;
+	margin-top:0;
+	
+}
+
+
+#c_array {
+	display: flex;
+	flex-wrap:wrap;
+	border:2p solid black;
+	overflow-y:scroll;
+}
+
+#form1 {
+
+	width:40%;
+	height: 15rem;
+	padding-right:3%;
+
+	border-radius: 60px;
+
+	margin-left: 4%;
+	margin-bottom:3%;
+	margin-top:1%;
+
+	display:flex;
+	flex-direction: column;
+}
+
+#submitButton {
+	background-color: var(--green);
+	border: none;
+	color: white;
+	margin-right:2%;
+	text-decoration: none;
+	border-radius:5px;
+	width:8rem;
+	height:2rem;
+	
+	cursor: pointer;
+
+	position: sticky;
+	bottom:20%;
+}
+
+
+#loading-animation {
+    border: 16px solid lightgray;
+    width: 120px;
+    height: 120px;
+    margin-left:auto;
+	margin-right:auto;
+    margin-top:3rem;
+    
+    border-top: 16px solid var(--green);
+    border-radius: 50%;
+    
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+      transform: rotate(720deg)
+    }
+  }

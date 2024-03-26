@@ -1,0 +1,133 @@
+
+
+    #_topRectangle {
+        background-color: var(--darkblue);
+        color: white;
+        text-align: center;
+        height: 110px;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        top:0;
+    }
+
+    #_topRectangle h2 {
+        padding-top: 15px;
+    }
+
+    #add_cluster {
+        margin-left:30%;
+        position:absolute;
+        margin-top:2.4%;
+        width:15%;
+        height:40%;
+        background-color: var(--green);
+        border-radius: 40px;
+        border:3px solid var(--green);
+        font-size:20px;
+    }
+
+
+    #back_button {
+        position:absolute;
+        margin-left:-42%;
+        margin-top:2.4%;
+        width:15%;
+        height:40%;
+        background-color: var(--green);
+        border-radius: 40px;
+        border:3px solid var(--green);
+        font-size:20px;
+    }
+
+
+
+
+    #popupLeft {
+        flex: 1 1;
+        display:inline-flex;
+        flex-direction:column;
+        justify-content: center;
+        width:50%;
+        margin-top:-5%;
+    }
+
+    #popupRight {
+        flex:1 1;
+        color:black;
+        display: inline-flex;
+        flex-direction:column;
+        justify-content:space-around;
+        padding-right:50px;
+    }
+    
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .cancelButton {
+        border-radius: 40px;
+        border-color:#98ca41;
+        border:3px solid var(--green);
+        width:100px;
+        height:35px;
+        margin-right:5%;
+        margin-bottom:4%;
+    }
+
+    .addButton {
+        border-radius: 40px;
+        border-color:#98ca41;
+        border:3px solid var(--green);
+        width:100px;
+        background-color:var(--green);
+        height:35px;
+        margin-left:5%;
+    }
+
+    .popup-content h4 {
+        margin-left:20%;
+        margin-bottom:20%;
+        font-size:20px;
+    }
+
+
+    #clusterNamePop {
+        margin-left:20%;
+        border:3px solid var(--green);
+        border-radius:30px;
+        height:20%;
+    }
+
+
+    #imgN {
+        margin-left:20%;
+        width:181px;
+    }
+
+    .button-row {
+        display:flex;
+        flex-flow:row nowrap;
+        justify-content:center;
+        align-content:center;
+        width:100%;
+        margin-top:50px;
+        position:relative;
+    }
+
+    #clusterName {
+        border:3px solid var(--green);
+        border-radius:30px;
+        width:40%;
+        height:20%;
+    }
+
+
+    #imgWrapper {
+        margin:0;
+        padding:0;
+    }
