@@ -307,14 +307,16 @@ const SubClusterManagementPage = () => {
 
                 <h1>SubCluster Management Page</h1>
             </div>
+            <div class="content content-margin">
+                <ul className="scmgmt_list">
+                    {subClusters2.map((subcluster) => (
+                        <li>
+                            <ManagementSubCluster key={subcluster.id} ID={subcluster.id} subclusterName={subcluster.subclusterName} />
+                        </li>
+                    ))}
+                </ul>
+            </div>
 
-            <ul className="scmgmt_list">
-                {subClusters2.map((subcluster) => (
-                    <li>
-                        <ManagementSubCluster key={subcluster.id} ID={subcluster.id} subclusterName={subcluster.subclusterName} />
-                    </li>
-                ))}
-            </ul>
 
 
             <BottomRectangle/>
