@@ -43,7 +43,7 @@
 #school_pod:hover {
     background-color: var(--darkblue);
     color: white;
-    transform:scale(1.05)
+    /*transform:scale(1.05)*/
 }
 
 #school_pod h1 {
@@ -61,7 +61,7 @@
 
 #school_pod button {
     height: max(2rem, 4vw);
-    background-color: white;
+    /*background-color: white;*/
     border-radius:40px;
     border: 3px solid var(--green);
     display: inline-block;

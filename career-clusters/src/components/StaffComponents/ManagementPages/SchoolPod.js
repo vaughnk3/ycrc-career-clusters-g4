@@ -140,9 +140,10 @@ const SchoolPod = ({ID, schoolName}) => {
             {isOpen2 && (
                 <div className="popup">
                     <div className="popup-content">
-                        <label>Delete School</label>
-                        <button onClick={handleDeleteSchool}>Delete</button>
+                        <label>Are you sure you want to delete this school?</label>
+                        <br/><br/>
                         <button onClick={closePopup2}>Cancel</button>
+                        <button onClick={handleDeleteSchool}>Delete</button>
                     </div>
                 </div>
             )}

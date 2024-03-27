@@ -102,7 +102,7 @@ const SchoolManagementPage = () => {
             <div id="_topRectangle">
                 <button id="back_button_school" onClick={backButtonHandler}>Back</button>
                 <button  id="add_school" onClick={openPopup}>Add School +</button>
-                <h1>School Management Page</h1>
+                <h2>School Management Page</h2>
                 {isOpen && (
                     <div className="popup">
                         <div className="popup-content">                           
@@ -112,7 +112,6 @@ const SchoolManagementPage = () => {
                                 <br/><br/>
                                 <button onClick={closePopup}>Cancel</button>
                                 <button onClick={addNewSchool}>Add</button>
-                            
                         </div>
                     </div>
                 )}
