@@ -194,6 +194,7 @@ const SubClusterManagementPage = () => {
         setNewImage(e.target.files[0]);
     }
 
+    
     //Sets a 5 second limit for the which the loading animation while display
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -202,7 +203,7 @@ const SubClusterManagementPage = () => {
     
         return () => clearTimeout(timer); // Cleanup the timeout on component unmount
       }, []);
-
+      
 
     //Loading animation
     if (loading) {

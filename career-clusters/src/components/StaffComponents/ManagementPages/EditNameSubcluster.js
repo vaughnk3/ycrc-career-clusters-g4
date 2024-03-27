@@ -45,9 +45,9 @@ const EditNameSubcluster = ({ID}) => {
                     body: JSON.stringify({ subclusterName, ID })
                 }));
                 if (response.ok) {
-                    console.log('SubCluster name updated successfully');
+                    console.log('SubCluster name updated successfully, ', subclusterName);
                     setIsOpen(false);
-                    setMessage('Successfully updated SubCluster name.')
+                    setMessage(`Successfully updated SubCluster name to: ${subclusterName}`)
                     setStatusName(true);
                 } else {
                     console.error('Failed to update subcluster name');
