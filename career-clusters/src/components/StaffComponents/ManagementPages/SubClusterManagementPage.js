@@ -306,7 +306,8 @@ const SubClusterManagementPage = () => {
                  )}
 
 
-                <h1>SubCluster Management Page</h1>
+                <h2>SubCluster Management Page</h2>
+                <h4>Please select an option for subcluster management</h4>
             </div>
             <div class="content content-margin">
                 <ul className="scmgmt_list">
