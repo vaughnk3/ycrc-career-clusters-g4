@@ -213,6 +213,7 @@ const StaffClusters = () => {
                 ))}
             </li>
             </div>
+            <div id="topRectangle">
           <div className="overlay">
             <Link to="/login/staffclusters"><img src={require('./HomeButton.png')} alt="Home Button" className="home-button"></img></Link>
             <div class="staff-button-column-one">
@@ -227,8 +228,10 @@ const StaffClusters = () => {
               <a class="staff-button" onClick={handleSubclusterManagementClick}>SubCluster Management</a>
               <a class="staff-button" onClick={handleExcelButtonClick}>Export Data (.xlsx)</a>
             </div>
-
-            <h1>Staff View of all Clusters</h1>
+            <div id="topTitle">
+            <h2>Staff View of all Clusters</h2>
+            </div>
+            </div>
           </div>
           <BottomRectangle/>
         </div>
