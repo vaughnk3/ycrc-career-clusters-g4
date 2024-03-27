@@ -13,8 +13,14 @@ const AdminLandingPage = () => {
     const [openClusterWipe, setClusterWipe] = useState(false);
     const [openSubClusterWipe, setSubClusterWipe] = useState(false);
     const [openDemographicWipe, setDemographicWipe] = useState(false);
+    const [message, setMessage] = useState('');
+    const [confirmPopup, setConfirmPopup] = useState(false);
 
     const auth = getAuth(app);
+
+    const closePopup = () => {
+        setConfirmPopup(false);
+    }
 
     const openCluster = () => {
         setClusterWipe(true);
@@ -69,12 +75,28 @@ const AdminLandingPage = () => {
                         'Authorization': `Bearer ${token}`
                     },
                 }))
+                if (response.ok) 
+                {
+                    closeCluster();
+                    setMessage('Successfully cleared Cluster Click Counts.');
+                    setConfirmPopup(true);
+                }
+
+                else 
+                {
+                    closeCluster();
+                    setMessage('Failed to clear Cluster Click Counts.');
+                    setConfirmPopup(true);
+                }
+                
             }
         } catch(error) {
             console.log(error);
+            closeCluster();
+            setMessage('Failed to clear Cluster Click Counts.');
+            setConfirmPopup(true);
         }
 
-        closeCluster();
         
     }
 
@@ -95,12 +117,28 @@ const AdminLandingPage = () => {
                     'Authorization': `Bearer ${token}`
                 }
                 }))
+
+                if(response.ok) 
+                {
+                    closeSubCluster();
+                    setMessage('Successfully cleared SubCluster Click Counts.');
+                    setConfirmPopup(true);
+                }
+                else
+                {
+                    closeSubCluster();
+                    setMessage('Failed to clear SubCluster Click Counts.');
+                    setConfirmPopup(true);
+                }
             }
         } catch (error) {
             console.log(error)
+            closeSubCluster();
+            setMessage('Failed to clear SubCluster Click Counts.');
+            setConfirmPopup(true);
         }
 
-        closeSubCluster();
+        
     }
 
 
@@ -120,12 +158,27 @@ const AdminLandingPage = () => {
                     'Authorization': `Bearer ${token}`
                 }
                 }))
+
+                if (response.ok)
+                {
+                    closeDemographic();
+                    setMessage('Successfully cleared Demographic Information.');
+                    setConfirmPopup(true);
+                }
+                else 
+                {
+                    closeDemographic();
+                    setMessage('Failed to clear Demographic Information.');
+                    setConfirmPopup(true);
+                }
             }
         } catch (error) {
             console.log(error)
+            closeDemographic();
+            setMessage('Failed to clear Demographic Information.');
+            setConfirmPopup(true);
         }
 
-        closeDemographic();
     }
     
     return (
@@ -136,6 +189,17 @@ const AdminLandingPage = () => {
             <div class="content content-margin admin-landing-content">
                 <div id="admin-landing-buttons">
                 <div class="admin-landing-column">
+
+                    {confirmPopup && (
+                        <div className="popup">
+                            <div className="popup-content">
+                                <h1>{message}</h1>
+                                <button onClick={closePopup}>Acknowledge</button>
+                            </div>
+                        </div>
+                    )}
+
+
                     <a href="/login/adminpage/createstaffpage">Create Staff Account</a>
                     <a href="/login/staffclusters">Staff Cluster View</a>
                     <a href="/subclustermanagementpage">SubCluster Management</a>
