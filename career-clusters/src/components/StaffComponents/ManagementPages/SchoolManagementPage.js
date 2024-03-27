@@ -45,7 +45,7 @@ const SchoolManagementPage = () => {
     }
 
     const backButtonHandler = () => {
-        navigate('/login/staffclusters/clustermanagementpage')
+        navigate('/login/staffclusters/')
     }
 
      //Open the popup
@@ -102,6 +102,7 @@ const SchoolManagementPage = () => {
             <div id="_topRectangle">
                 <button id="back_button_school" onClick={backButtonHandler}>Back</button>
                 <button  id="add_school" onClick={openPopup}>Add School +</button>
+                <h1>School Management Page</h1>
                 {isOpen && (
                     <div className="popup">
                         <div className="popup-content">                           

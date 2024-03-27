@@ -96,15 +96,33 @@ const DemographicBox = () => {
     console.log("In handler")
     if (e.target.value === "other") 
     {
+      //Brings up the popup
       setOtherSelected(true);
+
+      //If a different school was previously selected, wipe it
+      setSchool('');
       console.log("in set")
     }
+    //If its a regular school selected, set the school 
     else
     {
     setSchool(e.target.selectedOptions[0].text)
     }
   }
 
+  //Before you can submit "other" school, test to see if it is valid
+  //If not, highlight red and prevent submission
+  const handleOtherSubmit = () => {
+    //If its a blank submission, highlight red
+    if (school === '')
+    {
+      document.getElementById("other-school").style.border = '2px solid red';
+    }
+    // If it is a good name, close the popup.
+    else {
+      handleCloseOther()
+    }
+  }
   
 
   const handleCloseOther = () => {
@@ -131,7 +149,7 @@ const DemographicBox = () => {
               <div className="popup-content">
                 <h1>Please enter your school of attendance below.</h1>
                 <input id="other-school" type="text" placeholder="Please enter here." onChange={(e) => setSchool(e.target.value)}></input>
-                <button onClick={handleCloseOther}>Submit</button>
+                <button onClick={handleOtherSubmit}>Submit</button>
                 <button onClick={handleCloseOther}>Cancel</button>
               </div>
             </div>

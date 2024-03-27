@@ -120,6 +120,8 @@ const ModifyPermsPage = () => {
         <div id="page">
             <div id="topRectangle">
               <button className="permsButton" onClick={modifyPermissions}>Modify Permissions</button>
+              <h1>Modify Permissions Page</h1>
+              <h3>View all user permissions, and make changes to them.</h3>
             </div>
 
             <div class="content content-margin">

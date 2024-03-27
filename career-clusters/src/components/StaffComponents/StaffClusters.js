@@ -227,6 +227,8 @@ const StaffClusters = () => {
               <a class="staff-button" onClick={handleSubclusterManagementClick}>SubCluster Management</a>
               <a class="staff-button" onClick={handleExcelButtonClick}>Export Data (.xlsx)</a>
             </div>
+
+            <h1>Staff View of all Clusters</h1>
           </div>
           <BottomRectangle/>
         </div>
