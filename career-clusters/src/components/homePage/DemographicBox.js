@@ -105,6 +105,8 @@ const DemographicBox = () => {
     }
   }
 
+  
+
   const handleCloseOther = () => {
     setOtherSelected(false);
   }
@@ -127,8 +129,8 @@ const DemographicBox = () => {
           { otherSelected && (
             <div className="popup">
               <div className="popup-content">
-                <h1>Test</h1>
-                <input type="text" placeholder="Please enter your school of attendance." onChange={(e) => setSchool(e.target.value)}></input>
+                <h1>Please enter your school of attendance below.</h1>
+                <input id="other-school" type="text" placeholder="Please enter here." onChange={(e) => setSchool(e.target.value)}></input>
                 <button onClick={handleCloseOther}>Submit</button>
                 <button onClick={handleCloseOther}>Cancel</button>
               </div>
