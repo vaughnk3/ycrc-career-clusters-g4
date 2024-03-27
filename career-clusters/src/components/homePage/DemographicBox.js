@@ -114,12 +114,21 @@ const DemographicBox = () => {
   //If not, highlight red and prevent submission
   const handleOtherSubmit = () => {
     //If its a blank submission, highlight red
-    if (school === '')
+    const schoolName = school;
+    if (schoolName === '')
     {
       document.getElementById("other-school").style.border = '2px solid red';
     }
     // If it is a good name, close the popup.
     else {
+      //Retrieve element, create a new element with given input and add that to selection list 
+      const schoolSelect = document.getElementById("school-select");
+      const newOption = document.createElement("option");
+      newOption.value = "other-custom";
+      newOption.text = schoolName;
+      newOption.selected = true;
+      schoolSelect.add(newOption);
+
       handleCloseOther()
     }
   }
