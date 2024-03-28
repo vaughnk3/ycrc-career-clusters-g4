@@ -2,7 +2,7 @@
 const XLSX = require('xlsx');
 const { saveAs } = require('file-saver');
 
-
+// Export the function to be used in other components
 export async function ExcelGenerationQueue() 
 {
 
@@ -54,6 +54,8 @@ export async function ExcelGenerationQueue()
     //temporary padding (spaces in the excel template)
     wsData.push('', ''); 
     wsData.push('', '');
+    wsData.push('', '');
+    wsData.push('', '');
 
 
     //Now we get the subcluster information and their corresponding click rates. 
@@ -79,6 +81,8 @@ export async function ExcelGenerationQueue()
     }
 
      //temporary padding (spaces in the excel template)
+    wsData.push('', '');
+    wsData.push('', '');
     wsData.push('', '');
     wsData.push('', '');
 
@@ -112,8 +116,8 @@ export async function ExcelGenerationQueue()
     const formattedTime = currentDate.toLocaleTimeString();
 
     //Insert the date and time of excel sheet generation onto the sheet
-    wsData[0][3] = 'Current Date: ' + formattedDate;
-    wsData[1][3] = 'Current Time: ' + formattedTime;
+    wsData[0][3] = 'Creation Date: ' + formattedDate;
+    wsData[1][3] = 'Creation Time: ' + formattedTime;
 
 
     //Convert our data to excel sheet
