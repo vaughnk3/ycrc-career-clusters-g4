@@ -31,7 +31,7 @@ const SubClusterManagementPage = () => {
 
     const closeAddState = () => {
         setAddState(false)
-        //refreshPage()
+        refreshPage()
     }
 
     

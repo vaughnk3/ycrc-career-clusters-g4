@@ -27,7 +27,7 @@ const EditDescriptionSubcluster = ({ID}) => {
 
     const closeStatus = () => {
         setStatusDescrip(false);
-        //refreshPage();
+        refreshPage();
     }
 
     const changeSubClusterDescrip = async () => {
