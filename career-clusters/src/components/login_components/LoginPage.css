@@ -71,7 +71,7 @@
 
 .pass-popup-content {
     width: min(40%, 380px);
-    height: 26%;
+    height: fit-content;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
