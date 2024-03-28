@@ -34,6 +34,30 @@
 
         const handleNav = () => {
             navigate(`/cluster/subcluster/subclusterinfo/${ID}`)
+
+
+            const updateSubClusterClickCount = async () => {
+                try {
+                    console.log("SUB   IDDDDDD, ", ID)
+                    const response = await (fetch('http://localhost:3001/updates-subclust-clickCnt', {
+                        method: 'POST', 
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify( { subclusterID: ID })
+                    }));
+                    if (response.ok) {
+                        console.log('SubCluster click count updated successfully');
+                    } else {
+                        console.error('Failed to update subcluster clickount')
+                    }
+                } catch (error) {
+                    console.error('Error updating subcluster clickcount: ', error)
+                }
+            }
+    
+            // Call the update click count function
+            updateSubClusterClickCount();
         }
 
         return (

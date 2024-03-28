@@ -18,9 +18,10 @@ const SubClusterPage = ({ }) => {
   
 
     const handleSubClusterClick = (ID) => {
-        console.log(ID)
+        console.log("IN SUBCLUSRER CLICK:  ", ID)
 
         // Update the click count for subclusters
+        /*
         const updateSubClusterClickCount = async () => {
             try {
                 console.log("SUB   IDDDDDD, ", ID)
@@ -43,7 +44,7 @@ const SubClusterPage = ({ }) => {
 
         // Call the update click count function
         updateSubClusterClickCount();
-
+        */
     }
 
     const { clusterId } = useParams();
