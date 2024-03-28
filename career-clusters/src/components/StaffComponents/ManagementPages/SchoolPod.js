@@ -99,7 +99,7 @@ const SchoolPod = ({ID, schoolName}) => {
                 if (response.ok) {
                     console.log('School deleted successfully');
                     setIsOpen2(false);
-                    // refreshPage();
+                     refreshPage();
                 } else {
                     console.error('Failed to delete school');
                     setIsOpen2(false);

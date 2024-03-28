@@ -75,6 +75,11 @@ const SchoolManagementPage = () => {
             const user = auth.currentUser;
             if(user){ 
                 const token = await user.getIdToken();
+                if (newSchool === '') {
+                    console.log("EQKAL")
+                    document.getElementById("school-input").style.border = '2px solid red';
+                }
+                else {
                 const response = await(fetch('http://localhost:3001/new-school', {
                     method: 'POST',
                     headers: {
@@ -88,13 +93,16 @@ const SchoolManagementPage = () => {
                 } else {
                     console.error('Failed to add new school');
                 } 
+                setIsOpen(false);
+                refreshPage();
+                }
             }
         }   catch (error) {
             console.error('Error adding school: ', error);
         }
         console.log('POST request sent from update button')
-        setIsOpen(false);
-        refreshPage();
+        //setIsOpen(false);
+        //refreshPage();
     }
 
     return (
@@ -108,7 +116,7 @@ const SchoolManagementPage = () => {
                         <div className="popup-content">                           
                                 <label>Add a School</label>
                                 <br/><br/>
-                                <input id="school-input" type="text"  placeholder="Enter the name of new school" value={newSchool} onChange={(e) => setNewSchool(e.target.value)}></input>
+                                <input id="school-input" type="text"  placeholder="Enter the name of new school" value={newSchool} onChange={(e) => setNewSchool(e.target.value)} ></input>
                                 <br/><br/>
                                 <button onClick={closePopup}>Cancel</button>
                                 <button onClick={addNewSchool}>Add</button>
