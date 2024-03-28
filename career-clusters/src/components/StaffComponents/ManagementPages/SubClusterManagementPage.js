@@ -17,7 +17,7 @@ const SubClusterManagementPage = () => {
     const closePopup = () => { setIsOpen(false); }
     const [newSCDescrip, setNewDescrip] = useState(' ');
     const [newSCName, setNewName] = useState(' ');
-    const [newSCSalary, setNewSalary] = useState(' ');
+    const [newSCSalary, setNewSalary] = useState(0);
     const [newSCEdLevel, setNewEdLevel] = useState(' ');
     const [newSCGrowthRate, setNewGrowthRate] = useState(' ');
     const [clusterID, setClusterID] = useState('');
@@ -31,7 +31,7 @@ const SubClusterManagementPage = () => {
 
     const closeAddState = () => {
         setAddState(false)
-        refreshPage()
+        //refreshPage()
     }
 
     
@@ -148,11 +148,17 @@ const SubClusterManagementPage = () => {
                 }   catch (error) {
                     console.error('Error adding subcluster: ', error);
                 }
+
+                    console.log("NEW salary: ", newSCSalary)
+
                     try {
                         if(canSend === true) {
                         const user = auth.currentUser;
                         if(user) {
                             const token = await user.getIdToken();
+                            
+                            
+
                             const response = await(fetch('http://localhost:3001/subclustermanagementpage/add-subcluster-field', {
                                 method: 'POST',
                                 // credentials: "include",    verification for back-end
@@ -221,7 +227,7 @@ const SubClusterManagementPage = () => {
                         <div className="addsc-container">  
                             <div className="newsc-left">
                             
-                            <label class="label-addsc" for="subclusterName">Name</label>
+                            <label className="label-addsc" for="subclusterName">Name</label>
                             <input
                                 type="text"
                                 id="subclusterName"
@@ -231,17 +237,11 @@ const SubClusterManagementPage = () => {
                                 onChange={(e) => setNewName(e.target.value || ' ')}
                                 />
                             <br/>
-                            <label class="label-addsc" for="subclusterSalary">Salary</label>
-                            <input
-                                type="text"
-                                id="subclusterSalary"
-                                name="subclusterSalary"
-                                placeholder="Enter new Salary"
-                                value={newSCSalary.trim().length ? newSCSalary : ''}
-                                onChange={(e) => setNewSalary(e.target.value || ' ')}
-                            />
+                            <label className="label-addsc" for="subclusterSalary">Salary</label>
+                            <input type="number" id="subclusterSalary" name="subclusterSalary"  placeholder="Enter new Salary here" value={newSCSalary} onChange={(e) => setNewSalary(e.target.value)}></input>
+
                             <br/>
-                            <label class="label-addsc" for="subclusterEducation">Education Level</label>
+                            <label className="label-addsc" for="subclusterEducation">Education Level</label>
                             <input
                                 type="text"
                                 id="subclusterEducation"
@@ -251,7 +251,7 @@ const SubClusterManagementPage = () => {
                                 onChange={(e) => setNewEdLevel(e.target.value || ' ')}
                             />
 
-                            <label class="label-addsc">Parent Cluster</label>
+                            <label className="label-addsc">Parent Cluster</label>
                             <select id="select-cluster" value={clusterID} onChange={(e) => setClusterID(e.target.value)} >
                                 <option value="" disabled selected hidden className="hidden">Select one</option>
                                 {clusters.map((cluster) => (
@@ -263,7 +263,7 @@ const SubClusterManagementPage = () => {
 
                             </div>
                             <div className="newsc-right">
-                            <label class="label-addsc" for="subclusterDescrip">Description</label>
+                            <label className="label-addsc" for="subclusterDescrip">Description</label>
                             <textarea
                                 id="subclusterDescrip"
                                 maxLength="200"
@@ -273,7 +273,7 @@ const SubClusterManagementPage = () => {
                                 onChange={(e) => setNewDescrip(e.target.value || ' ')}
                             />
                             
-                            <label class="label-addsc" for="rate">Growth Rate</label>
+                            <label className="label-addsc" for="rate">Growth Rate</label>
                             <select id="growth-rate" name="rate" value={newSCGrowthRate} onChange={(e) => setNewGrowthRate(e.target.value)} >
                                 <option>Select Growth Rate</option>
                                 <option value="High">High</option>
@@ -281,7 +281,7 @@ const SubClusterManagementPage = () => {
                                 <option value="Low">Low</option>
                             </select>
 
-                            <label class="label-addsc" for="img">Image</label>
+                            <label className="label-addsc" for="img">Image</label>
                             <div id="imgWrapper">
                                 <input type="file" id="img" name="img" accept="image/*" onChange={handleFileInputChange}></input>
                             </div>
@@ -309,7 +309,7 @@ const SubClusterManagementPage = () => {
                 <h2>SubCluster Management Page</h2>
                 <h4>Please select an option for subcluster management</h4>
             </div>
-            <div class="content content-margin">
+            <div className="content content-margin">
                 <ul className="scmgmt_list">
                     {subClusters2.map((subcluster) => (
                         <li>
@@ -332,3 +332,15 @@ export default SubClusterManagementPage;
 //<input type="text" id="subclusterSalary" name="subclusterSalary" placeholder="Enter new Salary" value={newSCSalary} onChange={(e) => setNewSalary(e.target.value)}></input>
 //<textarea type="text" id="subclusterDescrip" maxLength="200" name="subclusterDescrip" placeholder=" Enter new description." value={newSCDescrip} onChange={(e) => setNewDescrip(e.target.value)}></textarea>
 //<input type="text" id="subclusterEducation" name="subclusterEducation" placeholder="Enter new ed level" value={newSCEdLevel} onChange={(e) => setNewEdLevel(e.target.value)}></input>
+
+
+/*
+<input
+                                type="text"
+                                id="subclusterSalary"
+                                name="subclusterSalary"
+                                placeholder="Enter new Salary"
+                                value={newSCSalary.trim().length ? newSCSalary : ''}
+                                onChange={(e) => setNewSalary(e.target.value || ' ')}
+                            />
+                            */

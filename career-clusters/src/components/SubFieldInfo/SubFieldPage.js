@@ -20,6 +20,9 @@ const SubFieldsPage = () => {
                 }
                 const data = await response.json();
                 setSubFields(data);
+                console.log(data);
+                console.log(subclusterId)
+                console.log(subFields)
             } catch (error) {
                 console.error('Error: ', error);
             }

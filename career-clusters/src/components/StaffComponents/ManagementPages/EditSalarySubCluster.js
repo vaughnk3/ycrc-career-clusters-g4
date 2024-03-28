@@ -7,7 +7,7 @@ import app from "../../login_components/FirebaseConfig";
 const EditSalarySubCluster = ({ID}) => {
 
     const [isOpen, setIsOpen] = useState(false);
-    const [subclusterSalary, setsubclusterSalary] = useState('');
+    const [subclusterSalary, setsubclusterSalary] = useState(0);
     const [statusSalary, setStatusSalary] = useState(false);
     const [message, setMessage] = useState('');
 
@@ -79,7 +79,7 @@ const EditSalarySubCluster = ({ID}) => {
                         <div className="popup-content">  
                             <label for="subclusterSalary" className="standard-popup">Salary</label>
                             <br/><br/>
-                            <input type="text" id="subclusterSalary" className="standardIn-popup" name="subclusterSalary" placeholder="Enter the changed SubCluster salary." value={subclusterSalary} onChange={(e) => setsubclusterSalary(e.target.value)}></input>
+                            <input type="number" id="subclusterSalary" className="standardIn-popup" name="subclusterSalary" placeholder="Enter the changed SubCluster salary." value={subclusterSalary} onChange={(e) => setsubclusterSalary(e.target.value)}></input>
                             <br/>
                             <div className="replacebuttonrow">
                             <button onClick={closePopup} className="standard-cancelButton">Cancel</button>

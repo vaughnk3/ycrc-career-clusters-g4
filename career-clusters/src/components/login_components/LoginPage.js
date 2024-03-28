@@ -88,6 +88,7 @@ const LoginPage = () => {
                   placeholder='Input username here'
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  required
                 />
                 <label htmlFor="passwordField"><h3>Password</h3></label>
                 <input
@@ -96,6 +97,8 @@ const LoginPage = () => {
                   placeholder='Input password here'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  minLength="6"
+                  required
                 />
                 <p onClick={openPopup} >Forgot Password?</p>
                 {isOpen && (

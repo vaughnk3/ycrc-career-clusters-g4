@@ -88,7 +88,7 @@ const CreateStaffAccount = () => {
                     <label><h3>New Email</h3></label>
                         <input type="email" value={email} onChange={(e) => setUserEmail(e.target.value)} required />
                     <label><h3>New Password</h3></label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        <input type="password" minLength="6" value={password} onChange={(e) => setPassword(e.target.value)} required />
 
                         <button class="demographic-button" type="submit">Create Account</button>
                     </div>

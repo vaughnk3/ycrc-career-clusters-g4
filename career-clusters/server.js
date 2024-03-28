@@ -479,6 +479,21 @@ app.post('/subclustermanagementpage/edit-subcluster-name',checkAuth, (req, res) 
       } else {
         console.log('Cluster name updated successfully   ', ID, subclusterName);
         res.status(200).send('Cluster name updated successfully')
+        pool.query (
+          'UPDATE Field SET fieldName = ? where subclusterID = ?',
+          [subclusterName, ID],
+          (error, results, fields) => {
+            if (error)
+            {
+              console.error('Error updating Cluster:', error);
+              //res.status(500).send('Error updatingCluster');
+            }
+            else {
+              console.log('Cluster name updated successfully   ', ID, subclusterName);
+             // res.status(200).send('Cluster name updated successfully')
+            }
+          }
+        )
       }
     }
   )
@@ -574,6 +589,7 @@ app.post('/subclustermanagementpage/delete-subcluster', checkAuth, (req, res) =>
 // Update request for updating the growth rate of a subcluster
 app.post('/subclustermanagementpage/edit-subcluster-growthrate', checkAuth, (req, res) => {
   const { subclusterGrowthRate, ID } = req.body;
+  console.log("NEW GR", subclusterGrowthRate)
   pool.query(
     'UPDATE Field SET growthRate = ? WHERE subclusterId = ?',
     [subclusterGrowthRate, ID],
@@ -616,16 +632,16 @@ app.post('/subclustermanagementpage/add-subcluster', upload.single('image'), che
 
 app.post('/subclustermanagementpage/add-subcluster-field', checkAuth, (req, res) => {
   //look at req (in headers)
-  const { subclusterID, newSCName, newSCDescrip, newSCsalary, newSCEdLevel, newSCGrowthRate} = req.body;
+  const { subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate} = req.body;
   pool.query(
     'INSERT INTO Field (subclusterID, fieldName, description, avgSalary, educationLvl, growthRate) VALUES (?, ?, ?, ?, ?, ?)',
-    [subclusterID, newSCName, newSCDescrip, newSCsalary, newSCEdLevel, newSCGrowthRate],
+    [subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate],
     (error, results, fields) => {
       if(error) {
         console.error("Error inserting field: ", error);
         res.status(500).send('Error inserting field :(');
       } else {
-        console.log('Inserted into field successfully :)', newSCName, "  ", newSCDescrip, "   ", newSCEdLevel);
+        console.log('Inserted into field successfully :)', newSCName, "  ", newSCDescrip, "   ", newSCEdLevel, "   ", newSCSalary);
         res.status(200).send('Field inserted successfully!!');
       }
     }
