@@ -6,12 +6,8 @@ import { getAuth, signOut } from "firebase/auth";
 import { ExcelGenerationQueue } from "../StaffComponents/ExcelGeneration";
 
 const JobListingPage = () => {
-    
-
-
-
     return (
-      <h1>HI</h1>
+      <h1>Placeholder</h1>
         
     )
 }

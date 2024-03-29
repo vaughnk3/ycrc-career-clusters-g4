@@ -2,12 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import './DemographicBox.css';
 
+/*
+This file contains all the JSX code for the Demographic box in the center
+of the home page of the application.  It has all 4 fields a user can give their anonymous 
+information for.  
+*/
 
 const DemographicBox = () => {
   // fetch schools
   const [schools, setSchools] = useState([]);
+  //Keep track if other is selected
   const [otherSelected, setOtherSelected] = useState(false);
 
+  // Fetch schools for the dropdown menu
   useEffect(() => {
       const fetchSchools = async () => {
           try { 
@@ -49,32 +56,41 @@ const DemographicBox = () => {
       fetchClusters();
   }, []);
 
+  // State variables to keep track of entered user demographic information
   const [school, setSchool] = useState('');
   const [gradeLevel, setGradeLevel] = useState('');
   const [desiredCareerField, setDesiredCareerField] = useState('');
   const [currentAge, setCurrentAge] = useState(undefined);
 
+  // Define the navigate hook for forceful navigation
   const navigate = useNavigate();
 
+  //Verify age entered is appropriate
   const handleAgeChange = (event) => {
     var age = event.target.value;
-    if (age > 0 && age <= 200)
+    if (age > 0 && age <= 110)
       setCurrentAge(age);
   }
 
+
+  //Verify required fields have been met, if so, send info to the database
   const sendDemographicInfo = async () => {
     var canSend = true;
+    //If school has not been selected, highlight red
     if (school == "") {
       document.getElementById("school-select").style.outline = '2px solid red';
       document.getElementById("required-text").style.color = 'red';
-
       canSend = false;
     }
+
+    // If grade level has not been selected, highlight red.
     if (gradeLevel == "") {
       document.getElementById("grade").style.outline = '2px solid red';
       document.getElementById("required-text").style.color = 'red';
       canSend = false;
     }
+
+    // If all required fields are met, send the demographic info to DB
     if (canSend) {
       try {
           const response = await(fetch('http://localhost:3001/demographicinfo', {
@@ -91,10 +107,12 @@ const DemographicBox = () => {
       }
       console.log('POST request sent from submit button');
 
+      // Navigate to cluster page
       navigate('/cluster');
     }
   }
 
+  //Properly handle the user selecting a school, or selecting other.
   const handleSchoolChange = (e) => {
     console.log("In handler")
     if (e.target.value === "other") 
@@ -136,11 +154,12 @@ const DemographicBox = () => {
     }
   }
   
-
+  // Handler for closing the popup for "other" school.
   const handleCloseOther = () => {
     setOtherSelected(false);
   }
 
+  // Return the HTML for the demographic info box.  CSS is in DemographicBox.css
   return ( 
     <div id="demographic-box">
       <div id="demographic-box-container">
@@ -211,4 +230,6 @@ const DemographicBox = () => {
   );
 };
 
+
+// Export the completed component
 export default DemographicBox;

@@ -11,41 +11,52 @@ import app from "./FirebaseConfig";
 // Initialize auth
 const auth = getAuth(app);
 
-
+// Create our component to be used in the app
 const LoginPage = () => {
+    // Define all of the state variables necessary for this page
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
     const[email, setEmail] = useState('')
     const[failLogin, setFailLogin] = useState(false);
     const[message, setMessage] = useState('');
     const[forgot, setForgot] = useState(false);
-
-
-    //Define state methods for popup
     const [isOpen, setIsOpen] = useState(false);
 
+    // Define the popup state handlers
     const openPopup = () => { setIsOpen(true) }
     const closePopup = () => { setIsOpen(false) }
     const closeLogin = () => { setFailLogin(false) }
     const closeForgot = () => { setForgot(false); }
 
+    // Define our navigate hook
     const navigate = useNavigate();
+
+    // Use the constant Admin account UID to conditionally route a newly logged in user to the proper spot.  
     const adminUID = 'NW0QYGlDcaRCgEk8T8r9n3MgvP22'
     
     //Sign in handler with firebase
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // Attempt a login
         try {
+          // Attempt to sign in with Firebase auth, username, and password
           const userCredential = await signInWithEmailAndPassword(auth, username, password);
+
+          // User is defined as whomever just logged in
           const user = userCredential.user;
-          console.log('User logged in: ', user);
+
+          // If the admin is logged in, navigate to admin landing page.
           if(user.uid === adminUID) {
             navigate('/login/adminpage')
-          } else {
+          } 
+          // If any other user is logged in, navigate to staff cluster view. 
+          else {
             navigate('/login/staffclusters')
           }
-        } catch (error) {
+        } 
+        //If login failed, catch error and bring up the error popup/
+        catch (error) {
           console.error('Login error:', error.message);
           setFailLogin(true);
         }
@@ -55,13 +66,16 @@ const LoginPage = () => {
     //Handler for forgot password click with firebase
     const handleForgotPassSubmit = async (event) => {
       event.preventDefault();
+      // Attempt sending forgot password email
        try {
         const response = await sendPasswordResetEmail(auth, email);
+        // Give the correct popup if it is successful
         setIsOpen(false);
         setMessage('Email has been sent.  Please check your inbox.');
         setForgot(true);
        }
        catch (error) {
+        // Throw the error popup if sending forgot password email fails
         console.error("Error sending password reset email: ", error);
         setIsOpen(false);
         setMessage('Email has been sent.  Please check your inbox.');
@@ -69,6 +83,7 @@ const LoginPage = () => {
        }
     };
 
+    // Return the HTML for the login page
     return (
         <div id="page">
           <div id="topbar">
@@ -142,5 +157,5 @@ const LoginPage = () => {
 
 };
 
-
+// Export the completed component
 export default LoginPage;

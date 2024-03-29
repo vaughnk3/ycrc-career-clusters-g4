@@ -1,3 +1,8 @@
+/*
+This page contains all the CSS for the LoginPage, which is accessed by clicking on any of the User Icons in the 
+top right corner of any general user view pages.  This includes CSS for any popup content that may be triggered from the login page. 
+*/
+
 #login-form {
     width: min(70%, 460px);
     display:flex;
