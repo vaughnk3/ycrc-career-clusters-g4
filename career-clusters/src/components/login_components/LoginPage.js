@@ -17,7 +17,8 @@ const LoginPage = () => {
     const[password, setPassword] = useState('');
     const[email, setEmail] = useState('')
     const[failLogin, setFailLogin] = useState(false);
-
+    const[message, setMessage] = useState('');
+    const[forgot, setForgot] = useState(false);
 
 
     //Define state methods for popup
@@ -26,6 +27,7 @@ const LoginPage = () => {
     const openPopup = () => { setIsOpen(true) }
     const closePopup = () => { setIsOpen(false) }
     const closeLogin = () => { setFailLogin(false) }
+    const closeForgot = () => { setForgot(false); }
 
     const navigate = useNavigate();
     const adminUID = 'NW0QYGlDcaRCgEk8T8r9n3MgvP22'
@@ -54,12 +56,17 @@ const LoginPage = () => {
     const handleForgotPassSubmit = async (event) => {
       event.preventDefault();
        try {
-        await sendPasswordResetEmail(auth, email);
+        const response = await sendPasswordResetEmail(auth, email);
+        setIsOpen(false);
+        setMessage('Email has been sent.  Please check your inbox.');
+        setForgot(true);
        }
        catch (error) {
         console.error("Error sending password reset email: ", error);
+        setIsOpen(false);
+        setMessage('Email has been sent.  Please check your inbox.');
+        setForgot(true);
        }
-       setIsOpen(false);
     };
 
     return (
@@ -76,6 +83,15 @@ const LoginPage = () => {
                 <button onClick={closeLogin}>Close</button>
               </div>
             </div>
+          )}
+
+          {forgot && (
+            <div className="popup">
+              <div className="popup-content">
+                <h1>{message}</h1>
+                <button onClick={closeForgot}>Close</button>
+              </div>
+          </div>
           )}
 
           <div class="content">

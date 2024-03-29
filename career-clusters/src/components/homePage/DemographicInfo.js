@@ -17,7 +17,7 @@ const DemographicInfo = () => {
         <div id="demographic-content">
         <h2>To gain access to the career cluster tool,</h2>
         <h2>please enter your demographic information below</h2> 
-        <h3>(Fields marked with * are required)</h3>
+        <h3 id="required-text" >(Fields marked with * are required)</h3>
         <DemographicBox/>
         </div>
 

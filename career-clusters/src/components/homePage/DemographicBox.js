@@ -66,10 +66,13 @@ const DemographicBox = () => {
     var canSend = true;
     if (school == "") {
       document.getElementById("school-select").style.outline = '2px solid red';
+      document.getElementById("required-text").style.color = 'red';
+
       canSend = false;
     }
     if (gradeLevel == "") {
       document.getElementById("grade").style.outline = '2px solid red';
+      document.getElementById("required-text").style.color = 'red';
       canSend = false;
     }
     if (canSend) {

@@ -8,7 +8,7 @@ const ModifyPermsPage = () => {
 
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState('');
-    const [action, setAction] = useState('add');
+    const [action, setAction] = useState('');
     const [selectedPermission, setSelectedPermission] = useState('');
     const [statusPopup, setStatusPopup] = useState(false);
     const [message, setMessage] = useState('');
@@ -38,9 +38,13 @@ const ModifyPermsPage = () => {
               );
               const data = await response.json();
               setUsers(data);
+              /*
               if(data.length > 0) {
-                setSelectedUser(data[0].uid);
+                //setAction('add')
+                setSelectedUser(users[0].uid)
+                //setSelectedPermission('Cluster Management')
               }
+              */
             } catch (error) {
               console.error('Failed to fetch users and permissions:', error);
             }
@@ -52,10 +56,18 @@ const ModifyPermsPage = () => {
 
     UsersPermissionsList();
     
+
     const handleSubmit = async (e) => {
       e.preventDefault();
       
-     
+      if (selectedUser === '' || action === '' || selectedPermission === '') 
+      {
+        document.getElementById("user").style.outline = '2px solid red';
+        document.getElementById("action").style.outline = '2px solid red';
+        document.getElementById("permission").style.outline = '2px solid red';
+      }
+
+      else {
       console.log("LENGTH", users.length)
       console.log(users)
       console.log("single: ", users[0].permissions);
@@ -73,8 +85,8 @@ const ModifyPermsPage = () => {
         }
       }
      
-      console.log("NEW CLAIMS:", newClaimsList)
-      console.log("SPECIFIC: ", newClaimsList.claims[selectedPermission])
+      //console.log("NEW CLAIMS:", newClaimsList)
+      //console.log("SPECIFIC: ", newClaimsList.claims[selectedPermission])
       //Iffy logic, not sure if list of all claims are being sent back 
       if(action === 'add') 
       {
@@ -109,6 +121,7 @@ const ModifyPermsPage = () => {
         setStatusPopup(true);
         console.error("Error updating permissions: ", error);
       }
+    }
       //console.log(payload.claims);
     }
    
@@ -174,7 +187,8 @@ const ModifyPermsPage = () => {
     <form id="userUpdate" className="form-modal" onSubmit={handleSubmit}>
         <div id="userSelect">
             <label htmlFor="user">User</label><br></br>
-            <select name="user" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
+            <select id="user" name="user" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
+            <option value="" disabled selected hidden className="hidden">Select a user</option>
             {users.map(user => {
               if (!user.permissions.claims["Administrator"]) {
                 return <option key={user.uid} value={user.uid}>{user.email}</option>
@@ -185,14 +199,16 @@ const ModifyPermsPage = () => {
         </div>
         <div id="actionSelect">
             <label htmlFor="action">Action</label><br></br>
-            <select name="action" value={action} onChange={(e) => setAction(e.target.value)}>
+            <select id="action" name="action" value={action} onChange={(e) => setAction(e.target.value)}>
+                <option value="" disabled selected hidden className="hidden">Select "Add" or "Remove"</option>
                 <option value="add">Add</option>
                 <option value="remove">Remove</option>
             </select>
         </div>
         <div id="permissionSelect">
             <label htmlFor="permission">Permission</label><br></br>
-            <select name="permission" value={selectedPermission} onChange={(e) => setSelectedPermission(e.target.value)}>
+            <select id="permission" name="permission" value={selectedPermission} onChange={(e) => setSelectedPermission(e.target.value)}>
+              <option value="" disabled selected hidden className="hidden">Select a permission</option>
                 {permissionNames.map(permission => {
                   if (!adminPermissions.includes(permission)) {
                     return <option key={permission} value={permission}>{permission}</option>
