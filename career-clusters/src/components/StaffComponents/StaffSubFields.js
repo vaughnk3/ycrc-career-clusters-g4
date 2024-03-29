@@ -170,6 +170,7 @@ const StaffSubFields = () => {
               <div className="popup"> 
                 <div className="popup-content">
                   <h1>You do not have access to this feature.</h1>
+                  <p>Please contact an administrator if you believe this is an error.</p>
                   <button onClick={closeClaimError}>Acknowledge</button>
 
                 </div>
