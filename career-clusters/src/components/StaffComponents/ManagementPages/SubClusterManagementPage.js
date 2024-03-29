@@ -253,7 +253,7 @@ const SubClusterManagementPage = () => {
 
                             <label className="label-addsc">Parent Cluster</label>
                             <select id="select-cluster" value={clusterID} onChange={(e) => setClusterID(e.target.value)} >
-                                <option value="" disabled selected hidden className="hidden">Select one</option>
+                                <option value="" disabled selected hidden className="hidden">Select Parent Cluster</option>
                                 {clusters.map((cluster) => (
                                     <option key={cluster.id} value={cluster.id} >
                                         {cluster.clusterName}

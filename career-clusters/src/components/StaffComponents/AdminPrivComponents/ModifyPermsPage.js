@@ -137,7 +137,7 @@ const ModifyPermsPage = () => {
               <h3>View all user permissions, and make changes to them.</h3>
             </div>
 
-            <div class="content content-margin">
+            <div className="content content-margin">
             <table id="permissions-table">
               <tr>
                 <th></th>
