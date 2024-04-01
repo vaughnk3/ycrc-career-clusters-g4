@@ -5,7 +5,8 @@ const app = express();
 const multer = require('multer');
 const admin = require('firebase-admin');
 
-const serviceAccount = require('./firebase-admin-sdk/career-clusters-9dcc3-firebase-adminsdk-nggr9-ddf5aa127a.json')
+const serviceAccount = require('./firebase-admin-sdk/career-clusters-9dcc3-firebase-adminsdk-nggr9-ddf5aa127a.json');
+const { useParams } = require('react-router-dom');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
@@ -349,8 +350,24 @@ app.get('/login/staffclusters', (req, res) => {
 
 //************************************************************************/
 // Gets all the subclusters to be displayed on subcluster managment page
+/*
 app.get('/subclustermanagementpage', (req, res) => {
   pool.query('SELECT * FROM Subcluster', (error, results, fields) => {
+    if(error) {
+      console.error(error);
+      console.log('Sad error fetching information from Cluster table')
+      res.status(500).send('Error fetching information from Cluster table in database')
+    } else {
+      res.json(results);
+      console.log('Subcluster :) results: ', results)
+    }
+  })
+})*/
+
+
+app.get('/subclustermanagementpage/:clusterId', (req, res) => {
+  const { clusterId } = req.params;
+  pool.query('SELECT * FROM Subcluster WHERE clusterId = ?', [ clusterId ], (error, results, fields) => {
     if(error) {
       console.error(error);
       console.log('Sad error fetching information from Cluster table')

@@ -26,6 +26,8 @@ const SubClusterManagementPage = () => {
     const [subClusters2, setSubClusters2] = useState([]);
     const [addState, setAddState] = useState(false);
     const [message, setMessage] = useState('');
+    const [clusterId, setClusterId] = useState('0');
+    
 
     const auth = getAuth(app);
 
@@ -46,31 +48,30 @@ const SubClusterManagementPage = () => {
     }
 
 
-    useEffect(() => {
-        const fetchSubClusters2 = async () => {
+   
+    useEffect( () => {
+        const fetchIDSubclusters = async () => {
             try {
-                const response = await (fetch('http://localhost:3001/subclustermanagementpage'));
-                if (!response.ok) {
+                const response = await fetch(`http://localhost:3001/subclustermanagementpage/${clusterId}`);
+                if (!response.ok){
                     setLoading(false);
                     setMessage('Failed to load SubClusters.')
                     setAddState(true);
                     throw new Error('Error fetching subclusters');
                 }
-
-                const data2 = await response.json();
-                setSubClusters2(data2);
-                console.log(data2)
-            } catch (error) {
+                
+                const data = await response.json();
+                setSubClusters2(data);
+            }   catch (error){
                 console.error('Error: ', error);
                 setLoading(false);
                 setMessage('Failed to load SubClusters.')
                 setAddState(true);
-                
             }
-            
         }
-        fetchSubClusters2();
+        fetchIDSubclusters();
     }, []);
+
     /********************************************* */
 
     /********************************************* */
@@ -309,6 +310,7 @@ const SubClusterManagementPage = () => {
                 <h2>SubCluster Management Page</h2>
                 <h4>Please select an option for subcluster management</h4>
             </div>
+                
             <div className="content content-margin">
                 <ul className="scmgmt_list">
                     {subClusters2.map((subcluster) => (
@@ -318,6 +320,7 @@ const SubClusterManagementPage = () => {
                     ))}
                 </ul>
             </div>
+            
 
 
 
@@ -344,3 +347,37 @@ export default SubClusterManagementPage;
                                 onChange={(e) => setNewSalary(e.target.value || ' ')}
                             />
                             */
+
+
+
+
+
+/*
+    //const response = await (fetch('http://localhost:3001/subclustermanagementpage'));
+    useEffect(() => {
+        const fetchSubClusters2 = async () => {
+            try {
+                const response = await (fetch('http://localhost:3001/subclustermanagementpage'));
+
+                if (!response.ok) {
+                    setLoading(false);
+                    setMessage('Failed to load SubClusters.')
+                    setAddState(true);
+                    throw new Error('Error fetching subclusters');
+                }
+
+                const data2 = await response.json();
+                setSubClusters2(data2);
+                console.log(data2)
+            } catch (error) {
+                console.error('Error: ', error);
+                setLoading(false);
+                setMessage('Failed to load SubClusters.')
+                setAddState(true);
+                
+            }
+            
+        }
+        fetchSubClusters2();
+    }, []);
+    */
