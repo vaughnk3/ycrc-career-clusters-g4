@@ -666,9 +666,9 @@ app.post('/subclustermanagementpage/add-subcluster-field', checkAuth, (req, res)
 })
 
 //************************************************************************/
-//GENERAL VIEW SELECT ALL CLUSTERS
-app.get('/subclustermanagementpage/fetch-clusters', (req, res) => {
-  console.log('Recieved GET request to /cluster')
+
+//   /subclustermanagementpage/fetch-clusters
+app.get('/uniq-clust-dropdowns', (req, res) => {
   pool.query('SELECT * FROM Cluster ORDER BY clusterName', (error, results, fields) => {
     if(error) {
       console.error(error);

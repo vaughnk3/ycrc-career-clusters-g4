@@ -40,6 +40,8 @@ const SubClusterManagementPage = () => {
     const [message, setMessage] = useState('');
     // Set selected cluster ID from management dropdown
     const [clusterId, setClusterId] = useState('0');
+    // State tracker for selecting Subclusters
+    const [clusterPopup, setClusterPopup] = useState(false);
     
     // Initialize authentication 
     const auth = getAuth(app);
@@ -52,6 +54,10 @@ const SubClusterManagementPage = () => {
     const openPopup = () => { setIsOpen(true); }
     // Closes add subcluster popup
     const closePopup = () => { setIsOpen(false); }
+    // Opens the cluster popup
+    const openCluster = () => { setClusterPopup(true); }
+    // Closes the cluster popup
+    const closeCluster = () => { setClusterPopup(false); }
 
     // Navigate to staff landing page if back button is clicked.
     const handleBackButton = () => {
@@ -93,7 +99,7 @@ const SubClusterManagementPage = () => {
         }
         // Call the function
         fetchIDSubclusters();
-    }, []);
+    }, [clusterId]);
 
     
 
@@ -105,17 +111,18 @@ const SubClusterManagementPage = () => {
     useEffect(() => {
         const fetchClusters = async () => {
             try { 
-                // Fetch
-                const response = await (fetch('http://localhost:3001/subclustermanagementpage/fetch-clusters'));
+                // Fetch ---- /subclustermanagementpage/fetch-clusters
+                const response = await (fetch('http://localhost:3001/uniq-clust-dropdowns'));
 
                 // Failure 
                 if(!response.ok) {
                     throw new Error('Error fetching clusters');
                 }
-
+                console.log("after fetch")
                 // Success - set data received
                 const data = await response.json();
                 setClusters(data);
+                console.log("fetch----", data);
                 
             // Failure 
             } catch (error) {
@@ -264,6 +271,28 @@ const SubClusterManagementPage = () => {
         <div id="page">
             <div id="_topRectangle">
                 <button id="back_button" onClick={handleBackButton}>Back</button>
+
+                <button onClick={openCluster}>Select Parent Cluster</button>
+                {clusterPopup && (
+                    <div className="popup">
+                        <div className="popup-content">
+                            <h1>Select the parent Cluster of the SubCluster you wish to manage.</h1>
+
+                            <select id="select-cluster" value={clusterId} onChange={(e) => setClusterId(e.target.value)} >
+                                <option value="" disabled selected hidden className="hidden">Select Parent Cluster</option>
+                                {clusters.map((cluster) => (
+                                    <option key={cluster.id} value={cluster.id} >
+                                        {cluster.clusterName}
+                                    </option>
+                                ))}
+                            </select>
+                            <button onClick={closeCluster}>Back</button>
+                        </div>
+                    </div>
+                )}
+
+
+
                 <button id="add_cluster" onClick={openPopup}>Add SubCluster +</button>
                 {isOpen && (
                     <div className="popup">
@@ -371,3 +400,5 @@ const SubClusterManagementPage = () => {
 // Export the completed component
 export default SubClusterManagementPage;
 
+/*
+*/
