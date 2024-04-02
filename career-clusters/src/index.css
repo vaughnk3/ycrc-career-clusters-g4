@@ -82,11 +82,11 @@ html, body {
   position: relative;
 
   background-color: var(--green);
-  color: white;
+  
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-
+  
   text-decoration: none;
   cursor: pointer;
 
