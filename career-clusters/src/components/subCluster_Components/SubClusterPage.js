@@ -5,63 +5,55 @@ import './SubClusterPage.css'
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-// import { getAuth, onAuthStateChanged } from "firebase/auth";        //new
-// import app from "../login_components/FirebaseConfig.js"         //new
 
 
+/* 
+This component contains the SubCluster display page for general view. 
+It contains the fetching and mapping of the subclusters specified upon the click of a cluster. 
+*/
 
 const SubClusterPage = ({ }) => {
+    // Define navigate hook
     const navigate = useNavigate();
 
-    // const auth = getAuth(app);      //initialize firebase auth
-
-  
-
-    const handleSubClusterClick = (ID) => {
-        console.log("IN SUBCLUSRER CLICK:  ", ID)
-
-        // Update the click count for subclusters
-        /*
-        const updateSubClusterClickCount = async () => {
-            try {
-                console.log("SUB   IDDDDDD, ", ID)
-                const response = await (fetch('http://localhost:3001/updates-subclust-clickCnt', {
-                    method: 'POST', 
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify( { subclusterID: ID })
-                }));
-                if (response.ok) {
-                    console.log('SubCluster click count updated successfully');
-                } else {
-                    console.error('Failed to update subcluster clickount')
-                }
-            } catch (error) {
-                console.error('Error updating subcluster clickcount: ', error)
-            }
-        }
-
-        // Call the update click count function
-        updateSubClusterClickCount();
-        */
-    }
-
+    // Get the slug from the page route
     const { clusterId } = useParams();
+    // Store the fetched subclusters
     const [subclusters, setSubclusters] = useState([]);
+    // Keeps track of the loading state
     const [loading, setLoading] = useState(true);
+    // Keeps track of the error popup state
     const [openError, setOpenError] = useState(false);
 
+   // Testing function to ensure correct Subcluster routing
+    const handleSubClusterClick = (ID) => {
+        console.log("IN SUBCLUSRER CLICK:  ", ID)
+    }
+
+    // Close the error popup and refresh the page
+    const closeError = () => {
+        setOpenError(false);
+        window.location.reload();
+    }
+
+    // Fetch the subclusters from selected cluster ID
     useEffect(() => {
         const fetchSubclusters = async () => {
             try {
+                // Attempt fetch
                 const response = await fetch(`http://localhost:3001/cluster/subcluster/${clusterId}`);
+
+                // Failure
                 if (!response.ok) {
                     throw new Error('Error fetching subclusters');
                 }
+
+                // Success - receive data and set data
                 const data = await response.json();
                 setSubclusters(data);
                 setLoading(false);
+
+                // Failure - bring up error popup
             } catch (error) {
                 console.error('Error: ', error);
                 setLoading(false);
@@ -72,17 +64,13 @@ const SubClusterPage = ({ }) => {
         fetchSubclusters();
     }, [clusterId])
 
+
+    // Loading animation
     if (loading) {
         return <div id="loading-animation"></div>
     }
 
-    const closeError = () => {
-        setOpenError(false);
-        window.location.reload();
-    }
-
-    //const subclusterF = subclusters.length > 0 ? subclusters[0] : {};
-
+    // Return the HTML for this component
     return (
         <div id="page">
             <div id="_topRectangle">
@@ -116,5 +104,5 @@ const SubClusterPage = ({ }) => {
     )
 }
 
-
+// Export completed component
 export default SubClusterPage;

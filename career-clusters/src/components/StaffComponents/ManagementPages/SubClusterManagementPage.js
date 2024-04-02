@@ -6,38 +6,54 @@ import ManagementSubCluster from './ManagementSubCluster';
 import { getAuth } from "firebase/auth";
 import app from "../../login_components/FirebaseConfig"
 
-
+/* 
+This page contains the primary JSX code that comprises the SubCluster Managage page
+Includes the header buttons, fetching selected subset of subclusters, and the add SubCluster functionality. 
+*/
 
 const SubClusterManagementPage = () => {
-    /********************************************* */
-    //FETCH SUBCLUSTERS CODE
+    // Set all useState hooks, including the navigate hook.
     const navigate = useNavigate();
+    // Popup Tracker
     const [isOpen, setIsOpen] = useState(false);
-    const openPopup = () => { setIsOpen(true); }
-    const closePopup = () => { setIsOpen(false); }
+    // New Subcluster Description
     const [newSCDescrip, setNewDescrip] = useState(' ');
+    // New Subcluster Name
     const [newSCName, setNewName] = useState(' ');
+    // New Subcluster Salary
     const [newSCSalary, setNewSalary] = useState(0);
+    // New Subcluster Education level
     const [newSCEdLevel, setNewEdLevel] = useState(' ');
+    // New subcluster Growth Rate
     const [newSCGrowthRate, setNewGrowthRate] = useState(' ');
+    // Selcted cluster ID from Parent Cluster Dropdown
     const [clusterID, setClusterID] = useState('');
+    // New Subcluster Image
     const [newImage, setNewImage] = useState(null);
+    // Loading tracker
     const [loading, setLoading] = useState(true);
+    // Holds all fetched Subclusters for display
     const [subClusters2, setSubClusters2] = useState([]);
+    // Success or fail popup state tracker
     const [addState, setAddState] = useState(false);
+    // Holds result message for status of add
     const [message, setMessage] = useState('');
+    // Set selected cluster ID from management dropdown
     const [clusterId, setClusterId] = useState('0');
     
-
+    // Initialize authentication 
     const auth = getAuth(app);
 
-    const closeAddState = () => {
-        setAddState(false)
-        refreshPage()
-    }
+    /* Define popup manipulations */
 
-    
+    // Closes status popup and refreshes page
+    const closeAddState = () => { setAddState(false); refreshPage() }
+    // Opens add subcluster popup
+    const openPopup = () => { setIsOpen(true); }
+    // Closes add subcluster popup
+    const closePopup = () => { setIsOpen(false); }
 
+    // Navigate to staff landing page if back button is clicked.
     const handleBackButton = () => {
         navigate('/login/staffclusters/')
     }
@@ -48,11 +64,14 @@ const SubClusterManagementPage = () => {
     }
 
 
-   
+   // Fetch the selected Subclusters to be mapped to display.
     useEffect( () => {
         const fetchIDSubclusters = async () => {
             try {
+                // Fetch
                 const response = await fetch(`http://localhost:3001/subclustermanagementpage/${clusterId}`);
+
+                // Failure - close the popup, set error message, and display error popup. 
                 if (!response.ok){
                     setLoading(false);
                     setMessage('Failed to load SubClusters.')
@@ -60,8 +79,11 @@ const SubClusterManagementPage = () => {
                     throw new Error('Error fetching subclusters');
                 }
                 
+                // Success - set the data
                 const data = await response.json();
                 setSubClusters2(data);
+
+                // Failure - close the popup, set error message, and display error popup. 
             }   catch (error){
                 console.error('Error: ', error);
                 setLoading(false);
@@ -69,31 +91,38 @@ const SubClusterManagementPage = () => {
                 setAddState(true);
             }
         }
+        // Call the function
         fetchIDSubclusters();
     }, []);
 
-    /********************************************* */
+    
 
     /********************************************* */
     //FETCH CLUSTERS
     const [clusters, setClusters] = useState([]);
 
+    // Fetch the Clusters so their names can be mapped in the Parent Cluster Dropdown.  
     useEffect(() => {
         const fetchClusters = async () => {
             try { 
+                // Fetch
                 const response = await (fetch('http://localhost:3001/subclustermanagementpage/fetch-clusters'));
+
+                // Failure 
                 if(!response.ok) {
                     throw new Error('Error fetching clusters');
                 }
-                const data = await response.json();
-                console.log(data)
 
+                // Success - set data received
+                const data = await response.json();
                 setClusters(data);
                 
+            // Failure 
             } catch (error) {
                 console.error('Error: ', error);
             }
         }
+        // Call the function
         fetchClusters();
     }, []);
     /********************************************* */
@@ -102,100 +131,113 @@ const SubClusterManagementPage = () => {
     /********************************************* */
     //Add new subcluster code
 
+    const addSubCluster = async () => {
+        // Placeholder values. 
+        let subclusterID = 0;
+        var canSend = true;
+        //Checks if no iamge has been entered AND if no selection of parent cluster has been made, then set false flag and border outlining
+        if(!newImage) {
+            document.getElementById("imgWrapper").style.border = '2px solid red';
+            canSend = false;
+        }
+        if(clusterID === "") {
+            document.getElementById("select-cluster").style.outline = '2px solid red';
+            canSend = false;
+        }
 
+        // Attempt the add subcluster functionality
+        try {
+            if(canSend === true) {
+                // Create a form and append all the data for the first query
+                const formData = new FormData();
+                formData.append('image', newImage);
+                formData.append('subclusterName', newSCName)
+                formData.append('clusterID', clusterID)
 
+                // Grab the authenticated user 
+                const user = auth.currentUser;
 
-            const addSubCluster = async () => {
-                let subclusterID = 0;
-                var canSend = true;
-                //Checks if no iamge has been entered AND if no selection of parent cluster has been made, then set false flag and border outlining
-                if(!newImage) {
-                    document.getElementById("imgWrapper").style.border = '2px solid red';
-                    canSend = false;
+                // If a user is logged in - 
+                if(user) {
+                    // Grab the user token
+                    const token = await user.getIdToken();
+
+                    // Make post request 
+                    const response = await(fetch('http://localhost:3001/subclustermanagementpage/add-subcluster', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,                 //pass authenticated user token to backend
+                        },
+                        body: formData
+                    }));
+
+                    // If request is successful, grab the ID of the newly created SubCluster
+                    if (response.ok) {
+                        const data = await response.json();
+                        subclusterID = data.subclusterID;
+                        //console.log('SubCluster added successfully with ID: ', subclusterID);
+                        
+                    } 
+                    // Failure
+                    else {
+                        console.error('Failed to add subcluster');
+                    } 
                 }
-                if(clusterID === "") {
-                    document.getElementById("select-cluster").style.outline = '2px solid red';
-                    canSend = false;
-                }
-                try {
-                    if(canSend === true) {
-                        const formData = new FormData();
-                        formData.append('image', newImage);
-                        formData.append('subclusterName', newSCName)
-                        formData.append('clusterID', clusterID)
-                        const user = auth.currentUser;
-                        if(user) {
-                            const token = await user.getIdToken();
-                            const response = await(fetch('http://localhost:3001/subclustermanagementpage/add-subcluster', {
-                                method: 'POST',
-                                headers: {
-                                    'Authorization': `Bearer ${token}`,                 //pass authenticated user token to backend
-                                },
-                                body: formData
-                            }));
-        
-                            if (response.ok) {
-                                const data = await response.json();
-                                subclusterID = data.subclusterID;
-                                console.log('SubCluster added successfully with ID: ', subclusterID);
-                                
-                            } else {
-                                console.error('Failed to add subcluster');
-                            } 
-                        }
-                    console.log('POST request sent from add subcluster button')
-                    console.log('SubCluster added successfully with ID between: ', subclusterID);
-                    }
-                }   catch (error) {
-                    console.error('Error adding subcluster: ', error);
-                }
-
-                    console.log("NEW salary: ", newSCSalary)
-
-                    try {
-                        if(canSend === true) {
-                        const user = auth.currentUser;
-                        if(user) {
-                            const token = await user.getIdToken();
-                            
-                            
-
-                            const response = await(fetch('http://localhost:3001/subclustermanagementpage/add-subcluster-field', {
-                                method: 'POST',
-                                // credentials: "include",    verification for back-end
-                                headers: {
-                                    'Authorization': `Bearer ${token}`,
-                                    'Content-Type' : 'application/json'
-                                },
-                                body: JSON.stringify({subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate})
-                            }));
-                            console.log(subclusterID, " INSIDE SECOND REQUEST");
-                            if(response.ok) {
-                                console.log('Field data added successfully');
-                                setIsOpen(false);
-                                setMessage('SubCluster successfully created.');
-                                setAddState(true);
-                            } else {
-                                console.error('Failed to add field data');
-                                setIsOpen(false);
-                                setMessage('Failed to create SubCluster.');
-                                setAddState(true);
-                            }
-                        }
-                    }
-                    } catch(error) {
-                        console.error('Error adding field: ', error);
-                        setIsOpen(false);
-                        setMessage('Failed to create SubCluster.');
-                        setAddState(true);
-                    }
-                    console.log('POST request sent from add subcluster button for field information')
-                    // setIsOpen(false);
-                    //refreshPage();
+            // Failure of first try block
             }
+        }   catch (error) {
+            console.error('Error adding subcluster: ', error);
+        }
+
+        // Attempt the creation of the "Field" table row attached to the new Subcluster ID
+        try {
+            if(canSend === true) {
+            // Grab the logged in user
+            const user = auth.currentUser;
+
+            // If user is logged in -
+            if(user) {
+                // Grab the user token
+                const token = await user.getIdToken();
+                
+                // Attempt post request
+                const response = await(fetch('http://localhost:3001/subclustermanagementpage/add-subcluster-field', {
+                    method: 'POST',
+                    // credentials: "include",    verification for back-end
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type' : 'application/json'
+                    },
+                    body: JSON.stringify({subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate})
+                }));
+
+                // If successful, close the popup and put the new popup up with the success status message. 
+                if(response.ok) {
+                    console.log('Field data added successfully');
+                    setIsOpen(false);
+                    setMessage('SubCluster successfully created.');
+                    setAddState(true);
+                } 
+                // If a failure occurs - close the popup and put the new popup up with the failure status message. 
+                else {
+                    console.error('Failed to add field data');
+                    setIsOpen(false);
+                    setMessage('Failed to create SubCluster.');
+                    setAddState(true);
+                }
+            }
+        }
+        // If a failure occurs - close the popup and put the new popup up with the failure status message. 
+        } catch(error) {
+            console.error('Error adding field: ', error);
+            setIsOpen(false);
+            setMessage('Failed to create SubCluster.');
+            setAddState(true);
+        }
+    }
 
     /********************************************* */
-
+    // If a new file is selected, set the file in the useState constant.
     const handleFileInputChange = (e) => 
     {
         setNewImage(e.target.files[0]);
@@ -217,7 +259,7 @@ const SubClusterManagementPage = () => {
         return <div id="loading-animation"></div>
       }
 
-
+    // Return the HTML for the component
     return (
         <div id="page">
             <div id="_topRectangle">
@@ -321,63 +363,11 @@ const SubClusterManagementPage = () => {
                 </ul>
             </div>
             
-
-
-
             <BottomRectangle/>
         </div>
     )
 }
 
+// Export the completed component
 export default SubClusterManagementPage;
 
-//<input type="text" id='subclusterName' name="subclusterName" placeholder='Enter new Name'  value={newSCName} onChange={(e) => setNewName(e.target.value)}></input>
-//<input type="text" id="subclusterSalary" name="subclusterSalary" placeholder="Enter new Salary" value={newSCSalary} onChange={(e) => setNewSalary(e.target.value)}></input>
-//<textarea type="text" id="subclusterDescrip" maxLength="200" name="subclusterDescrip" placeholder=" Enter new description." value={newSCDescrip} onChange={(e) => setNewDescrip(e.target.value)}></textarea>
-//<input type="text" id="subclusterEducation" name="subclusterEducation" placeholder="Enter new ed level" value={newSCEdLevel} onChange={(e) => setNewEdLevel(e.target.value)}></input>
-
-
-/*
-<input
-                                type="text"
-                                id="subclusterSalary"
-                                name="subclusterSalary"
-                                placeholder="Enter new Salary"
-                                value={newSCSalary.trim().length ? newSCSalary : ''}
-                                onChange={(e) => setNewSalary(e.target.value || ' ')}
-                            />
-                            */
-
-
-
-
-
-/*
-    //const response = await (fetch('http://localhost:3001/subclustermanagementpage'));
-    useEffect(() => {
-        const fetchSubClusters2 = async () => {
-            try {
-                const response = await (fetch('http://localhost:3001/subclustermanagementpage'));
-
-                if (!response.ok) {
-                    setLoading(false);
-                    setMessage('Failed to load SubClusters.')
-                    setAddState(true);
-                    throw new Error('Error fetching subclusters');
-                }
-
-                const data2 = await response.json();
-                setSubClusters2(data2);
-                console.log(data2)
-            } catch (error) {
-                console.error('Error: ', error);
-                setLoading(false);
-                setMessage('Failed to load SubClusters.')
-                setAddState(true);
-                
-            }
-            
-        }
-        fetchSubClusters2();
-    }, []);
-    */
