@@ -103,7 +103,7 @@ const EditImageSubCluster = ({ID}) => {
     //and update image for a Subcluster within SQL database
     return (
         <div className="Image">
-            <button className="editImage" onClick={openPopup}>Edit Image</button>
+            <button className="manage-button" onClick={openPopup}>Edit Image</button>
             {isOpen && (
                 <div className="popup">
                     <div className="popup-content">  

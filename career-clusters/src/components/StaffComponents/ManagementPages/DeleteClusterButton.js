@@ -92,7 +92,7 @@ const DeleteClusterButton = ({ID}) => {
     //Return the HTML and elements used to populate Delete button, which has functionality to confirm and delete a particular cluster from SQL database
     return (
         <div id="cluster-button">
-                <button class="management-button" onClick={openPopup}>Delete</button>
+                <button class="delete-button" onClick={openPopup}>Delete</button>
                 {isOpen && (
                     <div className="popup">
                         <div className="delete-popup-content">  

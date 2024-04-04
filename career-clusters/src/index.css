@@ -96,29 +96,36 @@ html, body {
   margin-right: 10px;
 }
 
-#cluster-button {
-
-}
-
-.management-button {
-  color: var(--darkblue);
-  width: max(5rem, 12vw);
-  height: 4em;
-  border-radius: 20px;
-  border-color:#98ca41;
-  border:3px solid var(--green);   
-  margin-top: 30%;
-  margin-bottom: 30%; 
-
-}
-
-.management-button:hover {
-  background-color: #98ca41;
-}
-
 #topRectangle p, #_topRectangle p {
   width: 70%;
   
   margin-left: auto;
   margin-right: auto;
+}
+
+a, button {
+  font-family: 'Lato', sans-serif;
+} 
+
+.manage-button, .delete-button {
+  color: var(--darkblue);
+  min-width: 7rem;
+  width: 13%;
+  height: 3rem;
+  border-radius: 20px;
+  border-color:var(--green);
+  border:3px solid var(--green);
+  margin-right: .4rem;
+  margin-top: .4rem;
+  float: left;
+ 
+}
+
+.manage-button:hover {
+  background-color: #ddd;
+}
+
+.delete-button {
+  background-color: var(--green);
+  color: black;
 }

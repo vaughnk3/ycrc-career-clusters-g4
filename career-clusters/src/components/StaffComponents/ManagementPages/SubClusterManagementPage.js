@@ -266,135 +266,139 @@ const SubClusterManagementPage = () => {
         return <div id="loading-animation"></div>
       }
 
-    // Return the HTML for the component
-    return (
-        <div id="page">
-            <div id="_topRectangle">
-                <button id="back_button" onClick={handleBackButton}>Back</button>
+// Return the HTML for the component
+return (
+    <div id="page">
+        <div id="_topRectangle">
+            <button id="back_button" onClick={handleBackButton}>Back</button>
 
-                <button onClick={openCluster}>Select Parent Cluster</button>
-                {clusterPopup && (
-                    <div className="popup">
-                        <div className="popup-content">
-                            <h1>Select the parent Cluster of the SubCluster you wish to manage.</h1>
-
-                            <select id="select-cluster" value={clusterId} onChange={(e) => setClusterId(e.target.value)} >
-                                <option value="" disabled selected hidden className="hidden">Select Parent Cluster</option>
-                                {clusters.map((cluster) => (
-                                    <option key={cluster.id} value={cluster.id} >
-                                        {cluster.clusterName}
-                                    </option>
-                                ))}
-                            </select>
-                            <button onClick={closeCluster}>Back</button>
-                        </div>
-                    </div>
-                )}
-
-
-
-                <button id="add_cluster" onClick={openPopup}>Add SubCluster +</button>
-                {isOpen && (
-                    <div className="popup">
-                        <div className="addsc-container">  
-                            <div className="newsc-left">
-                            
-                            <label className="label-addsc" for="subclusterName">Name</label>
-                            <input
-                                type="text"
-                                id="subclusterName"
-                                name="subclusterName"
-                                placeholder="Enter new Name"
-                                value={newSCName.trim().length ? newSCName : ''}
-                                onChange={(e) => setNewName(e.target.value || ' ')}
-                                />
-                            <br/>
-                            <label className="label-addsc" for="subclusterSalary">Salary</label>
-                            <input type="number" id="subclusterSalary" name="subclusterSalary"  placeholder="Enter new Salary here" value={newSCSalary} onChange={(e) => setNewSalary(e.target.value)}></input>
-
-                            <br/>
-                            <label className="label-addsc" for="subclusterEducation">Education Level</label>
-                            <input
-                                type="text"
-                                id="subclusterEducation"
-                                name="subclusterEducation"
-                                placeholder="Enter new education level"
-                                value={newSCEdLevel.trim().length ? newSCEdLevel : ''}
-                                onChange={(e) => setNewEdLevel(e.target.value || ' ')}
-                            />
-
-                            <label className="label-addsc">Parent Cluster</label>
-                            <select id="select-cluster" value={clusterID} onChange={(e) => setClusterID(e.target.value)} >
-                                <option value="" disabled selected hidden className="hidden">Select Parent Cluster</option>
-                                {clusters.map((cluster) => (
-                                    <option key={cluster.id} value={cluster.id} >
-                                        {cluster.clusterName}
-                                    </option>
-                                ))}
-                            </select>
-
-                            </div>
-                            <div className="newsc-right">
-                            <label className="label-addsc" for="subclusterDescrip">Description</label>
-                            <textarea
-                                id="subclusterDescrip"
-                                maxLength="200"
-                                name="subclusterDescrip"
-                                placeholder="Enter new description."
-                                value={newSCDescrip.trim().length ? newSCDescrip : ''}
-                                onChange={(e) => setNewDescrip(e.target.value || ' ')}
-                            />
-                            
-                            <label className="label-addsc" for="rate">Growth Rate</label>
-                            <select id="growth-rate" name="rate" value={newSCGrowthRate} onChange={(e) => setNewGrowthRate(e.target.value)} >
-                                <option>Select Growth Rate</option>
-                                <option value="High">High</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Low">Low</option>
-                            </select>
-
-                            <label className="label-addsc" for="img">Image</label>
-                            <div id="imgWrapper">
-                                <input type="file" id="img" name="img" accept="image/*" onChange={handleFileInputChange}></input>
-                            </div>
-                            </div>
-                            <br/>
-                            <div className="newsc-buttonrow">
-                            <button onClick={closePopup} className="cancelButton">Cancel</button>
-                            <button id="submitName" onClick={addSubCluster}>Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                 )}  
-
-
-                 {addState && (
-                    <div className="popup">
-                        <div className="popup-content">
-                            <h1>{message}</h1>
-                            <button onClick={closeAddState}>Acknowledge and Refresh</button>
-                        </div>
-                    </div>
-                 )}
-
-
-                <h2>SubCluster Management Page</h2>
-                <h4>Please select an option for subcluster management</h4>
-            </div>
-                
-            <div className="content content-margin">
-                <ul className="scmgmt_list">
-                    {subClusters2.map((subcluster) => (
-                        <li>
-                            <ManagementSubCluster key={subcluster.id} ID={subcluster.id} subclusterName={subcluster.subclusterName} />
-                        </li>
-                    ))}
-                </ul>
-            </div>
             
-            <BottomRectangle/>
+            {clusterPopup && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <h1>Select the parent Cluster of the SubCluster you wish to manage.</h1>
+
+                        <select id="subm-select-cluster" value={clusterId} onChange={(e) => setClusterId(e.target.value)} >
+                            <option value="" disabled selected hidden className="hidden">Select Parent Cluster</option>
+                            {clusters.map((cluster) => (
+                                <option key={cluster.id} value={cluster.id} >
+                                    {cluster.clusterName}
+                                </option>
+                            ))}
+                        </select>
+                        <button onClick={closeCluster}>Back</button>
+                    </div>
+                </div>
+            )}
+
+
+
+            <button id="add_cluster" onClick={openPopup}>Add SubCluster +</button>
+            
+            {isOpen && (
+                <div className="popup">
+                    <div className="addsc-container">  
+                        <div className="newsc-left">
+                        
+                        <label className="label-addsc" for="subclusterName">Name</label>
+                        <input
+                            type="text"
+                            id="subclusterName"
+                            name="subclusterName"
+                            placeholder="Enter new Name"
+                            value={newSCName.trim().length ? newSCName : ''}
+                            onChange={(e) => setNewName(e.target.value || ' ')}
+                            />
+                        <br/>
+                        <label className="label-addsc" for="subclusterSalary">Salary</label>
+                        <input type="number" id="subclusterSalary" name="subclusterSalary"  placeholder="Enter new Salary here" value={newSCSalary} onChange={(e) => setNewSalary(e.target.value)}></input>
+
+                        <br/>
+                        <label className="label-addsc" for="subclusterEducation">Education Level</label>
+                        <input
+                            type="text"
+                            id="subclusterEducation"
+                            name="subclusterEducation"
+                            placeholder="Enter new education level"
+                            value={newSCEdLevel.trim().length ? newSCEdLevel : ''}
+                            onChange={(e) => setNewEdLevel(e.target.value || ' ')}
+                        />
+
+                        <label className="label-addsc">Parent Cluster</label>
+                        <select id="select-cluster" value={clusterID} onChange={(e) => setClusterID(e.target.value)} >
+                            <option value="" disabled selected hidden className="hidden">Select Parent Cluster</option>
+                            {clusters.map((cluster) => (
+                                <option key={cluster.id} value={cluster.id} >
+                                    {cluster.clusterName}
+                                </option>
+                            ))}
+                        </select>
+
+                        </div>
+                        <div className="newsc-right">
+                        <label className="label-addsc" for="subclusterDescrip">Description</label>
+                        <textarea
+                            id="subclusterDescrip"
+                            maxLength="200"
+                            name="subclusterDescrip"
+                            placeholder="Enter new description."
+                            value={newSCDescrip.trim().length ? newSCDescrip : ''}
+                            onChange={(e) => setNewDescrip(e.target.value || ' ')}
+                        />
+                        
+                        <label className="label-addsc" for="rate">Growth Rate</label>
+                        <select id="growth-rate" name="rate" value={newSCGrowthRate} onChange={(e) => setNewGrowthRate(e.target.value)} >
+                            <option>Select Growth Rate</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+
+                        <label className="label-addsc" for="img">Image</label>
+                        <div id="imgWrapper">
+                            <input type="file" id="img" name="img" accept="image/*" onChange={handleFileInputChange}></input>
+                        </div>
+                        </div>
+                        <br/>
+                        <div className="newsc-buttonrow">
+                        <button onClick={closePopup} className="cancelButton">Cancel</button>
+                        <button id="submitName" onClick={addSubCluster}>Submit</button>
+                        </div>
+                    </div>
+                </div>
+             )}  
+
+
+             {addState && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <h1>{message}</h1>
+                        <button onClick={closeAddState}>Acknowledge and Refresh</button>
+                    </div>
+                </div>
+             )}
+
+
+            <h2>SubCluster Management Page</h2>
+            <h4>Please select an option for subcluster management</h4>
         </div>
-    )
+            
+        <div className="content content-margin">
+            <div id="subm-content">
+            <button id="subm-cluster-button" onClick={openCluster}>Select Parent Cluster</button>
+            <ul className="scmgmt_list">
+                {subClusters2.map((subcluster) => (
+                    <li>
+                        <ManagementSubCluster key={subcluster.id} ID={subcluster.id} subclusterName={subcluster.subclusterName} />
+                    </li>
+                ))}
+            </ul>
+            </div>
+        </div>
+        
+        <BottomRectangle/>
+    </div>
+)
 }
 
 // Export the completed component

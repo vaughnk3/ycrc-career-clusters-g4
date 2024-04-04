@@ -105,7 +105,7 @@ const ReplaceImageButton = ({ID}) => {
     //and update image for a Cluster within SQL database
     return (
         <div id="cluster-button">
-            <button onClick={openPopup} class="management-button">Replace Image</button>
+            <button onClick={openPopup} class="manage-button">Replace Image</button>
             {isOpen && (
                 <div className="popup">
                     <div className="popup-content">  

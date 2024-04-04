@@ -86,7 +86,7 @@ const EditDescriptionSubcluster = ({ID}) => {
     //Return the HTML and elements used to populate Edit Description button, which has functionality to confirm and edit description for a Subcluster within SQL database
     return (
         <div className="Description">
-            <button className="editDescription" onClick={openPopup}>Edit Description</button>
+            <button className="manage-button" onClick={openPopup}>Edit Description</button>
             {isOpen && (
                     <div className="popup">
                         <div className="popup-content">  

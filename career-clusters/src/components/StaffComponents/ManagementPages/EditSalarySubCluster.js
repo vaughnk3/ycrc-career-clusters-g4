@@ -90,7 +90,7 @@ const EditSalarySubCluster = ({ID}) => {
     //Return the HTML and elements used to populate Edit Salary button, which has functionality to confirm and edit salary for a Subcluster within SQL database
     return (
         <div className="cluster-button">
-            <button className="editSalary" onClick={openPopup}>Edit Salary</button>
+            <button className="manage-button" onClick={openPopup}>Edit Salary</button>
             {isOpen && (
                     <div className="popup">
                         <div className="popup-content">  
