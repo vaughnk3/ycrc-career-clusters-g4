@@ -6,8 +6,21 @@ import BottomRectangle from '../../page_Components/BottomRectangle';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from "../../login_components/FirebaseConfig"
 
+
+/*
+This file contains the Javascript code, GET requests, and POST requests utilized by staff accounts to fetch and update the schools list
+within SQL database. Returns list of current schools, and if prompted, sends new school to be added to School table.
+Components:
+SchoolPod
+BottomRectangle
+
+KJ Vaughn
+*/
+
+//React component used by staff to fetch and add schools
 const SchoolManagementPage = () => {
 
+    //State variables to keep track of popup status for updates and errors, along with optional new school
     const navigate = useNavigate();
     const auth = getAuth(app);
     const [schools, setSchools] = useState([]);
@@ -16,6 +29,7 @@ const SchoolManagementPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
+    //Send GET request to server to fetch all current schools within School SQL table 
     useEffect(() => {
         const fetchSchools = async () => {
             try { 
@@ -27,10 +41,10 @@ const SchoolManagementPage = () => {
                 }
                 const data = await response.json();
                 //console.log(data)
-  
+                //Render schools
                 setSchools(data);
                 setLoading(false);
-                
+            //Otherwise set error
             } catch (error) {
                 console.error('Error: ', error);
                 setLoading(false);
@@ -39,21 +53,23 @@ const SchoolManagementPage = () => {
         }
         fetchSchools();
     }, []);
-
+    
+    //Set loading animation if rendering is taking too long
     if (loading) {
         return <div id="loading-animation"></div>
     }
 
+    //Force navigation to main staff cluster view if internal back arrow is clicked
     const backButtonHandler = () => {
         navigate('/login/staffclusters/')
     }
 
-     //Open the popup
+     //Open the popup to add school
      const openPopup = () => {
         setIsOpen(true);
     }
 
-    //Close the popup
+    //Close the popup to close school
     const closePopup = () => {
         setIsOpen(false);
     }
@@ -63,22 +79,26 @@ const SchoolManagementPage = () => {
         window.location.reload();
       }
 
+    //Close error popup and refresh paage
     const closeError = () => {
         setError(false);
         refreshPage();
     }
 
 
-
+    //POST request sent to server which specifies name of new school to be added to the School SQL table
     const addNewSchool = async () => {
         try {
             const user = auth.currentUser;
+            //If logged-in user is staff
             if(user){ 
                 const token = await user.getIdToken();
+                //Check if invalid input and display input error if so 
                 if (newSchool === '') {
                     console.log("EQKAL")
                     document.getElementById("school-input").style.border = '2px solid red';
                 }
+                //Otherwise, send POST request to server containing new school name 
                 else {
                 const response = await(fetch('http://localhost:3001/new-school', {
                     method: 'POST',
@@ -88,11 +108,14 @@ const SchoolManagementPage = () => {
                     },
                     body: JSON.stringify({ newSchool })
                 }));
+                //If POST request goes through, alert user of success
                 if (response.ok) {
                     console.log('School added successfully');
+                //Otherwise, alert user of failure
                 } else {
                     console.error('Failed to add new school');
                 } 
+                //Finally, close popup and refresh page 
                 setIsOpen(false);
                 refreshPage();
                 }
@@ -105,6 +128,7 @@ const SchoolManagementPage = () => {
         //refreshPage();
     }
 
+    //Return the HTML and elements used to render all schools and populate Back button and Add School button which has functionality to add a new school to School SQL table 
     return (
         <div id="page">
             <div id="_topRectangle">

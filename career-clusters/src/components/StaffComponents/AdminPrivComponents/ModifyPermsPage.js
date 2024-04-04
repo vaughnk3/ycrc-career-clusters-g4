@@ -4,8 +4,22 @@ import React, { useState, useEffect } from 'react';
 import { claimsList } from "./permissionsList";
 import './ModifyPermsPage.css'
 
+/*
+This file contains the Javascript code, GET requests to list current users, and POST requests
+to add or remove a permission from a particular user. This page contains a table which is 
+populated with all of the staff users (other than admin accounts), their corresponding permissions, 
+and a button to display a popup form to update permissions.
+Components:
+BottomRectangle
+
+KJ Vaughn
+*/
+
+
+//React component for modification of staff permissions
 const ModifyPermsPage = () => {
 
+    //State variables to keep track of user-inputted information
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState('');
     const [action, setAction] = useState('');
@@ -18,18 +32,22 @@ const ModifyPermsPage = () => {
     const yesString = 'Yes';
     const noString = 'No';
 
+    //Admin only permissions 
     const adminPermissions = ["Administrator", "Create Staff", "Modify Perms", "Clear Click Counts"];
 
+    //Close status popup and refresh page
     const closeStatus = () => {
       setStatusPopup(false);
       window.location.reload();
     }
 
+    //Close popup for modification of permissions
     const closeModifyPerms = () => {
       setShowForm(false);
     }
 
 
+    //Send GET request to server to retrieve all staff users and their corresponding custom permissions 
     const UsersPermissionsList = () => {
         useEffect(() => {
           const fetchUsersAndPermissions = async () => {
@@ -54,12 +72,15 @@ const ModifyPermsPage = () => {
         }, []);
     }
 
+    //Render
     UsersPermissionsList();
     
-
+    //Submit function which contains error handling for invalid inputs and updates for staff custom permissions based on admin input.
+    //Sends selected user's ID, along with their desired updated list of permissions back to server for updating within Firebase.
     const handleSubmit = async (e) => {
       e.preventDefault();
       
+      //Check if invalid input 
       if (selectedUser === '' || action === '' || selectedPermission === '') 
       {
         document.getElementById("user").style.outline = '2px solid red';
@@ -97,7 +118,7 @@ const ModifyPermsPage = () => {
         newClaimsList.claims[selectedPermission] = false;
       }
 
-      //Finally communicate w backend to update user info
+      //Finally send user ID and updated custom permissions back to server to be updated within Firebase
       try {
         const response = await fetch('http://localhost:3001/login/adminpage/modifyperms/add-user-permission', {
           method: 'POST',
@@ -107,10 +128,12 @@ const ModifyPermsPage = () => {
           body:JSON.stringify({uid: selectedUser, claims: newClaimsList}),
         })
 
+        //If POST request works, alert user
         if(response.ok) {
           console.log("Permissions updated successfully");
           setMessage('Successfully updated user permission.')
           setStatusPopup(true);
+        //Otherwise, set failure popup and alert user
         } else {
           setMessage('Failed to update user permission.')
           setStatusPopup(true);
@@ -124,11 +147,13 @@ const ModifyPermsPage = () => {
     }
       //console.log(payload.claims);
     }
-   
+    
+    //Change state of popup used to show form to modify user permissions 
     const modifyPermissions = () => {
       setShowForm(!showForm);
     }
     
+    //Return the HTML & elements used to populate staff user accounts, their corresponding permissions, and button which displays popup for admin to modify staff permissions  
     return (
         <div id="page">
             <div id="topRectangle">

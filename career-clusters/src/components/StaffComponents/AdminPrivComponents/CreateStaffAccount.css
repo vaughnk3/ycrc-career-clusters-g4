@@ -1,3 +1,11 @@
+/*
+This file contains the CSS used to style the elements and forms within the HTML of the 
+staff account creation page, which is used by admins.
+
+
+KJ Vaughn
+*/
+
 #staff-account-form {
     width: min(70%, 460px);
     display:flex;

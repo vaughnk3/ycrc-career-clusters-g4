@@ -4,8 +4,17 @@ import React, { useState } from "react";
 import { getAuth } from "firebase/auth";
 import app from "../../login_components/FirebaseConfig";
 
+/*
+This file contains the Javascript code and POST requests utilized by staff accounts to update the education level for any given
+subcluster within SQL database. Sends specified subcluster ID, and new education level to be updated within Subcluster table 
+
+KJ Vaughn
+*/
+
+//React component which recieves corresponding Cluster ID, used by staff to edit education level for a Subcluster
 const EditEducationSubCluster = ({ID}) => {
 
+    //State variable to keep track of popup status for updates and errors, along with new education level 
     const [isOpen, setIsOpen] = useState(false);
     const [subclusterEducation, setsubclusterEducation] = useState('');
     const [statusEduc, setStatusEduc] = useState(false);
@@ -13,27 +22,33 @@ const EditEducationSubCluster = ({ID}) => {
 
     const auth = getAuth(app);
 
+
+    //Open popup to edit educaiton level of a subcluster
     const openPopup = () => {
         setIsOpen(true);
     }
 
+    //Close popup to edit education level of a subcluster
     const closePopup = () => {
         setIsOpen(false);
     }
 
+    //Function to refresh page 
     const refreshPage = () => {
         window.location.reload();
     }
 
+    //Close popup containing message with status of education level update and refresh page 
     const closeStatus = () => {
         setStatusEduc(false);
         refreshPage();
     }
 
-
+    //POST request sent to server which specifies particular subcluster ID, along with newly-desired education level for that Subcluster
     const changeSubClusterEducation = async () => {
         try {
             const user = auth.currentUser;
+            //If logged-in user is staff
             if(user) {
                 const token = await user.getIdToken();
                 const response = await(fetch('http://localhost:3001/subclustermanagementpage/edit-subcluster-education', {
@@ -44,12 +59,13 @@ const EditEducationSubCluster = ({ID}) => {
                     },
                     body: JSON.stringify({ subclusterEducation, ID })
                 }));
+                //If POST request goes through, alert user of success and updated education level 
                 if (response.ok) {
                     console.log('SubCluster name updated successfully');
                     setIsOpen(false);
                     setMessage('Successfully updated SubCluster education level.');
                     setStatusEduc(true);
-                    
+                //Otherwise, alert user of failure and display error message
                 } else {
                     console.error('Failed to update subcluster name');
                     setIsOpen(false);
@@ -71,7 +87,7 @@ const EditEducationSubCluster = ({ID}) => {
     }
 
 
-
+    //Return the HTML and elements used to populate Edit Education Level button, which has functionality to confirm and edit education level for a Subcluster within SQL database
     return (
         <div className="Education">
             <button className="editEducation" onClick={openPopup}>Edit Education Level</button>

@@ -7,11 +7,24 @@ import { useNavigate } from 'react-router-dom'
 import './CreateStaffAccount.css'
 
 
+/*
+This file contains the Javascript code and post requests used by an admin to create a staff account.
+The username and password, which the admin enters, is sent to the server which then uses that data to
+create an account with Firebase. 
+Components:
+BottomRectangle
+
+KJ Vaughn
+*/
+
+//React component for staff account creation page, used by admins
 const CreateStaffAccount = () => {
+    // State variables to keep track of entered staff account information
     const [email, setUserEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(false);
     const [message, setMessage] = useState('');
+    //Utilize Firebase config
     const auth = getAuth(app);
 
     const closeError = () => {
@@ -19,6 +32,7 @@ const CreateStaffAccount = () => {
         navigate('/login/adminpage')
     }
 
+    //Function used to refresh page 
     const refreshPage = () => {
         window.location.reload();
     }
@@ -27,7 +41,7 @@ const CreateStaffAccount = () => {
 
     
     
-    
+    //Sign up function sends in admin-entered state of email and password via POST request to server
     const handleSignUp = async (e) => {
         // OLD SIGN UP METHOD
         /*
@@ -41,7 +55,7 @@ const CreateStaffAccount = () => {
         }
         */
         e.preventDefault();
-        // Create account with inputted pw and email
+        // Create staff account with admin-inputted pw and email
         try {
         const response = await(fetch('http://localhost:3001/login/adminpage/create-user', {
             method: 'POST',
@@ -49,13 +63,14 @@ const CreateStaffAccount = () => {
             body: JSON.stringify({ email, password }),
         }))
 
-
+        //If response goes through, alert admin of success
         if (response.ok) {
             console.log('Sucessfully created user')
             setMessage('Successfully created new user.');
             setError(true);
         }
         
+        //Otherwise, catch and tell admin of error that occurred
         }   catch (error) {
             console.log("Error");
             setMessage('Failed to create new user.');
@@ -66,8 +81,8 @@ const CreateStaffAccount = () => {
         //navigate('/login/adminpage')
     }
 
-
-    return (
+    //Return the HTML & elements used to describe and display input form to create staff account
+    return (    
     <div id="page">
         <div id="_topRectangle">
             <p>Enter the email and password for the account to be created.</p>

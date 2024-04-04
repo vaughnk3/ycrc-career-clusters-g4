@@ -4,7 +4,16 @@ import { getAuth } from "firebase/auth";
 import app from "../../login_components/FirebaseConfig";
 
 
+/*
+This file contains the Javascript code and POST requests utilized by staff accounts to update the name for any given
+cluster within SQL database. Sends new cluster name to be updated within Cluster table 
+
+KJ Vaughn
+*/
+
+//React component which recieves particular selected cluster ID, used by staff to edit name for a Cluster
 const EditNameButton = ({ID}) => {
+    //State variable to keep track of popup status for updates and errors, along with new cluster name  
     const [isOpen, setIsOpen] = useState(false);
     const [clusterName, setClusterName] = useState('');
     const [editStatus, setEditStatus] = useState(false);
@@ -18,29 +27,30 @@ const EditNameButton = ({ID}) => {
         window.location.reload();
     }
 
+    //Close popup containing message with status of name update and refresh page 
     const closeStatus = () => {
         setEditStatus(false);
         refreshPage();
     }
 
-
+    //Open popup to edit name of a cluster
     const openPopup = () => {
         setIsOpen(true);
     }
 
+    //Close popup to edit education level of a cluster
     const closePopup = () => {
         setIsOpen(false);
     }
 
-   
-
-    
-
+    //POST request sent to server which specifies particular cluster ID, along with newly-desired name for that Cluster
     const changeClusterName = async () => {
         try {
             const user = auth.currentUser;
+            //If logged-in user is staff
             if(user) {
                 const token = await user.getIdToken();
+                //POST request
                 const response = await(fetch('http://localhost:3001/login/staffclusters/clustermanagementpage/edit-cluster-name', {
                 method: 'POST',
                 headers: {
@@ -49,11 +59,13 @@ const EditNameButton = ({ID}) => {
                 },
                 body: JSON.stringify({ clusterName, ID })
             }));
+            //If POST request goes through, alert user of success and updated name
             if (response.ok) {
                 console.log('Cluster updated successfully');
                 setIsOpen(false);
                 setMessage(`Successfully changed cluster name to: ${clusterName}`);
                 setEditStatus(true);
+            //Otherwise, alert user of failure and display error message
             } else {
                 console.error('Failed to update cluster');
                 setIsOpen(false);
@@ -75,7 +87,7 @@ const EditNameButton = ({ID}) => {
 
 
     
-
+    //Return the HTML and elements used to populate Edit Name button, which has functionality to confirm and edit name for a Cluser within SQL database
     return (
         <div id="cluster-button">
                 <button className="management-button" onClick={openPopup}>Edit Name</button>

@@ -3,8 +3,17 @@ import { useState } from 'react';
 import { getAuth } from "firebase/auth";
 import app from "../../login_components/FirebaseConfig"
 
+/*
+This file contains the Javascript code and POST requests utilized by staff accounts to update the image for any given
+subcluster within SQL database. Sends specified subcluster ID, and new image to be updated within Subcluster table 
+
+KJ Vaughn
+*/
+
+//React component which recieves corresponding Cluster ID, used by staff to edit image for a Subcluster
 const EditImageSubCluster = ({ID}) => {
    
+    //State variables to keep track of popup status for updates and errors, along with new image
     const [isOpen, setIsOpen] = useState(false);
     const [newImage, setNewImage] = useState(null);
     const [statusImage, setStatusImage] = useState(false);
@@ -12,29 +21,35 @@ const EditImageSubCluster = ({ID}) => {
 
     const auth = getAuth(app);
 
+    //Open popup to edit image of a subcluster
     const openPopup = () => {
         setIsOpen(true);
     }
 
+    //Close popup to edit image of a subcluster
     const closePopup = () => {
         setIsOpen(false);
     }
-   
+
+    //Function to refresh page 
     const refreshPage = () => {
         window.location.reload();
     }
 
+    //Close popup containing message with status of image update and refresh page 
     const closeStatus = () => {
         setStatusImage(false);
         refreshPage();
     }
 
+    //POST request sent to server which specifies particular subcluster ID, along with new file input by user to be used as image for that Subcluster
     const uploadFilePost = async (file, id) => {
         try {
             const formData = new FormData();
             formData.append('image', file);
             formData.append('id', id);
             const user = auth.currentUser;
+            //If logged-in user is staff
             if(user) {
                 const token = await user.getIdToken();
                 const dbResponse = await fetch ('http://localhost:3001/subimage-replace', {
@@ -45,12 +60,14 @@ const EditImageSubCluster = ({ID}) => {
                     body: formData
         
                 });
-        
+                
+                //If POST request goes through, alert user of success and updated image
                 if (dbResponse.ok) {
                     console.log('SubCluster name updated successfully');
                     setIsOpen(false);
                     setMessage('Successfully updated SubCluster Image.')
                     setStatusImage(true);
+                //Otherwise, alert user of failure and display error message
                 } else {
                     console.error('Failed to update subcluster name');
                     setIsOpen(false);
@@ -67,13 +84,14 @@ const EditImageSubCluster = ({ID}) => {
         }
     }
 
+    //If user specifies a new image to be used as input 
     const handleFileInputChange = (e) => 
     {
         console.log("HFC: ", e.target.files[0])
         setNewImage(e.target.files[0]);
     }
 
-
+    //Upon submission, update state of with new image to be updated and close popup
     const handleSubmit = () => {
         uploadFilePost(newImage, ID);
         closePopup();
@@ -81,7 +99,8 @@ const EditImageSubCluster = ({ID}) => {
 
 
    
-
+    //Return the HTML and elements used to populate Edit Image button, which has functionality to display dialogue box, confirm,
+    //and update image for a Subcluster within SQL database
     return (
         <div className="Image">
             <button className="editImage" onClick={openPopup}>Edit Image</button>

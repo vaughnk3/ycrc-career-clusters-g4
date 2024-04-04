@@ -1,3 +1,9 @@
+/*
+Styling for the bar which appears at the top of most pages, excluding login page...
+
+KJ Vaughn
+*/
+
 .top-rectangle {
     background-color: var(--darkblue);
     color: white;

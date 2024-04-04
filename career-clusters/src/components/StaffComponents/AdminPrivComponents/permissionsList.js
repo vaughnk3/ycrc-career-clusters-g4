@@ -12,7 +12,7 @@
     }
   }*/
 
-
+//Default custom permissions list used to populate within each user, utilized on page for modification of staff permissions 
   export const claimsList = {
     "uid": "", //update 
     "claims": {

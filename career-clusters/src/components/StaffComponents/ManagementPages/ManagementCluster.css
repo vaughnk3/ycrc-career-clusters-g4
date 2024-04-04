@@ -1,3 +1,11 @@
+/*
+This file contains the CSS used to style the elements and forms within the HTML of the 
+each cluster within the cluster management page, which is utilized by staff users.
+
+
+KJ Vaughn
+*/
+
 .cluster_m {
     width: 90%;
     height: fit-content;

@@ -4,13 +4,24 @@ import React, { useState } from "react";
 import { getAuth } from "firebase/auth";
 import app from "../../login_components/FirebaseConfig";
 
+/*
+This file contains the Javascript code and POST requests utilized by staff accounts to update the growth rate for any given
+subcluster within SQL database. Sends specified subcluster ID, and new growth rate to be updated within Subcluster table 
 
+KJ Vaughn
+*/
+
+
+//React component which recieves corresponding Cluster ID, used by staff to edit growth rate for a Subcluster
 const EditGrowthSubCluster = ({ID}) => {
+
+    //State variables to keep track of popup status for updates and errors, along with new growth rate 
     const [isOpen, setIsOpen] = useState(false);
     const [subclusterGrowthRate, setsubclusterGrowthRate] = useState('');
     const [statusGrowth, setStatusGrowth] = useState(false);
     const [message, setMessage] = useState('');
 
+    //Close popup containing message with status of growth rate update and refresh page 
     const closeStatus = () => {
         setStatusGrowth(false);
         refreshPage();
@@ -39,10 +50,11 @@ const EditGrowthSubCluster = ({ID}) => {
     }
 
     
-
+    //POST request sent to server which specifies particular subcluster ID, along with newly-desired growth rate for that Subcluster
     const changeSubClusterGrowthRate = async () => {
         try {
             const user = auth.currentUser;
+            //If logged-in user is staff
             if(user) {
                 const token = await user.getIdToken();
                 const response = await(fetch('http://localhost:3001/subclustermanagementpage/edit-subcluster-growthrate', {
@@ -53,12 +65,13 @@ const EditGrowthSubCluster = ({ID}) => {
                     },
                     body: JSON.stringify({ subclusterGrowthRate, ID })
                 }));
+                //If POST request goes through, alert user of success and updated growth rate
                 if (response.ok) {
                     console.log('SubCluster name updated successfully');
                     setIsOpen(false);
                     setMessage('Successfully updated SubCluster Growth Rate.');
                     setStatusGrowth(true);
-                    
+                //Otherwise, alert user of failure and display error message within popup 
                 } else {
                     console.error('Failed to update subcluster name');
                     setIsOpen(false);
@@ -79,7 +92,7 @@ const EditGrowthSubCluster = ({ID}) => {
         //refreshPage();
     }
 
-
+    //Return the HTML and elements used to populate Edit Growth Rate button, which has functionality to confirm and edit growth rate for a Subcluster within SQL database
     return (
         <div className="GrowthRate">
             <button className="editGrowthRate" onClick={openPopup}>Edit Growth Rate</button>

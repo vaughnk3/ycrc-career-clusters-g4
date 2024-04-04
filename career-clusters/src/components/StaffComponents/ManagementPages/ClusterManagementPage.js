@@ -7,7 +7,15 @@ import './ManagementCluster.css';
 import { getAuth } from "firebase/auth";
 import app from "../../login_components/FirebaseConfig";
 
+/*
+This file contains the Javascript code, GET requests to list all current clusters, and buttons for adding a new cluster.
+Sends desired cluster image and name, which is inputted by staff, to server which utilizes SQL queries to add newly-specified
+career cluster to database.
 
+KJ Vaughn
+*/
+
+//React component used by staff for management of career clusters 
 const ClusterManagementPage = () => {
     //Set all useState variables to be used in the file. 
     const navigate = useNavigate();
@@ -22,11 +30,13 @@ const ClusterManagementPage = () => {
 
     const auth = getAuth(app);
 
+    //Change state of error popup and refresh
     const closeError = () => {
         setError(false);
         refreshPage();
     }
 
+    //Change state of status popup and refresh
     const closeStatus = () => {
         setAddStatus(false);
         refreshPage();
@@ -59,12 +69,14 @@ const ClusterManagementPage = () => {
         if(canSend === true) {      // If no flag, allow for requests to be made 
         try {
                 const user = auth.currentUser;
+                //If user is a staff account
                 if(user) {
                     const token = await user.getIdToken();
                     const formData = new FormData();
                     formData.append('image', newImage); // Append the file
                     formData.append('clusterName', clusterName); // Append the clusterName as a text field
-            
+                    
+                    //Send new image and clusterName to server to be added to table within SQL 
                     const response = await fetch('http://localhost:3001/login/staffclusters/clustermanagementpage/add-cluster', {
                         method: 'POST',
                         headers: {
@@ -73,13 +85,14 @@ const ClusterManagementPage = () => {
                         body: formData,
                     
                     });
-            
+                    
+                    //If request goes through, alert user of success and display within status popup
                     if (response.ok) {
                         console.log('Cluster and image added successfully');
                         setIsOpen(false);
                         setMessage('Successfully created new cluster.')
                         setAddStatus(true);
-        
+                    //Otherwise, alert user of failure and display within status popup
                     } else {
                         console.error('Failed to add cluster and upload image');
                         setIsOpen(false);
@@ -139,6 +152,8 @@ const ClusterManagementPage = () => {
         setNewImage(e.target.files[0]);
     }
 
+    //Return the HTML and elements which are used to map all clusters, contain buttons and forms for management of clusters, and popups
+    //to alert staff of status of cluster management 
     return (
         <div id="page">
             <div id="_topRectangle">

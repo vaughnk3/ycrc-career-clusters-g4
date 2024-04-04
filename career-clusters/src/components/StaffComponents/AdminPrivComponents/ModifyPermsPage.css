@@ -1,3 +1,12 @@
+/*
+This file contains the CSS used to style the elements and forms within the HTML of the 
+staff permission modification page, which is used by admins. 
+
+
+KJ Vaughn
+*/
+
+
 .actionSelect, .userSelect, .permissionSelect {
     text-align:center;
 }

@@ -1,6 +1,12 @@
 import React from "react";
 import './UserIcon.css';
 
+/*
+This file contains the user icon component which is used to navigate
+to the login page which is evident throughout most pages
+
+KJ Vaughn
+*/
 const UserIcon = () => {
     return (
     <div>

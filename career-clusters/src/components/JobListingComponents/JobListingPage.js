@@ -5,6 +5,14 @@ import {useNavigate} from "react-router-dom"
 import { getAuth, signOut } from "firebase/auth";
 import { ExcelGenerationQueue } from "../StaffComponents/ExcelGeneration";
 
+/*
+This file contains the placeholder data and functions for the potentially implemented
+job listing page. 
+
+KJ Vaughn
+*/
+
+//Placeholder job listing page component
 const JobListingPage = () => {
     return (
       <h1>Placeholder</h1>
