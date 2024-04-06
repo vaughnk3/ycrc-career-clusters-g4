@@ -1,22 +1,27 @@
+/*
+Stylesheet for the website, including font imports and custom CSS variables.
+LAST EDITED 04/05/2024 Gavin T. Anderson
+*/
+
+/* Importing fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
 
-/* imports fonts used by the website from google fonts*/
-
+/* Setting custom CSS variables */
 :root {
   --blue: #59bab6;
   --green: #98ca41;
   --darkblue: #253251;
 }
 
+/* Global styling for the body */
 body {
   margin: 0;
   height: 100%;
-  font-family: 'Lato', sans-serif;
-  
-  font-size: 14pt; /* default font size */
+  font-family: 'Lato', sans-serif; /* Default font family */
+  font-size: 14pt; /* Default font size */
   position: relative;
-  margin-bottom: 140px;
+  margin-bottom: 140px; /* Bottom margin to accommodate footer */
 }
 
 html, body {
@@ -24,6 +29,7 @@ html, body {
   margin: 0;
 }
 
+/* Styling for content containers */
 .content {
   width: 100%;
   display: flex;
@@ -31,94 +37,87 @@ html, body {
 }
 
 .content-margin {
-  margin-top: 130px;
+  margin-top: 130px; /* Margin to separate content from top navigation */
 }
 
-.demographic-button { /* green buttons on demographic/login pages */
+/* Styling for demographic/login buttons */
+.demographic-button {
   position: relative;
   bottom: 20px;
-
   background-color: var(--green);
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-
   text-decoration: none;
   cursor: pointer;
-
   font-size: 1em;
   font-family: 'Lato', sans-serif;
 }
 
-.popup{
+/* Styling for pop-up modals */
+.popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.popup-content{
+.popup-content {
   width: min(60%, 32rem);
-  background-color:white;
-  border:3px solid var(--green);
-  border-radius:20px;
-  position:absolute;
-
-  color:black;
-
+  background-color: white;
+  border: 3px solid var(--green);
+  border-radius: 20px;
+  position: absolute;
+  color: black;
   text-align: center;
-
   padding: 30px;
-  box-shadow: 0 0 50px rgba(0, 0, 0,.3);
+  box-shadow: 0 0 50px rgba(0, 0, 0, .3);
 }
 
 .popup-content button {
   position: relative;
-
   background-color: var(--green);
-  
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  
   text-decoration: none;
   cursor: pointer;
-
   font-size: 1em;
   font-family: 'Lato', sans-serif;
   margin-left: 10px;
   margin-right: 10px;
 }
 
+/* Styling for top rectangle paragraph */
 #topRectangle p, #_topRectangle p {
   width: 70%;
-  
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Global styling for anchor and button elements */
 a, button {
   font-family: 'Lato', sans-serif;
-} 
+}
 
+/* Styling for manage and delete buttons */
 .manage-button, .delete-button {
   color: var(--darkblue);
   min-width: 7rem;
   width: 13%;
   height: 3rem;
   border-radius: 20px;
-  border-color:var(--green);
-  border:3px solid var(--green);
+  border-color: var(--green);
+  border: 3px solid var(--green);
   margin-right: .4rem;
   margin-top: .4rem;
   float: left;
- 
 }
 
 .manage-button:hover {

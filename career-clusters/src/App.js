@@ -1,3 +1,4 @@
+// Imports
 import './App.css';
 import DemographicInfo from './components/homePage/DemographicInfo';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -19,6 +20,7 @@ import ProtectedRoute from './components/StaffComponents/ProtectedRoute.js';
 import SchoolManagementPage from './components/StaffComponents/ManagementPages/SchoolManagementPage';
 import AdminProtectedRoute from './components/StaffComponents/AdminProtectedRoute.js';
 
+// Base App Function Declaration and Route Creation
 function App() {
   return (
     <Router>

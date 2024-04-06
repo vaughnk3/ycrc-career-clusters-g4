@@ -1,10 +1,19 @@
+/* 
+Entry point of the React Application, rendering the root components
+LAST EDITED 04/05/2024 Gavin T. Anderson
+*/
+
+// Imports
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Create a root React DOM container
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Render the root component with a strict mode wrapper */
 root.render(
   <React.StrictMode>
     <App />

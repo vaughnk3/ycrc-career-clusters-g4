@@ -1,19 +1,31 @@
+/* LAST EDITED 04/05/2024 Gavin T. Anderson */
+
+/* Centers text content horizatonally */
 .App {
   text-align: center;
 }
 
+/* Sets height relative to viewport width */
+/* Disabled pointer events to prevent interaction */
+/* Applies animation for spinning effect */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+/* Animation for logo spin */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    display:inline;
+    animation: App-logo-spin infinite 20s linear; /* Applies spinning animation */
+    display:inline; /* Ensures the logo is displayed inline */
   }
 }
 
+/* Sets background color */
+/* Defines minimum height to fill the viewport */
+/* Arranges content vertically centered */
+/* Sets font size relative to viewport width */
+/* Sets text color to white */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,14 +38,16 @@
   
 }
 
+/* Sets text color for links */
 .App-link {
   color: #61dafb;
 
 }
 
+/* Keyframes for the spinning animation of the logo */
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Starts the rotation from 0 deg */
   }
   to {
     transform: rotate(1500000000000000000000000000000000000000000000000000000000000000000000000000000000deg);

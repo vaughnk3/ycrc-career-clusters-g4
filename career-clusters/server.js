@@ -1,3 +1,15 @@
+/*
+Required modules:
+- 'express': For creating the Express application.
+- 'mysql2': For interacting with MySQL databases.
+- 'cors': For enabling Cross-Origin Resource Sharing.
+- 'multer': For handling multipart/form-data, primarily used for file uploads.
+- 'firebase-admin': For Firebase authentication.
+
+LAST EDITED 04/05/2024 Gavin T. Anderson
+*/
+
+// Import required modules
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
@@ -5,29 +17,34 @@ const app = express();
 const multer = require('multer');
 const admin = require('firebase-admin');
 
+// Import Firebase service account credentials
 const serviceAccount = require('./firebase-admin-sdk/career-clusters-9dcc3-firebase-adminsdk-nggr9-ddf5aa127a.json');
-const { useParams } = require('react-router-dom');
 
+// Initialize Firebase Admin SDK with service account credentials
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
-})
+});
 
+// Middleware function to check user authentication using Firebase Auth
 async function checkAuth(req, res, next) {
   const token = req.headers.authorization?.split('Bearer ')[1];
-  if(!token){
-    return res.status(401).send('Back-end authentication failed: Access token is missing or invalid.')
+  if (!token) {
+    return res.status(401).send('Back-end authentication failed: Access token is missing or invalid.');
   }
-    try {
-      const decodedToken = await admin.auth().verifyIdToken(token);
-      req.user = decodedToken;
-      console.log('Authenticated user token making request:', decodedToken)
-      next();
-    } catch (e) {
-      console.error('Error verifying Firebase ID token:', e);
-      res.status(403).send('Back-end authentication failed: Failed to authenticate token.')
-    }
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(token);
+    req.user = decodedToken;
+    console.log('Authenticated user token making request:', decodedToken);
+    next();
+  } catch (e) {
+    console.error('Error verifying Firebase ID token:', e);
+    res.status(403).send('Back-end authentication failed: Failed to authenticate token.');
+  }
 }
+
+// Configure multer for handling file uploads
 const upload = multer({ storage: multer.memoryStorage() });
+
 // Use the mysqlConnection object to perform database operations
 // ...
 
