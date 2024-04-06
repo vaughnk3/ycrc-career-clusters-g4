@@ -11,7 +11,7 @@ Here we will fetch all of the clusters, handle a click count update, have
 error message pop-up incase the clusters are not able to render, and navigation to the 
 subclusters pertaining to the clicked cluster. 
 
-LAST EDITED -- 03 / 01 / 2024 --- Ross Friend
+LAST EDITED -- 04 / 05 / 2024 --- Gavin T. Anderson
 */
 
 const ClusterPage = () => {
@@ -84,11 +84,13 @@ const ClusterPage = () => {
                     },
                     body: JSON.stringify( { clusterID: ID })
                 }));
+                // If response is okay, console success
                 if (response.ok) {
                     console.log('Cluster click count updated successfully');
-                } else {
-                    console.error('Failed to update cluster clickount')
+                } else { // If response is bad, let user know that it failed to update the cluster click count
+                    console.error('Failed to update cluster clickcount')
                 }
+                // If the try attempt fails, console that a failure happened with the specific error
             } catch (error) {
                 console.error('Error updating cluster clickcount: ', error)
             }
@@ -108,6 +110,7 @@ const ClusterPage = () => {
         navigate('/cluster/subcluster')
     }
 
+    // HTML Return for page
     return (
     <div id="page">
         <div id="topRectangle">

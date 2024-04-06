@@ -1,123 +1,146 @@
 /*
 This page contains all the CSS for the LoginPage, which is accessed by clicking on any of the User Icons in the 
 top right corner of any general user view pages.  This includes CSS for any popup content that may be triggered from the login page. 
+LAST EDITED: 04/05/2024 Gavin T. Anderson
 */
 
+/* Styling for the main login form container */
 #login-form {
-    width: min(70%, 460px);
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 30rem;
-
-    margin-top: 4rem;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom: 6rem;
-
-    background-color: var(--darkblue);
+    width: min(70%, 460px); /* Sets width based on minimum of 70% or 460px */
+    display: flex; /* Sets display to flex */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 30rem; /* Sets height */
+    margin-top: 4rem; /* Adds margin at the top */
+    margin-left: auto; /* Aligns to the left */
+    margin-right: auto; /* Aligns to the right */
+    margin-bottom: 6rem; /* Adds margin at the bottom */
+    background-color: var(--darkblue); /* Sets background color using a CSS variable */
     border-radius: 25px; /* Adjust the border-radius for rounded corners */
-    box-shadow: 0 0 50px rgba(0, 0, 0,.3);
-    z-index: 1;
+    box-shadow: 0 0 50px rgba(0, 0, 0,.3); /* Adds a shadow effect */
+    z-index: 1; /* Sets the stacking order */
 }
 
+
+/* Styling for the form inside the login form container */
 #login-form form {
-    text-align: center;
-    width:50%;
+    text-align: center; /* Centers text inside the form */
+    width: 50%; /* Sets width of the form */
 }
 
+
+/* Styling for heading level 3 elements inside the login form container */
 #login-form h3 {
-    color:white;
-    margin: 0;
-    text-align: left !important;
+    color: white; /* Sets color of heading text */
+    margin: 0; /* Resets margin */
+    text-align: left !important; /* Aligns text to the left */
 }
 
+
+/* Styling for input fields */
 .field {
-    height: 30px;
-    color:black;
-    font-size: 1rem;
-    margin-bottom:2.8rem;
-    border-radius:10px;
-    width:100%;
-    border: none;
+    height: 30px; /* Sets height of input fields */
+    color: black; /* Sets color of text */
+    font-size: 1rem; /* Sets font size */
+    margin-bottom: 2.8rem; /* Adds margin at the bottom */
+    border-radius: 10px; /* Adds rounded corners to the border */
+    width: 100%; /* Sets width to 100% */
+    border: none; /* Removes border */
 }
 
+
+/* Styling for placeholder text in input fields */
 .field::placeholder {
-    height:1.5rem;
-    color:gray;
-    font-size: 1rem;
-    bottom:0;
+    height: 1.5rem; /* Sets height of placeholder text */
+    color: gray; /* Sets color of placeholder text */
+    font-size: 1rem; /* Sets font size */
+    bottom: 0; /* Positions placeholder text at the bottom */
 }
 
+
+/* Styling for paragraph elements inside the login form container */
 #login-form p {
-    color:white;
-    font-size: 1rem;
-    margin-top:5%;
-    margin-bottom:20%;
-    cursor: pointer;
+    color: white; /* Sets color of text */
+    font-size: 1rem; /* Sets font size */
+    margin-top: 5%; /* Adds margin at the top */
+    margin-bottom: 20%; /* Adds margin at the bottom */
+    cursor: pointer; /* Changes cursor on hover */
 }
 
+
+/* Styling for paragraph elements on hover inside the login form container */
 #login-form p:hover {
-    color:var(--green);
+    color: var(--green); /* Sets color on hover using a CSS variable */
 }
 
+
+/* Styling for the password popup container */
 .pass-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: fixed; /* Sets position to fixed */
+    top: 0; /* Positions popup at the top */
+    left: 0; /* Positions popup at the left */
+    width: 100%; /* Sets width to 100% */
+    height: 100%; /* Sets height to 100% */
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    z-index: 1000; /* Ensure popup is above other content */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    z-index: 1000; /* Sets the stacking order */
+    display: flex; /* Sets display to flex */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
 }
 
+
+/* Styling for the content inside the password popup container */
 .pass-popup-content {
-    width: min(40%, 380px);
-    height: fit-content;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 10000;
-    
+    width: min(40%, 380px); /* Sets width based on minimum of 40% or 380px */
+    height: fit-content; /* Sets height based on content */
+    background-color: white; /* Sets background color */
+    padding: 20px; /* Adds padding */
+    border-radius: 10px; /* Adds rounded corners to the border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adds a shadow effect */
+    position: relative; /* Sets position to relative */
+    z-index: 10000; /* Sets the stacking order */
 }
 
+
+/* Styling for heading level 3 elements inside the password popup container */
 .pass-popup h3 {
-    color: black !important;
+    color: black !important; /* Sets color of heading text */
 }
 
+
+/* Styling for input fields inside the password popup container */
 .pass-popup input {
-    height: 30px;
-    color:black;
-    font-size: 1rem;
-
-    border-radius:10px;
-    width:100%;
-    border: 1px solid var(--darkblue);
-    margin-bottom:3rem;
-    margin-top: 20px;
+    height: 30px; /* Sets height of input fields */
+    color: black; /* Sets color of text */
+    font-size: 1rem; /* Sets font size */
+    border-radius: 10px; /* Adds rounded corners to the border */
+    width: 100%; /* Sets width to 100% */
+    border: 1px solid var(--darkblue); /* Sets border */
+    margin-bottom: 3rem; /* Adds margin at the bottom */
+    margin-top: 20px; /* Adds margin at the top */
 }
 
+
+/* Styling for the button inside the password popup container */
 .pass-popup .demographic-button {
-    text-align: center;
-    display: block;
-
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
+    text-align: center; /* Centers text */
+    display: block; /* Displays as block element */
+    margin-left: auto; /* Aligns to the left */
+    margin-right: auto; /* Aligns to the right */
+    margin-bottom: 10px; /* Adds margin at the bottom */
 }
 
+
+/* Styling for the forgot password submit button */
 .forgot-submit {
-    background-color: var(--green);
-    border-radius:20px;
-    border: solid var (--green);
-    height:30%;
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    border-radius: 20px; /* Adds rounded corners to the border */
+    border: solid var (--green); /* Sets border */
+    height: 30%; /* Sets height */
 }
 
+
+/* Styling for the forgot password box */
 #forgot-box {
-    border: 3px solid var(--green);
+    border: 3px solid var(--green); /* Sets border */
 }

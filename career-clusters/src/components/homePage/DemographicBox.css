@@ -1,81 +1,102 @@
 /*
-This file contains the styling pieces correlating to
-DemographicBox.js
+    This file contains the styling pieces correlating to DemographicBox.js
+    LAST EDITED: 04/05/2024 Gavin T. Anderson
 */
 
 
+/* Styling for the main container of the demographic box */
 #demographic-box {
-    /* centers the box on the page */
-    margin-left: auto;
-    margin-right: auto;
-
-    text-align: center;
-
-    max-width: 700px;
-    padding-bottom: 20px;
-
-    background-color: var(--darkblue);
-    border-radius: 25px; /* Adjust the border-radius for rounded corners */
-    box-shadow: 0 0 50px rgba(0, 0, 0,.3);
+  /* Centers the box on the page */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* Centers text inside the box */
+  max-width: 700px; /* Sets maximum width for the box */
+  padding-bottom: 20px; /* Adds space at the bottom of the box */
+  background-color: var(--darkblue); /* Sets background color using a CSS variable */
+  border-radius: 25px; /* Adjust the border-radius for rounded corners */
+  box-shadow: 0 0 50px rgba(0, 0, 0,.3); /* Adds a shadow effect */
 }
 
+
+/* Styling for the container inside the demographic box */
 #demographic-box-container {
-  padding: 50px;
+  padding: 50px; /* Adds padding inside the container */
 }
 
+
+/* Styling for each demographic item */
 .demographic-item {
-  display: inline-block;
-  text-align: left;
-  width: 250px;
-  margin: 15px;
+  display: inline-block; /* Makes items display in a row */
+  text-align: left; /* Aligns text to the left */
+  width: 250px; /* Sets width for each item */
+  margin: 15px; /* Adds margin around each item */
 }
 
+
+/* Styling for select elements inside demographic items */
 .demographic-item select {
-  margin-bottom: 50px;
-  width: 80%;
+  margin-bottom: 50px; /* Adds space at the bottom of select elements */
+  width: 80%; /* Sets width for select elements */
 }
 
+
+/* Styling for heading elements inside demographic items */
 .demographic-item h3 {
-  margin: 0px;
-  color: white;
+  margin: 0px; /* Resets margin for consistency */
+  color: white; /* Sets color of heading text */
 }
 
+
+/* Styling for input elements inside demographic items */
 .demographic-item input {
-  width: 80%;
+  width: 80%; /* Sets width for input elements */
 }
 
+
+/* Styling for elements with the class 'hidden' */
 .hidden {
-  color: gray;
+  color: gray; /* Sets color for hidden elements */
 }
+
+
+/* Styling for header elements */
 .header {
-  color: black;
-  margin-bottom: 10px; /* Adjust the margin as needed */
+  color: black; /* Sets color of header text */
+  margin-bottom: 10px; /* Adds margin at the bottom of headers */
 }
 
+
+/* Styling for select elements */
 .select {
-  height:2rem;
-  border-radius: 10px;
-  border: 0;
-  color: gray;
-  font-weight: 600;
- }
-
- .test {
-  font-size: 1rem;
-  text-align: center;
-  color:black;
-  border-top: 1px solid var(--green);
-  border:1px solid var(--green);
-  font-weight: 400;
- }
-
-#school-select, #grade {
-  outline: 2px solid rgba(255, 0, 0, 0);
-  transition: outline .5s;
+  height: 2rem; /* Sets height for select elements */
+  border-radius: 10px; /* Adds rounded corners to select elements */
+  border: 0; /* Removes border */
+  color: gray; /* Sets color of select text */
+  font-weight: 600; /* Sets font weight */
 }
 
+
+/* Styling for elements with the class 'test' */
+.test {
+  font-size: 1rem; /* Sets font size */
+  text-align: center; /* Centers text */
+  color: black; /* Sets color of text */
+  border-top: 1px solid var(--green); /* Adds top border */
+  border: 1px solid var(--green); /* Adds border */
+  font-weight: 400; /* Sets font weight */
+}
+
+
+/* Styling for specific elements with IDs */
+#school-select, #grade {
+  outline: 2px solid rgba(255, 0, 0, 0); /* Removes outline */
+  transition: outline .5s; /* Adds transition effect to outline */
+}
+
+
+/* Styling for the element with ID 'other-school' */
 #other-school {
-  border:2px solid var(--green);
-  border-radius:20px;
-  margin-bottom:5%;
+  border: 2px solid var(--green); /* Sets border */
+  border-radius: 20px; /* Adds rounded corners to border */
+  margin-bottom: 5%; /* Adds margin at the bottom */
 }

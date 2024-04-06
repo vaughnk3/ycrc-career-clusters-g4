@@ -1,34 +1,43 @@
 /*
 CSS File for the home page of the application, where the Demographic Box, User Login Icon, and Logo are located.
+LAST EDITED: 04/05/2024 Gavin T. Anderson
 */
 
+/* Styling for the main content container of the demographic section */
 #demographic-content {
-	width: 100%;
-	text-align: center;
-	margin-top: 4rem;
-	margin-bottom: 6rem;
-	margin-left: 3%;
-	margin-right: 3%;
+    width: 100%; /* Sets width to 100% */
+    text-align: center; /* Centers text inside the container */
+    margin-top: 4rem; /* Adds margin at the top */
+    margin-bottom: 6rem; /* Adds margin at the bottom */
+    margin-left: 3%; /* Adds margin at the left */
+    margin-right: 3%; /* Adds margin at the right */
 }
 
+
+/* Styling for heading level 2 elements */
 h2 {
-	margin: 0px;
+    margin: 0px; /* Resets margin */
 }
 
+
+/* Styling for heading level 3 elements */
 h3 {
-	margin-bottom: 50px;
+    margin-bottom: 50px; /* Adds margin at the bottom */
 }
 
+
+/* Styling for the top bar container */
 #topbar {
-	position: relative;
-	width: 100%;
-	min-height: 140px;
-	height: 140px;
-	margin-bottom: -6%;
-
+    position: relative; /* Sets position to relative */
+    width: 100%; /* Sets width to 100% */
+    min-height: 140px; /* Sets minimum height */
+    height: 140px; /* Sets height */
+    margin-bottom: -6%; /* Adds negative margin at the bottom */
 }
 
+
+/* Styling for images inside the top bar */
 #topbar img {
-	background-color: white;
-	border-radius: 10px;
+    background-color: white; /* Sets background color */
+    border-radius: 10px; /* Adds rounded corners to the border */
 }

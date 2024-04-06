@@ -1,3 +1,4 @@
+// Imports
 import React from 'react';
 import BottomRectangle from '../page_Components/BottomRectangle.js';
 import TopLeftLogo from '../page_Components/TopLeftLogo.js'
