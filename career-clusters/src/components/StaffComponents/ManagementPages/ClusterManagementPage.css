@@ -2,139 +2,162 @@
 This file contains the CSS used to style the elements and forms within the HTML of the 
 cluster management page, which is utilized by staff users.
 
-
+Edits: (04/05/2024)
+Gavin T. Anderson
 KJ Vaughn
 */
 
 
-    #_topRectangle {
-        background-color: var(--darkblue);
-        color: white;
-        text-align: center;
-        height: 110px;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-        top:0;
-    }
-
-    #_topRectangle h2 {
-        padding-top: 15px;
-    }
-
-    #add_cluster {
-        margin-left:30%;
-        position:absolute;
-        margin-top:2.4%;
-        width:15%;
-        height:40%;
-        background-color: var(--green);
-        border-radius: 40px;
-        border:3px solid var(--green);
-        font-size:20px;
-    }
+/* Styling for the top rectangle */
+#_topRectangle {
+    background-color: var(--darkblue); /* Sets background color using a CSS variable */
+    color: white; /* Sets color of text to white */
+    text-align: center; /* Centers text */
+    height: 110px; /* Sets height to 110px */
+    position: fixed; /* Sets position to fixed */
+    width: 100%; /* Sets width to 100% */
+    z-index: 1000; /* Sets the stacking order */
+    top: 0; /* Positions at the top */
+}
 
 
-    #back_button {
-        position:absolute;
-        margin-left:-42%;
-        margin-top:2.4%;
-        width:15%;
-        height:40%;
-        background-color: var(--green);
-        border-radius: 40px;
-        border:3px solid var(--green);
-        font-size:20px;
-    }
+/* Styling for heading level 2 elements inside the top rectangle */
+#_topRectangle h2 {
+    padding-top: 15px; /* Adds padding at the top */
+}
 
 
+/* Styling for the 'Add Cluster' button */
+#add_cluster {
+    margin-left: 30%; /* Adds margin at the left */
+    position: absolute; /* Sets position to absolute */
+    margin-top: 2.4%; /* Adds margin at the top */
+    width: 15%; /* Sets width to 15% */
+    height: 40%; /* Sets height to 40% */
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    border-radius: 40px; /* Adds rounded corners to the border */
+    border: 3px solid var(--green); /* Sets border */
+    font-size: 20px; /* Sets font size to 20px */
+}
 
 
-    #popupLeft {
-        flex: 1 1;
-        display:inline-flex;
-        flex-direction:column;
-        justify-content: center;
-        width:50%;
-        margin-top:-5%;
-    }
-
-    #popupRight {
-        flex:1 1;
-        color:black;
-        display: inline-flex;
-        flex-direction:column;
-        justify-content:space-around;
-        padding-right:50px;
-    }
-    
-    .close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 20px;
-        cursor: pointer;
-    }
-
-    .cancelButton {
-        border-radius: 40px;
-        border-color:#98ca41;
-        border:3px solid var(--green);
-        width:100px;
-        height:35px;
-        margin-right:5%;
-        margin-bottom:4%;
-    }
-
-    .addButton {
-        border-radius: 40px;
-        border-color:#98ca41;
-        border:3px solid var(--green);
-        width:100px;
-        background-color:var(--green);
-        height:35px;
-        margin-left:5%;
-    }
-
-    .popup-content h4 {
-        margin-left:20%;
-        margin-bottom:20%;
-        font-size:20px;
-    }
+/* Styling for the 'Back' button */
+#back_button {
+    position: absolute; /* Sets position to absolute */
+    margin-left: -42%; /* Adds negative margin at the left */
+    margin-top: 2.4%; /* Adds margin at the top */
+    width: 15%; /* Sets width to 15% */
+    height: 40%; /* Sets height to 40% */
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    border-radius: 40px; /* Adds rounded corners to the border */
+    border: 3px solid var(--green); /* Sets border */
+    font-size: 20px; /* Sets font size to 20px */
+}
 
 
-    #clusterNamePop {
-        margin-left:20%;
-        border:3px solid var(--green);
-        border-radius:30px;
-        height:20%;
-    }
+/* Styling for the left side of the popup */
+#popupLeft {
+    flex: 1 1; /* Sets flex properties */
+    display: inline-flex; /* Sets display to inline-flex */
+    flex-direction: column; /* Sets flex direction to column */
+    justify-content: center; /* Centers content vertically */
+    width: 50%; /* Sets width to 50% */
+    margin-top: -5%; /* Adds negative margin at the top */
+}
 
 
-    #imgN {
-        margin-left:20%;
-        width:181px;
-    }
-
-    .button-row {
-        display:flex;
-        flex-flow:row nowrap;
-        justify-content:center;
-        align-content:center;
-        width:100%;
-        margin-top:50px;
-        position:relative;
-    }
-
-    #clusterName {
-        border:3px solid var(--green);
-        border-radius:30px;
-        width:40%;
-        height:20%;
-    }
+/* Styling for the right side of the popup */
+#popupRight {
+    flex: 1 1; /* Sets flex properties */
+    color: black; /* Sets color of text to black */
+    display: inline-flex; /* Sets display to inline-flex */
+    flex-direction: column; /* Sets flex direction to column */
+    justify-content: space-around; /* Aligns content space-around */
+    padding-right: 50px; /* Adds padding at the right */
+}
 
 
-    #imgWrapper {
-        margin:0;
-        padding:0;
-    }
+/* Styling for the close button */
+.close {
+    position: absolute; /* Sets position to absolute */
+    top: 10px; /* Positions 10px from the top */
+    right: 10px; /* Positions 10px from the right */
+    font-size: 20px; /* Sets font size to 20px */
+    cursor: pointer; /* Changes cursor to pointer */
+}
+
+
+/* Styling for the cancel button */
+.cancelButton {
+    border-radius: 40px; /* Adds rounded corners to the border */
+    border-color: #98ca41; /* Sets border color */
+    border: 3px solid var(--green); /* Sets border */
+    width: 100px; /* Sets width to 100px */
+    height: 35px; /* Sets height to 35px */
+    margin-right: 5%; /* Adds margin at the right */
+    margin-bottom: 4%; /* Adds margin at the bottom */
+}
+
+
+/* Styling for the add button */
+.addButton {
+    border-radius: 40px; /* Adds rounded corners to the border */
+    border-color: #98ca41; /* Sets border color */
+    border: 3px solid var(--green); /* Sets border */
+    width: 100px; /* Sets width to 100px */
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    height: 35px; /* Sets height to 35px */
+    margin-left: 5%; /* Adds margin at the left */
+}
+
+
+/* Styling for heading level 4 elements within popup content */
+.popup-content h4 {
+    margin-left: 20%; /* Adds margin at the left */
+    margin-bottom: 20%; /* Adds margin at the bottom */
+    font-size: 20px; /* Sets font size to 20px */
+}
+
+
+/* Styling for the cluster name popup */
+#clusterNamePop {
+    margin-left: 20%; /* Adds margin at the left */
+    border: 3px solid var(--green); /* Sets border */
+    border-radius: 30px; /* Adds rounded corners to the border */
+    height: 20%; /* Sets height to 20% */
+}
+
+
+/* Styling for the cluster image */
+#imgN {
+    margin-left: 20%; /* Adds margin at the left */
+    width: 181px; /* Sets width to 181px */
+}
+
+
+/* Styling for the button row */
+.button-row {
+    display: flex; /* Sets display to flex */
+    flex-flow: row nowrap; /* Sets flex direction to row and nowrap */
+    justify-content: center; /* Centers content horizontally */
+    align-content: center; /* Centers content vertically */
+    width: 100%; /* Sets width to 100% */
+    margin-top: 50px; /* Adds margin at the top */
+    position: relative; /* Sets position to relative */
+}
+
+
+/* Styling for the cluster name input field */
+#clusterName {
+    border: 3px solid var(--green); /* Sets border */
+    border-radius: 30px; /* Adds rounded corners to the border */
+    width: 40%; /* Sets width to 40% */
+    height: 20%; /* Sets height to 20% */
+}
+
+
+/* Styling for the image wrapper */
+#imgWrapper {
+    margin: 0; /* Resets margin */
+    padding: 0; /* Resets padding */
+}

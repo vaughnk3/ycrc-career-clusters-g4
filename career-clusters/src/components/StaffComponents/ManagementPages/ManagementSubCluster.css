@@ -2,177 +2,188 @@
 This file contains the CSS used to style the elements and forms within the HTML of the 
 each subcluster within the subcluster management page, which is utilized by staff users.
 
-
+Edits: (04/05/2024)
+Gavin T. Anderson
 KJ Vaughn
 */
 
+/* Styling for each subcluster element */
 .subcluster_m {
-    width: 95%;
-    height: auto;
-
-    padding: 0;
-    padding-bottom: 2rem;
-
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.5rem;
-
-    background-color: #D9D9D9;
-    border: 6px solid var(--green);
-	border-radius: 60px;
+    width: 95%; /* Sets width to 95% */
+    height: auto; /* Sets height to auto */
+    padding: 0; /* Resets padding */
+    padding-bottom: 2rem; /* Adds padding at the bottom */
+    margin-left: auto; /* Aligns horizontally to the left */
+    margin-right: auto; /* Aligns horizontally to the right */
+    margin-bottom: 1.5rem; /* Adds margin at the bottom */
+    background-color: #D9D9D9; /* Sets background color */
+    border: 6px solid var(--green); /* Sets border */
+    border-radius: 60px; /* Adds rounded corners to the border */
 }
 
+/* Styling for heading level 2 elements within each subcluster */
 .subcluster_m h2 {
-    margin: 2rem;
-    margin-bottom: 0;
-    font-size: 20px;
+    margin: 2rem; /* Adds margin */
+    margin-bottom: 0; /* Removes margin at the bottom */
+    font-size: 20px; /* Sets font size to 20px */
 }
 
+/* Styling for the container of the add subcluster form */
 .addsc-container {
-    background-color:white;
-    border:3px solid var(--green);
-    border-radius:25px;
-    position:absolute;
-    color:black;
-    flex-flow:row wrap;
-    justify-content:center;
-    align-content:center;
-    display:flex;
-    height:320px;
-    width:650px;
+    background-color: white; /* Sets background color to white */
+    border: 3px solid var(--green); /* Sets border */
+    border-radius: 25px; /* Adds rounded corners to the border */
+    position: absolute; /* Sets position to absolute */
+    color: black; /* Sets color of text to black */
+    flex-flow: row wrap; /* Sets flex direction to row and wrap */
+    justify-content: center; /* Centers content horizontally */
+    align-content: center; /* Centers content vertically */
+    display: flex; /* Sets display to flex */
+    height: 320px; /* Sets height to 320px */
+    width: 650px; /* Sets width to 650px */
 }
 
+/* Styling for the left section of the add subcluster form */
 .newsc-left {
-    display:flex;
-    flex-flow:column;
-    width:225px;
-    margin-top:30px;
-    padding-right:35px;
-    padding-left:40px;
+    display: flex; /* Sets display to flex */
+    flex-flow: column; /* Sets flex direction to column */
+    width: 225px; /* Sets width to 225px */
+    margin-top: 30px; /* Adds margin at the top */
+    padding-right: 35px; /* Adds padding at the right */
+    padding-left: 40px; /* Adds padding at the left */
 }
 
+/* Styling for the right section of the add subcluster form */
 .newsc-right {
-    display:flex;
-    flex-flow:column;
-    width:225px;
-    padding-left:35px;
-    margin-top:30px;
-    padding-right:40px;
+    display: flex; /* Sets display to flex */
+    flex-flow: column; /* Sets flex direction to column */
+    width: 225px; /* Sets width to 225px */
+    padding-left: 35px; /* Adds padding at the left */
+    margin-top: 30px; /* Adds margin at the top */
+    padding-right: 40px; /* Adds padding at the right */
 }
 
-
+/* Styling for labels in the add subcluster form */
 .label-addsc {
-    margin-right:24px;
-    font-size:16px;
-    font-weight: bold;
-    display:inline-flex;
-    margin-top:10px;
+    margin-right: 24px; /* Adds margin at the right */
+    font-size: 16px; /* Sets font size to 16px */
+    font-weight: bold; /* Sets font weight to bold */
+    display: inline-flex; /* Sets display to inline-flex */
+    margin-top: 10px; /* Adds margin at the top */
 }
 
+/* Styling for the button row in the add subcluster form */
 .newsc-buttonrow {
-    display:inline-flex;
-    justify-content: center;
-    margin-top:30px;
-    flex-flow:row nowrap;
-    justify-content:center;
-    align-content:center;
-    width:100%;
-    position:relative;
-    margin-bottom:20px;
+    display: inline-flex; /* Sets display to inline-flex */
+    justify-content: center; /* Centers content horizontally */
+    margin-top: 30px; /* Adds margin at the top */
+    flex-flow: row nowrap; /* Sets flex direction to row and nowrap */
+    justify-content: center; /* Centers content horizontally */
+    align-content: center; /* Centers content vertically */
+    width: 100%; /* Sets width to 100% */
+    position: relative; /* Sets position to relative */
+    margin-bottom: 20px; /* Adds margin at the bottom */
 }
 
+/* Styling for the submit button in the add subcluster form */
 #subm-cluster-button {
-    width: fit-content;
-    height: fit-content;
-
-    background-color: var(--green);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-
-    font-size: 14pt;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: fit-content; /* Sets width to fit content */
+    height: fit-content; /* Sets height to fit content */
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    padding: 10px 20px; /* Adds padding */
+    border: none; /* Removes border */
+    border-radius: 10px; /* Adds rounded corners to the border */
+    font-size: 14pt; /* Sets font size to 14pt */
+    display: block; /* Sets display to block */
+    margin-left: auto; /* Aligns horizontally to the left */
+    margin-right: auto; /* Aligns horizontally to the right */
 }
 
-#subm-content {
-    width: 100%;
-    margin: 0;
-
-}
-
+/* Styling for the subcluster management list */
 .scmgmt_list {
-    width: 90%;
-    margin: 0;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    
-    padding: 0;
-
-    margin-left: auto;
-    margin-right: auto;
+    width: 90%; /* Sets width to 90% */
+    margin: 0; /* Resets margin */
+    margin-top: 2rem; /* Adds margin at the top */
+    margin-bottom: 4rem; /* Adds margin at the bottom */
+    padding: 0; /* Resets padding */
+    margin-left: auto; /* Aligns horizontally to the left */
+    margin-right: auto; /* Aligns horizontally to the right */
 }
 
+/* Styling for the subcluster edit bar */
 .sc_editbar {
-    width: 92%;
-    margin-top: 1rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-
-    display: inline-block;
+    width: 92%; /* Sets width to 92% */
+    margin-top: 1rem; /* Adds margin at the top */
+    margin-left: 2rem; /* Adds margin at the left */
+    margin-right: 2rem; /* Adds margin at the right */
+    display: inline-block; /* Sets display to inline-block */
 }
 
-
-#subclusterDescrip {
-    height:43%;
-    border:3px solid var(--green);
-    border-radius:5px;
-    
+/* Styling for various form elements within the subcluster management */
+#subclusterDescrip, #growth-rate, #subclusterName, #subclusterSalary, #subclusterEducation, #select-cluster {
+    border: 3px solid var(--green); /* Sets border */
+    border-radius: 30px; /* Adds rounded corners to the border */
 }
 
-#growth-rate {
-    border:3px solid var(--green);
-    border-radius:30px;
+/* Styling for a popup window */
+.delete-popup-content {
+    background-color: white; /* Sets background color to white */
+    border: 3px solid var(--green); /* Sets border */
+    border-radius: 20px; /* Adds rounded corners to the border */
+    display: flex; /* Sets display to flex */
+    color: black; /* Sets color of text to black */
+    flex-flow: column wrap; /* Sets flex direction to column and wrap */
+    justify-content: center; /* Centers content vertically */
+    align-content: center; /* Centers content vertically */
+    width: 40%; /* Sets width to 40% */
+    height: 30%; /* Sets height to 30% */
+    padding: 20px; /* Adds padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adds box shadow */
+    position: relative; /* Sets position to relative */
+    z-index: 10000; /* Sets z-index to 10000 */
 }
 
-#subclusterName {
-    border:3px solid var(--green);
-    border-radius:30px;
+/* Styling for the close button of a popup */
+.close {
+    position: absolute; /* Sets position to absolute */
+    top: 10px; /* Sets position from the top */
+    right: 10px; /* Sets position from the right */
+    font-size: 20px; /* Sets font size to 20px */
+    cursor: pointer; /* Sets cursor to pointer */
 }
 
-#subclusterSalary {
-    border:3px solid var(--green);
-    border-radius:30px;
+/* Styling for the submit button within the popup */
+#submitName, #deleteCluster {
+    background-color: #98ca41; /* Sets background color */
+    border-radius: 40px; /* Adds rounded corners to the border */
+    border: 3px solid var(--green); /* Sets border */
+    width: 100px; /* Sets width to 100px */
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    height: 35px; /* Sets height to 35px */
 }
 
-#subclusterEducation {
-    border:3px solid var(--green);
-    border-radius:30px;
+/* Styling for button rows */
+.button-row, .editbuttonrow, .replacebuttonrow, .deletebuttonrow, .left-add, .right-add {
+    display: inline-flex; /* Sets display to inline-flex */
+    justify-content: center; /* Centers content horizontally */
+    margin-top: 50px; /* Adds margin at the top */
+    flex-flow: row nowrap; /* Sets flex direction to row and nowrap */
+    justify-content: center; /* Centers content horizontally */
+    align-content: center; /* Centers content vertically */
+    width: 100%; /* Sets width to 100% */
+    position: relative; /* Sets position to relative */
 }
 
-#select-cluster {
-    border:3px solid var(--green);
-    border-radius:30px;
+/* Styling for images */
+#img, #subm-select-cluster {
+    display: inline-flex; /* Sets display to inline-flex */
+    margin-right: auto; /* Aligns horizontally to the right */
 }
 
-.standardIn-popup {
-    padding:10px 10px;
-}
-
-#growth-rate {
-    padding:10px 10px;
-}
-
-#img {
-    display:inline-flex;
-    margin-right:auto;
-}
-
+/* Styling for the select cluster dropdown */
 #subm-select-cluster {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
+    display: block; /* Sets display to block */
+    margin-left: auto; /* Aligns horizontally to the left */
+    margin-right: auto; /* Aligns horizontally to the right */
+    margin-bottom: 1rem; /* Adds margin at the bottom */
 }

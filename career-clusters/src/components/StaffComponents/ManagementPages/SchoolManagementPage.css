@@ -2,105 +2,106 @@
 This file contains the CSS used to style the elements and forms within the HTML of the 
 management of schools, which is utilized by staff users
 
-
+Edits: (04/05/2024)
+Gavin T. Anderson
 KJ Vaughn
 */
 
 
+/* Styling for the "Add School" button */
 #add_school {
-    margin-left:30%;
-    position:absolute;
-    margin-top:2.4%;
-    width:15%;
-    height:40%;
-    background-color: var(--green);
-    border-radius: 40px;
-    border:3px solid var(--green);
-    font-size:20px;
+    margin-left: 30%; /* Sets margin from the left */
+    position: absolute; /* Sets position to absolute */
+    margin-top: 2.4%; /* Sets margin from the top */
+    width: 15%; /* Sets width to 15% */
+    height: 40%; /* Sets height to 40% */
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    border-radius: 40px; /* Adds rounded corners to the border */
+    border: 3px solid var(--green); /* Sets border */
+    font-size: 20px; /* Sets font size to 20px */
 }
 
-
+/* Styling for the "Back" button within the school management */
 #back_button_school {
-    position:absolute;
-    margin-left:-42%;
-    margin-top:2.4%;
-    width:15%;
-    height:40%;
-    background-color: var(--green);
-    border-radius: 40px;
-    border:3px solid var(--green);
-    font-size:20px;
+    position: absolute; /* Sets position to absolute */
+    margin-left: -42%; /* Sets negative margin from the left */
+    margin-top: 2.4%; /* Sets margin from the top */
+    width: 15%; /* Sets width to 15% */
+    height: 40%; /* Sets height to 40% */
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    border-radius: 40px; /* Adds rounded corners to the border */
+    border: 3px solid var(--green); /* Sets border */
+    font-size: 20px; /* Sets font size to 20px */
 }
 
-
+/* Styling for each school pod */
 #school_pod {
-   width:80%;
-   height:4rem;
-   background-color: #D9D9D9;
-
-   margin-bottom: 1.5%;
-
-   border-radius: 50px;
-   border: 6px solid var(--green);
-
-   transition: .2s color, .2s background-color;   
-
-   display: inline-block;
-   text-align: left;
+    width: 80%; /* Sets width to 80% */
+    height: 4rem; /* Sets height to 4rem */
+    background-color: #D9D9D9; /* Sets background color */
+    margin-bottom: 1.5%; /* Adds margin at the bottom */
+    border-radius: 50px; /* Adds rounded corners to the border */
+    border: 6px solid var(--green); /* Sets border */
+    transition: .2s color, .2s background-color; /* Adds transition effect */
+    display: inline-block; /* Sets display to inline-block */
+    text-align: left; /* Aligns text to the left */
 }
 
+/* Styling for hover effect on school pods */
 #school_pod:hover {
-    background-color: var(--darkblue);
-    color: white;
-    /*transform:scale(1.05)*/
+    background-color: var(--darkblue); /* Changes background color on hover */
+    color: white; /* Changes text color on hover */
 }
 
+/* Styling for heading level 1 within school pods */
 #school_pod h1 {
-	/*font-size: min(2.5em, calc(2.5vw*1.5));*/
-    font-size:24px;
-	margin-left:3%;
-    align-self:center;  
-    display:inline-flex;  
+    font-size: 24px; /* Sets font size to 24px */
+    margin-left: 3%; /* Adds margin from the left */
+    align-self: center; /* Aligns self to center */
+    display: inline-flex; /* Sets display to inline-flex */
 }
 
+/* Styling for buttons within school pods */
 #school-pod-buttons {
-    float: right;
-    padding-top:6px;
+    float: right; /* Floats buttons to the right */
+    padding-top: 6px; /* Adds padding at the top */
 }
 
+/* Styling for buttons within school pods */
 #school_pod button {
-    height: max(2rem, 4vw);
-    /*background-color: white;*/
-    border-radius:40px;
-    border: 3px solid var(--green);
-    display: inline-block;
-
-    margin-right: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    height: max(2rem, 4vw); /* Sets minimum height */
+    border-radius: 40px; /* Adds rounded corners to the border */
+    border: 3px solid var(--green); /* Sets border */
+    display: inline-block; /* Sets display to inline-block */
+    margin-right: 20px; /* Adds margin from the right */
+    padding-left: 20px; /* Adds padding from the left */
+    padding-right: 20px; /* Adds padding from the right */
 }
 
+/* Styling for hover effect on buttons within school pods */
 #school_pod:hover button:hover {
-    background-color: var(--green);
-    color: white;
+    background-color: var(--green); /* Changes background color on hover */
+    color: white; /* Changes text color on hover */
 }
 
-
-#new-school{
-    border:3px solid var(--green);
-    border-radius:30px;
-    width:40%;
-    height:20%;
+/* Styling for the "New School" input */
+#new-school {
+    border: 3px solid var(--green); /* Sets border */
+    border-radius: 30px; /* Adds rounded corners to the border */
+    width: 40%; /* Sets width to 40% */
+    height: 20%; /* Sets height to 20% */
 }
 
+/* Styling for the list of schools in the school management */
 #school-management-list {
-    width: 100%;
-    text-align: center;
+    width: 100%; /* Sets width to 100% */
+    text-align: center; /* Aligns text to the center */
 }
 
+/* Styling for the input field within the school management */
 #school-input {
-    border: 3px solid var(--green);
-    border-radius:30px;
-    width:50%;
-    height:25%;
+    border: 3px solid var(--green); /* Sets border */
+    border-radius: 30px; /* Adds rounded corners to the border */
+    width: 50%; /* Sets width to 50% */
+    height: 25%; /* Sets height to 25% */
 }
