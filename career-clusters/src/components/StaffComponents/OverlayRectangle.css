@@ -1,10 +1,31 @@
+/*
+    This class represents an overlay element used to create a translucent layer
+    over other content, typically used for modal dialogs or pop-up notifications.
+
+    It covers the entire viewport and has a high z-index to ensure it appears above
+    other elements on the page.
+
+    Style properties:
+    - background-color: Sets the background color of the overlay.
+    - color: Sets the text color of the overlay content.
+    - height: Sets the height of the overlay.
+    - position: Sets the positioning of the overlay (fixed position).
+    - width: Sets the width of the overlay to cover the entire viewport.
+    - z-index: Sets the stacking order of the overlay. It should have a higher
+               z-index than the underlying elements to ensure it appears above them.
+    - top: Sets the distance of the top edge of the overlay from the top of the viewport.
+    - opacity: Sets the opacity level of the overlay (fully opaque).
+
+    LAST EDITED 04/05/2024 Gavin T. Anderson
+*/
+
 .overlay {
-    background-color: var(--darkblue);
-    color: white;
-    height: 110px;
-    position: fixed;
-    width: 100%;
-    z-index: 9995; /* Higher z-index than the underlying rectangle */
-    top: 0;
-    opacity:1.0;
-  }
+  background-color: var(--darkblue); /* Background color of the overlay */
+  color: white; /* Text color of the overlay content */
+  height: 110px; /* Height of the overlay */
+  position: fixed; /* Fixed positioning to keep the overlay in place */
+  width: 100%; /* Width of the overlay covering the entire viewport */
+  z-index: 9995; /* Higher z-index than the underlying rectangle */
+  top: 0; /* Distance of the top edge of the overlay from the top of the viewport */
+  opacity: 1.0; /* Fully opaque */
+}

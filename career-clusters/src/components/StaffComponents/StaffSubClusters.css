@@ -1,40 +1,60 @@
+/*
+  CSS styles for body, page container, top rectangle, home button, and list elements.
+
+  Features:
+  - Ensures that the body and page container have a minimum height of 100% of the viewport height.
+  - Sets the display of the page container to flex with a column direction to organize its children.
+  - Styles the top rectangle with a dark blue background, white text color, and fixed positioning at the top of the viewport.
+  - Sets the font size and margin for paragraphs within the top rectangle.
+  - Defines styling for the home button, including its height, position, and alignment.
+  - Removes default list styles.
+
+
+    LAST EDITED 04/05/2024 Gavin T. Anderson
+*/
+
 body {
-	min-height: 100vh;
-	height: 100%;
+    /* Ensure minimum height of 100% of viewport height for body */
+    min-height: 100vh;
+    height: 100%;
 }
 
+/* Container for page content */
 #page {
-	min-height: 100vh;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
+    /* Ensure minimum height of 100% of viewport height for page */
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Organize children vertically */
 }
 
+/* Top rectangle */
 #_topRectangle {
-    background-color: var(--darkblue);
-    color: white;
-    text-align: center;
-    height: 110px;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    top:0;
-}
-#_topRectangle p { 
-    font-size:1.25rem;
-    margin-top:2.75rem;
-  
+    background-color: var(--darkblue); /* Dark blue background */
+    color: white; /* White text color */
+    text-align: center; /* Center-align text */
+    height: 110px; /* Set height */
+    position: fixed; /* Fixed positioning */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it appears above other elements */
+    top: 0; /* Position at the top of the viewport */
 }
 
+/* Paragraphs within top rectangle */
+#_topRectangle p {
+    font-size: 1.25rem; /* Larger font size */
+    margin-top: 2.75rem; /* Add top margin */
+}
+
+/* Home button */
 .home-button {
-  
-    height:75px;
-    position:absolute;
-    left:5%;
-    top:15%;
-
+    height: 75px; /* Set height */
+    position: absolute; /* Absolute positioning */
+    left: 5%; /* Align to the left with 5% offset */
+    top: 15%; /* Align to the top with 15% offset */
 }
 
+/* Remove default list styles */
 ul {
     list-style-type: none;
 }

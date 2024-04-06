@@ -1,42 +1,55 @@
+/*
+    This component represents the Staff Clusters page.
+
+    Features:
+    - Fetches clusters data from the server.
+    - Displays clusters as clickable elements.
+    - Handles user permissions for various actions.
+    - Provides options for cluster management, logout, admin landing page, school management, subcluster management, and data export.
+    - Displays loading animation while fetching data.
+    - Displays error popup in case of fetch failure or insufficient permissions.
+
+    LAST EDITED 04/05/2024 Gavin T. Anderson
+*/
+
+// Imports
 import './StaffClusters.css';
 import React from 'react';
-import {useNavigate, Link } from 'react-router-dom';
-import './OverlayRectangle.css'
-import { useState , useEffect} from "react";
-import Cluster_S from "./Cluster_S";
-import BottomRectangle from "../page_Components/BottomRectangle";
-import { getAuth, signOut } from "firebase/auth";
-import './StaffClusters.css'
+import { useNavigate, Link } from 'react-router-dom';
+import './OverlayRectangle.css';
+import { useState, useEffect } from 'react';
+import Cluster_S from './Cluster_S';
+import BottomRectangle from '../page_Components/BottomRectangle';
+import { getAuth, signOut } from 'firebase/auth';
 import { ExcelGenerationQueue } from './ExcelGeneration';
 import SchoolManagementPage from './ManagementPages/SchoolManagementPage';
 import app from '../login_components/FirebaseConfig';
 
 const StaffClusters = () => {
-
     const navigate = useNavigate();
-    const [clusters, setClusters] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [isOpen, setIsOpen] = useState(false);
-    const [claim, setClaim] = useState([])
-    const [claimError, setClaimError] = useState(false);
+    const [clusters, setClusters] = useState([]); // State for storing clusters data
+    const [loading, setLoading] = useState(true); // State to track loading status
+    const [isOpen, setIsOpen] = useState(false); // State to manage error popup
+    const [claim, setClaim] = useState([]); // State to store user claims
+    const [claimError, setClaimError] = useState(false); // State to manage insufficient permissions error
 
-
+    // Function to close error popup
     const closeError = () => {
-      setClaimError(false);
-    }
+        setClaimError(false);
+    };
 
-
+    // Function to close general popup
     const closePopup = () => {
-      setIsOpen(false);
-      window.location.reload();
-    }
-    
+        setIsOpen(false);
+        window.location.reload(); // Refresh the page
+    };
 
+    // Effect to fetch clusters data from the server on component mount
     useEffect(() => {
         const fetchClusters = async () => {
             try {
-                const response = await (fetch('http://localhost:3001/login/staffclusters'));
-                if(!response.ok) {
+                const response = await fetch('http://localhost:3001/login/staffclusters');
+                if (!response.ok) {
                     throw new Error('Error fetching clusters');
                 }
                 const data = await response.json();
@@ -44,201 +57,176 @@ const StaffClusters = () => {
                 setLoading(false);
             } catch (error) {
                 setLoading(false);
-                setIsOpen(true);
+                setIsOpen(true); // Show error popup
                 console.error('Error: ', error);
             }
-        }
+        };
         fetchClusters();
     }, []);
 
-    let user = ""
-    try {
-    const auth = getAuth(app);
-    user = auth.currentUser;
-    console.log(user.uid)
-    }catch(error) {
-      console.log("error")
-    }
-    // Make post request here
+    // Effect to fetch user claims from the server
+    useEffect(() => {
+        const auth = getAuth(app);
+        const fetchUserClaims = async () => {
+            try {
+                const response = await fetch('http://localhost:3001/get-unique-claims', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ uid: auth.currentUser.uid }), // Send user ID to server
+                });
 
-    useEffect( () => {
-      const fetchUserClaims = async () => {
+                if (response.ok) {
+                    const claims = await response.json();
+                    setClaim(claims);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchUserClaims();
+    }, []);
+
+    // Handling cluster click event
+    const handleClusterClick = (ID) => {
+        navigate(`/login/staffclusters/staffsubclusters/${ID}`);
+    };
+
+    // Handling logout event
+    const handleButtonClickLogout = async () => {
+        const auth = getAuth();
         try {
-          const response = await(fetch('http://localhost:3001/get-unique-claims', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body:JSON.stringify({uid: user.uid}),
-          }))
-
-          if (response.ok) 
-          {
-            const claims = await response.json()
-            setClaim(claims);
-          }
+            await signOut(auth);
+            navigate('/login');
+        } catch (error) {
+            console.error('Logout error:', error.message);
         }
-        catch (error) {
-          console.log(error)
+    };
+
+    // JSX for rendering clusters
+    const renderClusters = clusters.map((cluster) => (
+        <form id="form1" onSubmit={(e) => e.preventDefault()} key={cluster.id}>
+            <Cluster_S id={cluster.id} clusterName={cluster.clusterName} onClick={handleClusterClick} />
+        </form>
+    ));
+
+    // Handling cluster management button click event
+    const handleButtonClickClusterManagement = () => {
+        if (claim.claims.claims['Cluster Management']) {
+            navigate('/login/staffclusters/clustermanagementpage');
+        } else {
+            setClaimError(true); // Show insufficient permissions error popup
         }
-      }
-      fetchUserClaims();
-    }, [])
+    };
 
-    if (loading) {
-      return <div id="loading-animation"></div>
-    }
+    // Handling admin landing page button click event
+    const handleButtonClickStaff = () => {
+        if (claim.claims.claims['Administrator']) {
+            navigate('/login/adminpage');
+        } else {
+            setClaimError(true); // Show insufficient permissions error popup
+        }
+    };
 
-  const handleClusterClick = (ID) => {
-      console.log(ID)
-      navigate(`/login/staffclusters/staffsubclusters/${ID}`);
-      return ID;
-  }
+    // Handling subcluster management button click event
+    const handleSubclusterManagementClick = () => {
+        if (claim.claims.claims['SubCluster Management']) {
+            navigate('/subclustermanagementpage');
+        } else {
+            setClaimError(true); // Show insufficient permissions error popup
+        }
+    };
 
-  const handleFormSubmit =(e) => {
-    e.preventDefault();
-    navigate('/cluster/subcluster')
-  }
+    // Handling school management button click event
+    const handleSchoolManagementClick = () => {
+        if (claim.claims.claims['School Management']) {
+            navigate('/school-management-page');
+        } else {
+            setClaimError(true); // Show insufficient permissions error popup
+        }
+    };
 
-  const handleButtonClickClusterManagement = () => {
-    console.log(claim.claims.claims['Cluster Management'])
-    if (claim.claims.claims['Cluster Management'] == true)
-    {
-      navigate('/login/staffclusters/clustermanagementpage');
-    }
-    else {
-      console.log("In the else")
-      setClaimError(true);
-      //navigate('/login/staffclusters');
-      
-    }
-    //navigate('/login/staffclusters/clustermanagementpage');
-  };
-  const handleButtonClickLogout = async () => {
-    //Logout
-    const auth = getAuth();
-    try {
-      await signOut(auth);
-      console.log("Logout.");
-      navigate('/login');
-    } catch(error) {
-      console.error('Logout error:', error.message);
-    }
-  };
-  
-  
-  
-  const handleButtonClickStaff = () => {
-    //Need to check whether or not user has correct permissions. 
-    console.log(claim.claims.claims['Administrator'])
-    if (claim.claims.claims['Administrator'] == true)
-    {
-      navigate('/login/adminpage');
-    }
-    else {
-      console.log("In the else")
-      setClaimError(true);
-      //navigate('/login/staffclusters');
-      
-    }
-    //navigate('/login/staffclusters/clustermanagementpage');
-
-  };
-
-  const handleSubclusterManagementClick = () => {
-    console.log(claim.claims.claims['SubCluster Management'])
-    if (claim.claims.claims['SubCluster Management'] == true)
-    {
-      navigate('/subclustermanagementpage');
-    }
-    else {
-      console.log("In the else")
-      setClaimError(true);
-      //navigate('/login/staffclusters');
-      
-    }
-    //navigate('/login/staffclusters/clustermanagementpage');
-  }
-
-  const handleSchoolManagementClick = () => {
-    console.log(claim.claims.claims['School Management'])
-    if (claim.claims.claims['School Management'] == true)
-    {
-      navigate('/school-management-page');
-    }
-    else {
-      console.log("In the else")
-      setClaimError(true);
-      //navigate('/login/staffclusters');
-      
-    }
-  }
-
+    // Handling export data button click event
     const handleExcelButtonClick = () => {
-      console.log(claim.claims.claims['Export Excel'])
-      if(claim.claims.claims['Export Excel'] == true){
-        ExcelGenerationQueue();
-      }
-      else{
-        console.log("In the else")
-        setClaimError(true);
-      }
-    }
+        if (claim.claims.claims['Export Excel']) {
+            ExcelGenerationQueue();
+        } else {
+            setClaimError(true); // Show insufficient permissions error popup
+        }
+    };
 
+    // JSX for rendering the Staff Clusters page
     return (
         <div id="page">
-          {isOpen && (
-          <div className="popup">
-            <div className="popup-content">
-              <h1>Error</h1>
-              <p>An error occurred while fetching clusters.</p>
-              <button onClick={closePopup}>Acknowledge and Refresh</button>
-            </div>
-          </div>
-        )}
-        { claimError && (
-          <div className="popup">
-            <div className="popup-content">
-              <h1>You do not have access to this feature.</h1>
-              <p>Please contact an administrator if you believe this is an error.</p>
-              <button onClick={closeError}>Acknowledge</button>
-            </div>
-          </div>
-        )}
-        <div class="content content-margin">
-          <li id="c_array">
-                {clusters.map(cluster => (
-                <form id="form1" onSubmit={handleFormSubmit}>
-                    <Cluster_S key={cluster.id} id={cluster.id} clusterName={cluster.clusterName} onClick={handleClusterClick}/>
-                </form>
-                ))}
-            </li>
-            </div>
-            <div id="topRectangle">
-          <div className="overlay">
-            <Link to="/login/staffclusters"><img src={require('./HomeButton.png')} alt="Home Button" className="home-button"></img></Link>
-            <div class="staff-button-column-one">
-              <a class="staff-button" onClick={handleButtonClickClusterManagement}>Cluster Management</a>
-              <a class="staff-button" onClick={handleButtonClickLogout}>Logout</a>
-            </div>
-            <div class="staff-button-column-two">
-              <a class="staff-button" onClick={handleButtonClickStaff}>Admin Landing Page</a>
-              <a class="staff-button" onClick={handleSchoolManagementClick}>School Management</a>
-            </div>
-            <div class="staff-button-column-three">
-              <a class="staff-button" onClick={handleSubclusterManagementClick}>SubCluster Management</a>
-              <a class="staff-button" onClick={handleExcelButtonClick}>Export Data (.xlsx)</a>
-            </div>
-            <div id="topTitle">
-            <h2>Staff View of all Clusters</h2>
-            </div>
-            </div>
-          </div>
-          <BottomRectangle/>
-        </div>
-    )
-}
+            {/* Error popup */}
+            {isOpen && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <h1>Error</h1>
+                        <p>An error occurred while fetching clusters.</p>
+                        <button onClick={closePopup}>Acknowledge and Refresh</button>
+                    </div>
+                </div>
+            )}
 
+            {/* Insufficient permissions error popup */}
+            {claimError && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <h1>You do not have access to this feature.</h1>
+                        <p>Please contact an administrator if you believe this is an error.</p>
+                        <button onClick={closeError}>Acknowledge</button>
+                    </div>
+                </div>
+            )}
+
+            {/* Clusters */}
+            <div className="content content-margin">
+                <ul id="c_array">{renderClusters}</ul>
+            </div>
+
+            {/* Top rectangle */}
+            <div id="topRectangle">
+                <div className="overlay">
+                    <Link to="/login/staffclusters">
+                        <img src={require('./HomeButton.png')} alt="Home Button" className="home-button" />
+                    </Link>
+                    <div className="staff-button-column-one">
+                        <a className="staff-button" onClick={handleButtonClickClusterManagement}>
+                            Cluster Management
+                        </a>
+                        <a className="staff-button" onClick={handleButtonClickLogout}>
+                            Logout
+                        </a>
+                    </div>
+                    <div className="staff-button-column-two">
+                        <a className="staff-button" onClick={handleButtonClickStaff}>
+                            Admin Landing Page
+                        </a>
+                        <a className="staff-button" onClick={handleSchoolManagementClick}>
+                            School Management
+                        </a>
+                    </div>
+                    <div className="staff-button-column-three">
+                        <a className="staff-button" onClick={handleSubclusterManagementClick}>
+                            SubCluster Management
+                        </a>
+                        <a className="staff-button" onClick={handleExcelButtonClick}>
+                            Export Data (.xlsx)
+                        </a>
+                    </div>
+                    <div id="topTitle">
+                        <h2>Staff View of all Clusters</h2>
+                    </div>
+                </div>
+            </div>
+
+            {/* Bottom rectangle */}
+            <BottomRectangle />
+        </div>
+    );
+};
 
 export default StaffClusters;
 

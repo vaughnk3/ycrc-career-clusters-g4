@@ -1,92 +1,97 @@
+/*
+    This CSS file contains styles for various elements used in the staff management page.
+
+    CSS rules:
+    - #c_array: Styles for a container that displays a flexible grid layout with scrolling capability.
+    - #topTitle: Styles for the top title element.
+    - #form1: Styles for the first form element.
+    - .staff-button-column-one, .staff-button-column-two, .staff-button-column-three: Styles for columns of staff buttons.
+    - .staff-button: Styles for staff buttons.
+    - #loading-animation: Styles for the loading animation displayed during page loading.
+
+    LAST EDITED 04/05/2024 Gavin T. Anderson
+*/
+
 #c_array {
-	display: flex;
-	flex-wrap:wrap;
-	border:2p solid black;
-	overflow-y:scroll;
+    display: flex; /* Display as flex container */
+    flex-wrap: wrap; /* Allow wrapping of elements */
+    border: 2px solid black; /* Border style */
+    overflow-y: scroll; /* Enable vertical scrolling */
 }
 
 #topTitle {
-	margin-top:38px;
-	margin-bottom:38px;
+    margin-top: 38px; /* Top margin */
+    margin-bottom: 38px; /* Bottom margin */
 }
 
 #form1 {
-
-	width:40%;
-	height: 15rem;
-	padding-right:3%;
-
-	border-radius: 60px;
-
-	margin-left: 4%;
-	margin-bottom:3%;
-	margin-top:1%;
-
-	display:flex;
-	flex-direction: column;
+    width: 40%; /* Width of the form */
+    height: 15rem; /* Height of the form */
+    padding-right: 3%; /* Right padding */
+    border-radius: 60px; /* Border radius */
+    margin-left: 4%; /* Left margin */
+    margin-bottom: 3%; /* Bottom margin */
+    margin-top: 1%; /* Top margin */
+    display: flex; /* Display as flex container */
+    flex-direction: column; /* Arrange items in a column */
 }
 
 .staff-button-column-one {
-	float: right;
-	width: 220px;
-	height: 100%;
-	margin-right: 20px;
-	margin-top: 12px;
-  }
+    float: right; /* Float right */
+    width: 220px; /* Width of the column */
+    height: 100%; /* Height of the column */
+    margin-right: 20px; /* Right margin */
+    margin-top: 12px; /* Top margin */
+}
 
-  .staff-button-column-two {
-	float: left;
-	width: 220px;
-	height: 100%;
-	margin-left:13%;
-	margin-top: 12px;
-	
-  }
+.staff-button-column-two {
+    float: left; /* Float left */
+    width: 220px; /* Width of the column */
+    height: 100%; /* Height of the column */
+    margin-left: 13%; /* Left margin */
+    margin-top: 12px; /* Top margin */
+}
 
-  .staff-button-column-three {
-	float: right;
-	width: 220px;
-	height: 100%;
-	margin-right:1%;
-	margin-top: 12px;
-	
-  }
-  
-  .staff-button {
-	display: block;
-	text-align: center;
-	background-color: var(--green);
-	color: black;
-  
-	font-size: .8rem;
-  
-	padding: 10px 20px;
-	margin-bottom: 12px;
-	border: none;
-	border-radius: 10px;
-  
-	text-decoration: none;
-	cursor: pointer;
-  }
+.staff-button-column-three {
+    float: right; /* Float right */
+    width: 220px; /* Width of the column */
+    height: 100%; /* Height of the column */
+    margin-right: 1%; /* Right margin */
+    margin-top: 12px; /* Top margin */
+}
 
-  #loading-animation {
-    border: 16px solid lightgray;
-    width: 120px;
-    height: 120px;
-    margin-left:auto;
-	margin-right:auto;
-	margin-top:3rem;
-    border-top: 16px solid var(--green);
-    border-radius: 50%;
-    
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
+.staff-button {
+    display: block; /* Display as block */
+    text-align: center; /* Center text */
+    background-color: var(--green); /* Background color */
+    color: black; /* Text color */
+    font-size: 0.8rem; /* Font size */
+    padding: 10px 20px; /* Padding */
+    margin-bottom: 12px; /* Bottom margin */
+    border: none; /* No border */
+    border-radius: 10px; /* Border radius */
+    text-decoration: none; /* No text decoration */
+    cursor: pointer; /* Cursor style */
+}
+
+#loading-animation {
+    border: 16px solid lightgray; /* Border style */
+    width: 120px; /* Width */
+    height: 120px; /* Height */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    margin-top: 3rem; /* Top margin */
+    border-top: 16px solid var(--green); /* Top border color */
+    border-radius: 50%; /* Border radius to create a circle */
+    animation: spin 1s linear infinite; /* Apply spin animation */
+}
+
+/* Keyframes for the spin animation */
+@keyframes spin {
     0% {
-      transform: rotate(0deg)
+        transform: rotate(0deg); /* Starting rotation */
     }
     100% {
-      transform: rotate(720deg)
+        transform: rotate(720deg); /* Ending rotation */
     }
-  }
+}

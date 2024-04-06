@@ -1,22 +1,35 @@
+/*
+    This file contains the CSS styles for the loading animation component.
+
+    - The loading animation consists of a spinning border with a gray background and a green border on top.
+    - The animation rotates 720 degrees over 1 second in a linear fashion, creating a spinning effect.
+
+    Edits: (04/05/2024)
+    Gavin T. Anderson
+*/
+
 #loading-animation {
-    border: 16px solid lightgray;
-    width: 120px;
-    height: 120px;
-    margin-left:auto;
-	margin-right:auto;
-    margin-top:3rem;
-    
-    border-top: 16px solid var(--green);
-    border-radius: 50%;
-    
-    animation: spin 1s linear infinite;
-  }
+  /* Styling for the loading animation container */
+  border: 16px solid lightgray; /* Light gray border */
+  width: 120px; /* Width of the container */
+  height: 120px; /* Height of the container */
+  margin-left:auto; /* Auto margin left for centering */
+  margin-right:auto; /* Auto margin right for centering */
+  margin-top:3rem; /* Top margin */
   
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg)
-    }
-    100% {
-      transform: rotate(720deg)
-    }
+  border-top: 16px solid var(--green); /* Green border on top */
+  border-radius: 50%; /* Border radius to create a circle shape */
+  
+  /* Animation to create spinning effect */
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes for the spin animation */
+@keyframes spin {
+  0% {
+      transform: rotate(0deg); /* Starting rotation angle */
   }
+  100% {
+      transform: rotate(720deg); /* Ending rotation angle */
+  }
+}

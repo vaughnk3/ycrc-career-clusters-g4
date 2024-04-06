@@ -1,38 +1,41 @@
+/*
+    This file contains the CSS used to style the elements and forms within the HTML of the 
+    admin landing page.
+
+    Edits: (04/05/2024)
+	Gavin T. Anderson
+*/
+
+/* Styling for the column layout of the admin landing page */
 .admin-landing-column {
-	width: 45%;
-
-	display: inline-block;
-
-	text-align: center;
-
-	margin: 20px;
+    width: 45%; /* Sets width to 45% */
+    display: inline-block; /* Sets display to inline-block */
+    text-align: center; /* Aligns text to the center */
+    margin: 20px; /* Adds margin */
 }
 
+/* Styling for the content area of the admin landing page */
 .admin-landing-content {
-	width: 100%;
-	flex: 1;
-
-	text-align: center;
-	padding-top: 4%;
-	padding-bottom: 2rem;
+    width: 100%; /* Sets width to 100% */
+    flex: 1; /* Sets flex property to 1 */
+    text-align: center; /* Aligns text to the center */
+    padding-top: 4%; /* Adds padding at the top */
+    padding-bottom: 2rem; /* Adds padding at the bottom */
 }
 
+/* Styling for links within the admin landing content */
 .admin-landing-content a {
-	width: 90%;
-	height: auto;
-	background-color: var(--green);
-    color: white;
-    padding: 20px 20px;
-    border: none;
-    border-radius: 10px;
-	margin-bottom: 40px;
-
-    text-decoration: none;
-    cursor: pointer;
-
-	font-size: 1.2em;
-
-	display: inline-block;
-	text-align: center;
-
+    width: 90%; /* Sets width to 90% */
+    height: auto; /* Sets height to auto */
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    color: white; /* Sets text color to white */
+    padding: 20px 20px; /* Adds padding */
+    border: none; /* Removes border */
+    border-radius: 10px; /* Adds rounded corners to the border */
+    margin-bottom: 40px; /* Adds margin at the bottom */
+    text-decoration: none; /* Removes text decoration */
+    cursor: pointer; /* Sets cursor to pointer */
+    font-size: 1.2em; /* Sets font size */
+    display: inline-block; /* Sets display to inline-block */
+    text-align: center; /* Aligns text to the center */
 }
