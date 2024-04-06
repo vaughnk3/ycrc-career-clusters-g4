@@ -1,90 +1,121 @@
+/*LAST EDITED 04/05/2024 Gavin T. Anderson */
 
+/*
+CSS styles for the field name
+*/
 #fName {
-    color:var(--darkblue);
-    font-size:4rem;    
-    text-align: left; 
-    margin-bottom:2%;
+    color: var(--darkblue); /* Set text color */
+    font-size: 4rem;        /* Set font size */
+    text-align: left;       /* Align text to the left */
+    margin-bottom: 2%;      /* Set bottom margin */
 }
 
+/*
+CSS styles for the field description
+*/
 #fDesc {
-    color:var(--darkblue);
-    font-size:1.25rem;  
-    width:80%;
-    text-align: left;
+    color: var(--darkblue); /* Set text color */
+    font-size: 1.25rem;     /* Set font size */
+    width: 80%;             /* Set width */
+    text-align: left;       /* Align text to the left */
 }
 
+/*
+CSS styles for the top left section
+*/
 #topLeft {
-    display: inline-table;
-    float: left;
-    max-width: 80%;
+    display: inline-table;  /* Display as inline table */
+    float: left;            /* Float to the left */
+    max-width: 80%;         /* Set maximum width */
 }
 
+/*
+CSS styles for the bottom middle section
+*/
 #bottomMiddle {
-    margin-top:5%;
-    margin-bottom: 8%;
-    margin-left:15%;
-    margin-right: 15%;
+    margin-top: 5%;         /* Set top margin */
+    margin-bottom: 8%;      /* Set bottom margin */
+    margin-left: 15%;       /* Set left margin */
+    margin-right: 15%;      /* Set right margin */
 }
 
+/*
+CSS styles for the row
+*/
 #row {
-    display: block;
-    overflow: auto;
-    min-height: 200px;
-    
-    margin-left:15%;
-    margin-right: 15%;
-
-    margin-bottom: 20px;
+    display: block;         /* Display as block */
+    overflow: auto;         /* Enable overflow auto */
+    min-height: 200px;      /* Set minimum height */
+    margin-left: 15%;       /* Set left margin */
+    margin-right: 15%;      /* Set right margin */
+    margin-bottom: 20px;    /* Set bottom margin */
 }
 
+/*
+CSS styles for the job postings button
+*/
 #jobPostings {
-    height:3.5rem;
-    width:15rem;
-    background-color:#98CA41;
-    font-size:1rem;
-    font-weight: 700;
-    color:black;
-    border:0;
-    border-radius:5px;
-    margin-left:5%;
-    cursor: pointer;
+    height: 3.5rem;         /* Set height */
+    width: 15rem;           /* Set width */
+    background-color: #98CA41; /* Set background color */
+    font-size: 1rem;        /* Set font size */
+    font-weight: 700;       /* Set font weight */
+    color: black;           /* Set text color */
+    border: 0;              /* Remove border */
+    border-radius: 5px;     /* Set border radius */
+    margin-left: 5%;        /* Set left margin */
+    cursor: pointer;        /* Set cursor style */
 }
 
+/*
+CSS styles for the view button
+*/
 #view-button {
-    display: inline-table;
-    float: right;
-
-    height: 24px;
-    background-color: #98ca41;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-
-    text-decoration: none;
-    cursor: pointer;
+    display: inline-table;  /* Display as inline table */
+    float: right;           /* Float to the right */
+    height: 24px;           /* Set height */
+    background-color: #98ca41; /* Set background color */
+    color: white;           /* Set text color */
+    padding: 10px 20px;     /* Set padding */
+    border: none;           /* Remove border */
+    border-radius: 5px;     /* Set border radius */
+    text-decoration: none;  /* Remove text decoration */
+    cursor: pointer;        /* Set cursor style */
 }
 
+/*
+CSS styles for the field statistic
+*/
 .field-statistic {
-    margin-right: 6%;
-    margin-left:6%;
-    margin-bottom: 4%;
-    display: inline-table;
-    float: left;
-    text-align: left;
+    margin-right: 6%;       /* Set right margin */
+    margin-left: 6%;        /* Set left margin */
+    margin-bottom: 4%;      /* Set bottom margin */
+    display: inline-table;  /* Display as inline table */
+    float: left;            /* Float to the left */
+    text-align: left;       /* Align text to the left */
 }
+
+/*
+CSS styles for the field statistic heading
+*/
 .field-statistic h1 {
-    color: #98CA41;
-    font-size: 2.4rem;
-    margin-top: 12px;
+    color: #98CA41;         /* Set text color */
+    font-size: 2.4rem;      /* Set font size */
+    margin-top: 12px;       /* Set top margin */
 }
 
+/*
+CSS styles for the field statistic subheading
+*/
 .field-statistic h2 {
-    font-size: 1.6rem;
-    margin: 0px;
+    font-size: 1.6rem;      /* Set font size */
+    margin: 0px;            /* Reset margin */
 }
 
+/*
+CSS styles for the subfield content
+*/
 #subfield-content {
-    width: 100%;
-    padding-top: 5%;
+    width: 100%;            /* Set width */
+    padding-top: 5%;        /* Set top padding */
 }
