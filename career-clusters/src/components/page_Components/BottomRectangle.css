@@ -1,54 +1,60 @@
-
 /*
-Styling page for the light blue rectangle that contains Chamber information.
-This appears at the bottom of most pages.   
+    Styling page for the light blue rectangle that contains Chamber information.
+    This appears at the bottom of most pages.   
+    LAST EDITED: 04/05/2024 Gavin T. Anderson
 */
 
+
+/* Styling for the main container of the bottom rectangle */
 #bottom-rectangle {
-    width: 100%;
-    min-height: 140px;
-    background-color: var(--blue);
-    padding-top: 20px;
-    
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: auto;
+  width: 100%; /* Sets width to 100% */
+  min-height: 140px; /* Sets minimum height */
+  background-color: var(--blue); /* Sets background color using a CSS variable */
+  padding-top: 20px; /* Adds padding at the top */
+  flex-grow: 0; /* Prevents flex item from growing */
+  flex-shrink: 0; /* Prevents flex item from shrinking */
+  flex-basis: auto; /* Sets initial size based on content */
+  display: flex; /* Sets display to flex */
+  z-index: 999; /* Sets the stacking order */
+}
 
-    display: flex;
 
-    
-    z-index: 999;
-  }
-  
-  #bottom-rectangle-container {
-    width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  
-  #text-container {
-    
-    display: inline-block;
-    text-align: left;
-  }
-  
-  #bottom-rectangle h1 {
-    font-family: 'League Gothic', sans-serif;
-    font-weight: normal;
-    font-size: 18pt;
-    margin: 0px;
-  }
-  
-  #bottom-rectangle p {
-    font-size: 10pt;
-    color: white;
-    margin: 0px;
-  }
-  
-  #bottom-rectangle img {
-    height: 80px; /* Adjust the height as needed */
-    margin-left: 80px;
-    margin-right: 80px;
-  }
-  
+/* Styling for the container inside the bottom rectangle */
+#bottom-rectangle-container {
+  width: 900px; /* Sets width to 900px */
+  margin-left: auto; /* Aligns to the left */
+  margin-right: auto; /* Aligns to the right */
+  text-align: center; /* Centers text */
+}
+
+
+/* Styling for the text container inside the bottom rectangle */
+#text-container {
+  display: inline-block; /* Displays as inline-block element */
+  text-align: left; /* Aligns text to the left */
+}
+
+
+/* Styling for heading level 1 elements inside the bottom rectangle */
+#bottom-rectangle h1 {
+  font-family: 'League Gothic', sans-serif; /* Sets font family */
+  font-weight: normal; /* Sets font weight to normal */
+  font-size: 18pt; /* Sets font size to 18pt */
+  margin: 0px; /* Resets margin */
+}
+
+
+/* Styling for paragraph elements inside the bottom rectangle */
+#bottom-rectangle p {
+  font-size: 10pt; /* Sets font size to 10pt */
+  color: white; /* Sets color of text to white */
+  margin: 0px; /* Resets margin */
+}
+
+
+/* Styling for images inside the bottom rectangle */
+#bottom-rectangle img {
+  height: 80px; /* Sets height of image */
+  margin-left: 80px; /* Adds margin at the left */
+  margin-right: 80px; /* Adds margin at the right */
+}

@@ -1,16 +1,19 @@
 /*
 Styling for the bar which appears at the top of most pages, excluding login page...
 
+Edits: (04/05/2024)
 KJ Vaughn
+Gavin T. Anderson
 */
 
+/* Styling for the main container of the top rectangle */
 .top-rectangle {
-    background-color: var(--darkblue);
-    color: white;
-    text-align: center;
-    height: 110px;
-    width: 100%;
-    z-index: 1000;
-    flex-grow: 0;
-  flex-shrink: 0;
-  }
+  background-color: var(--darkblue); /* Sets background color using a CSS variable */
+  color: white; /* Sets color of text to white */
+  text-align: center; /* Centers text */
+  height: 110px; /* Sets height to 110px */
+  width: 100%; /* Sets width to 100% */
+  z-index: 1000; /* Sets the stacking order */
+  flex-grow: 0; /* Prevents flex item from growing */
+  flex-shrink: 0; /* Prevents flex item from shrinking */
+}

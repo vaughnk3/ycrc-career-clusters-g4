@@ -1,13 +1,14 @@
 /* Styling for the TopLeftLogo.js image that appears in 
 the top left of the demographic information page and login pages.
+LAST EDITED: 04/05/2024 Gavin T. Anderson
 */
 
+/* Styling for the image container */
 .top-left-image {
-    position: relative;
-    float: left;
-        top: 0;
-        left: 0;
-    width: auto;
-    height: 140px; 
-
+    position: relative; /* Sets position to relative */
+    float: left; /* Floats the image to the left */
+    top: 0; /* Positions the image at the top */
+    left: 0; /* Positions the image at the left */
+    width: auto; /* Sets width to auto */
+    height: 140px; /* Sets height to 140px */
 }

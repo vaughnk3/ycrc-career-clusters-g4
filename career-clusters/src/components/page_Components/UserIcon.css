@@ -1,9 +1,12 @@
+/* Edits: (04/05/2024) Gavin T. Anderson */
+
+/* Styling for the image container */
 .top-right-image {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    width: 50px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    z-index:9000;
-    cursor:pointer;
+    position: fixed; /* Sets position to fixed */
+    top: 30px; /* Positions the image 30px from the top */
+    right: 30px; /* Positions the image 30px from the right */
+    width: 50px; /* Sets width to 50px */
+    height: auto; /* Maintains aspect ratio */
+    z-index: 9000; /* Sets the stacking order */
+    cursor: pointer; /* Changes cursor to pointer on hover */
 }
