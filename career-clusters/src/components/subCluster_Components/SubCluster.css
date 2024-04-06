@@ -1,48 +1,59 @@
+/*
+  Styles for the staff subcluster component.
+
+  Features:
+  - Defines the appearance and behavior of the staff subcluster.
+  - Applies transitions for smooth hover effects.
+
+  Classes:
+  - .subcluster: Styles the container for each subcluster element.
+  - .subcluster:hover: Styles applied when hovering over the subcluster.
+  - .subcluster h2: Styles the heading element inside the subcluster.
+  - .subcluster-pics: Styles the image element inside the subcluster.
+
+  LAST EDITED 04/05/2024 by Gavin T. Anderson
+*/
 .subcluster {
     width: 80%;
     height: 8rem;
-    margin-bottom:2.5%;
+    margin-bottom: 2.5%;
     background-color: #D9D9D9;
     border: 6px solid var(--green);
-	border-radius: 100px;
+    border-radius: 100px;
     margin-left: auto;
     margin-right: auto;
-
-	display:flex;
-	flex-direction: row;
-	cursor: pointer;
-	text-align: center;
-
-	transition: .2s color, .2s background-color, .2s transform;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    text-align: center;
+    transition: .2s color, .2s background-color, .2s transform;
 }
 
 .subcluster:hover {
-	background-color: var(--darkblue);
-	color:white;
-	transform: scale(1.05);
+    background-color: var(--darkblue);
+    color: white;
+    transform: scale(1.05);
 }
+
 .subcluster h2 {
-	height: 8rem;
-	display:flex;
-	flex-direction: column;
-	justify-content: center;
-	white-space: nowrap;
-	font-size:2.5vw;
-	margin-left:5%;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 2.5vw;
+    margin-left: 5%;
 }
 
 .subcluster-pics {
-	display:flex;
-	flex-direction: row;
-
-	margin-top: auto;
-	margin-bottom: auto;
-	margin-left: 14%;
-
+    display: flex;
+    flex-direction: row;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 14%;
     min-height: 80%;
-	max-height: 80%;
+    max-height: 80%;
     width: 8rem;
-	border-radius: 20px;
-    
-	border: 2px solid var(--green);
+    border-radius: 20px;
+    border: 2px solid var(--green);
 }

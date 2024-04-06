@@ -1,59 +1,67 @@
+/*LAST EDITS 04/05/2024 Gavin T. Anderson */
+
+/* Set minimum height for the body to cover the viewport height */
 body {
-	min-height: 100vh;
-	height: 100%;
+  min-height: 100vh;
+  height: 100%;
 }
 
+/* Set minimum height for the page container to cover the viewport height and arrange its children in a column */
 #page {
-	min-height: 100vh;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-#test{
-    border: 20px solid red;
+/* Styling for testing purposes */
+#test {
+  border: 20px solid red;
 }
 
+/* Styling for the top rectangle element */
 #_topRectangle {
-    background-color: var(--darkblue);
-    color: white;
-    text-align: center;
-    height: 110px;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    top:0;
-}
-#_topRectangle p { 
-    font-size:1.25rem;
-    margin-top:2.75rem;
-  
+  background-color: var(--darkblue);
+  color: white;
+  text-align: center;
+  height: 110px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
 }
 
+/* Styling for the text inside the top rectangle */
+#_topRectangle p {
+  font-size: 1.25rem;
+  margin-top: 2.75rem;
+}
+
+/* Styling for the list of subclusters */
 #subcluster-list {
-    list-style-type: none;
-    width: 100%;
+  list-style-type: none;
+  width: 100%;
 }
 
+/* Styling for the loading animation */
 #loading-animation {
-    border: 16px solid lightgray;
-    width: 120px;
-    height: 120px;
-    margin-left:auto;
-	margin-right:auto;
-    margin-top:3rem;
-    
-    border-top: 16px solid var(--green);
-    border-radius: 50%;
-    
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% {
+  border: 16px solid lightgray;
+  width: 120px;
+  height: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  border-top: 16px solid var(--green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes for the spinning animation */
+@keyframes spin {
+  0% {
       transform: rotate(0deg)
-    }
-    100% {
-      transform: rotate(720deg)
-    }
   }
+  100% {
+      transform: rotate(720deg)
+  }
+}

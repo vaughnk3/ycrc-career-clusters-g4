@@ -1,3 +1,9 @@
+/* 
+This component contains the SubCluster display page for general view. 
+It contains the fetching and mapping of the subclusters specified upon the click of a cluster. 
+*/
+
+// Imports
 import BottomRectangle from "../page_Components/BottomRectangle.js";
 import UserIcon from "../page_Components/UserIcon.js";
 import SubCluster from "./SubCluster.js";
@@ -5,12 +11,6 @@ import './SubClusterPage.css'
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-
-
-/* 
-This component contains the SubCluster display page for general view. 
-It contains the fetching and mapping of the subclusters specified upon the click of a cluster. 
-*/
 
 const SubClusterPage = ({ }) => {
     // Define navigate hook
