@@ -1,136 +1,167 @@
 /*
-This file contains the CSS used to style the elements and forms within the HTML of the 
-staff permission modification page, which is used by admins. 
+    This file contains the CSS used to style the elements and forms within the HTML of the 
+    staff permission modification page, which is used by admins. 
 
-
-KJ Vaughn
+    Edits: (04/05/2024)
+    Gavin T. Anderson
+    KJ Vaughn
 */
 
 
-.actionSelect, .userSelect, .permissionSelect {
-    text-align:center;
+/* Styling for the select elements */
+.actionSelect,
+.userSelect,
+.permissionSelect {
+    text-align: center; /* Centers text within select elements */
 }
 
+
+/* Styling for the permission select element */
 #permissionSelect {
-    margin-bottom:1rem;
+    margin-bottom: 1rem; /* Adds margin at the bottom */
 }
 
+
+/* Styling for the user update container */
 #userUpdate {
-    margin-left:auto 0;
-    text-align:center;
-    margin-right:auto 0;
+    margin-left: auto; /* Aligns to the left */
+    text-align: center; /* Centers text */
+    margin-right: auto; /* Aligns to the right */
 }
 
+
+/* Styling for the permissions table */
 #permissions-table {
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 90%;
-    height: fit-content;
+    border-collapse: separate; /* Separates borders */
+    border-spacing: 0; /* Sets border spacing to 0 */
+    margin-left: auto; /* Aligns to the left */
+    margin-right: auto; /* Aligns to the right */
+    margin-top: 2rem; /* Adds margin at the top */
+    margin-bottom: 2rem; /* Adds margin at the bottom */
+    width: 90%; /* Sets width to 90% */
+    height: fit-content; /* Sets height based on content */
 }
 
+
+/* Styling for table header cells */
 #permissions-table th {
-    border-left: 4px solid var(--green);
-    background-color:var(--darkblue);
-    color:white;
-    padding-left: 1rem;
-    padding-right: 1rem;   
-    height: 6rem;
-
-    font-size: 1vw;
+    border-left: 4px solid var(--green); /* Adds left border */
+    background-color: var(--darkblue); /* Sets background color using a CSS variable */
+    color: white; /* Sets color of text to white */
+    padding-left: 1rem; /* Adds padding at the left */
+    padding-right: 1rem; /* Adds padding at the right */
+    height: 6rem; /* Sets height to 6rem */
+    font-size: 1vw; /* Sets font size based on viewport width */
 }
 
+
+/* Styling for table data cells */
 #permissions-table td {
-    border-bottom: 4px solid var(--green);
-    border-left: 4px solid var(--green);
-    color:var(--darkblue);
-    padding-left: 1rem;
-    padding-right: 1rem;
-    height: 4rem; 
-
-    font-size: 1vw;
-    text-align: center;
+    border-bottom: 4px solid var(--green); /* Adds bottom border */
+    border-left: 4px solid var(--green); /* Adds left border */
+    color: var(--darkblue); /* Sets color of text using a CSS variable */
+    padding-left: 1rem; /* Adds padding at the left */
+    padding-right: 1rem; /* Adds padding at the right */
+    height: 4rem; /* Sets height to 4rem */
+    font-size: 1vw; /* Sets font size based on viewport width */
+    text-align: center; /* Centers text */
 }
 
+
+/* Styling for the first table header cell */
 #permissions-table th:first-of-type {
-  border-top-left-radius: 30px;
-  border-left: none !important;
+    border-top-left-radius: 30px; /* Adds rounded corners to the top left */
+    border-left: none !important; /* Removes left border */
 }
 
+
+/* Styling for the last table header cell */
 #permissions-table th:last-of-type {
-  border-top-right-radius: 30px;
+    border-top-right-radius: 30px; /* Adds rounded corners to the top right */
 }
 
+
+/* Styling for the last table data cell */
 #permissions-table td:last-of-type {
-  border-right: 4px solid var(--green);
+    border-right: 4px solid var(--green); /* Adds right border */
 }
 
+
+/* Styling for odd rows in the table */
 #permissions-table tr:not(:first-child):nth-child(odd) {
-  background-color: #eee;
+    background-color: #eee; /* Sets background color for odd rows */
 }
 
+
+/* Styling for permission button */
 .permsButton {
-    background-color:var(--green);
-    border:0;
-    border-radius:15px;
-    width:15rem;
-    height:5rem;
-    color:white;
-    font-size:1rem;
-    position: absolute;
-    right: 20px;
-    margin-top:1rem;
-    cursor:pointer;
-    border-collapse: collapse;
+    background-color: var(--green); /* Sets background color using a CSS variable */
+    border: 0; /* Removes border */
+    border-radius: 15px; /* Adds rounded corners to the border */
+    width: 15rem; /* Sets width to 15rem */
+    height: 5rem; /* Sets height to 5rem */
+    color: white; /* Sets color of text to white */
+    font-size: 1rem; /* Sets font size to 1rem */
+    position: absolute; /* Sets position to absolute */
+    right: 20px; /* Positions the button 20px from the right */
+    margin-top: 1rem; /* Adds margin at the top */
+    cursor: pointer; /* Changes cursor to pointer */
 }
 
+
+/* Styling for the form backdrop */
 .form-backdrop {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    z-index: 100; 
-  }
+    position: fixed; /* Sets position to fixed */
+    top: 0; /* Positions at the top */
+    left: 0; /* Positions at the left */
+    width: 100%; /* Sets width to 100% */
+    height: 100%; /* Sets height to 100% */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex; /* Sets display to flex */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    z-index: 100; /* Sets the stacking order */
+}
 
-  .form-modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 90%;
-    z-index: 101; 
-  }
 
-  #userUpdate label {
-    font-weight:800;
-  }
+/* Styling for the form modal */
+.form-modal {
+    background-color: white; /* Sets background color to white */
+    padding: 20px; /* Adds padding */
+    border-radius: 10px; /* Adds rounded corners to the border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a shadow effect */
+    max-width: 600px; /* Sets maximum width to 600px */
+    width: 90%; /* Sets width to 90% */
+    z-index: 101; /* Sets the stacking order */
+}
 
-  #userUpdate select {
-    border:2px solid var(--green);
-    border-radius:20px;
-    height:2rem;
-    margin-bottom:0.5rem;
 
-  }
+/* Styling for labels inside the user update container */
+#userUpdate label {
+    font-weight: 800; /* Sets font weight to 800 */
+}
 
-  #doneButton {
-    margin-right:20px;
-    border:2px solid var(--green);
-    border-radius:10px;
-    cursor:pointer
-  }
 
+/* Styling for select elements inside the user update container */
+#userUpdate select {
+    border: 2px solid var(--green); /* Sets border */
+    border-radius: 20px; /* Adds rounded corners to the border */
+    height: 2rem; /* Sets height to 2rem */
+    margin-bottom: 0.5rem; /* Adds margin at the bottom */
+}
+
+
+/* Styling for the done button */
+#doneButton {
+    margin-right: 20px; /* Adds margin at the right */
+    border: 2px solid var(--green); /* Sets border */
+    border-radius: 10px; /* Adds rounded corners to the border */
+    cursor: pointer; /* Changes cursor to pointer */
+}
+
+/* Styling for the submit button */
   #submitButton {
-    height: 1.5rem;
-    width:4rem;
-    border-radius:10px;
+    height: 1.5rem; /* Sets height to 1.5rem */
+    width:4rem; /* Sets width to 4rem */
+    border-radius:10px; /* Adds rounded corners tot he border */
   }
