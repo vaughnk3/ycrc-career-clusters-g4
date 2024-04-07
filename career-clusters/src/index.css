@@ -107,24 +107,65 @@ a, button {
 }
 
 /* Styling for manage and delete buttons */
-.manage-button, .delete-button {
+.management-button, .delete-button {
   color: var(--darkblue);
-  min-width: 7rem;
-  width: 13%;
-  height: 3rem;
+ 
+  height: 3.5rem;
   border-radius: 20px;
   border-color: var(--green);
   border: 3px solid var(--green);
   margin-right: .4rem;
   margin-top: .4rem;
   float: left;
+
+  font-size: min(1.2vw, 1rem);
 }
 
-.manage-button:hover {
+.management-button:hover {
   background-color: #ddd;
 }
 
 .delete-button {
   background-color: var(--green);
   color: black;
+}
+
+.management-header {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+}
+
+.management-header-text {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.management-header-text h2 {
+  font-size: min(2.6vw, 1.5rem);
+}
+
+.management-header-text h4 {
+  font-size: min(2vw, 1rem);
+}
+
+.management-button-header {
+  height: 100%;
+  padding: 1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  flex-grow: 1;
+}
+
+.management-header-button {
+  width: 8.5rem;
+  background-color: var(--green); /* Sets background color using a CSS variable */
+  border-radius: 40px; /* Adds rounded corners to the border */
+  border: 3px solid var(--green); /* Sets border */
+  font-size: 12pt; /* Sets font size to 12pt */
+
+  margin-top: 2rem;
+
 }

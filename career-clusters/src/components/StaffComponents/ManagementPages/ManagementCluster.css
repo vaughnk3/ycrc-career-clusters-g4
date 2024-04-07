@@ -10,7 +10,7 @@ KJ Vaughn
 /* Styling for each cluster element */
 .cluster_m {
     width: 90%; /* Sets width to 90% of the parent container */
-    height: auto; /* Sets height to auto */
+    height: fit-content; /* Sets height to auto */
     margin-bottom: 2.5%; /* Adds margin at the bottom */
     background-color: #D9D9D9; /* Sets background color */
     border: 6px solid var(--green); /* Sets border */
@@ -39,7 +39,7 @@ KJ Vaughn
     align-self: center; /* Aligns content vertically */
     justify-content: left; /* Aligns content to the left */
     margin-left: 5px; /* Adds margin at the left */
-    font-size: 21px; /* Sets font size to 21px */
+    font-size: min(2vw, 2rem); 
     cursor: default; /* Sets cursor style */
 }
 
@@ -61,9 +61,13 @@ KJ Vaughn
 /* Styling for the right section of management list */
 .mgmt_list_right {
     display: inline-flex; /* Sets display to inline-flex */
-    width: 30%; /* Sets width to 30% */
-    justify-content: space-around; /* Distributes space around elements */
+    overflow: hidden;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     margin-right: 2.5%; /* Adds margin at the right */
+    padding-right: 2rem;
+
 }
 
 
@@ -98,17 +102,6 @@ KJ Vaughn
     position: relative; /* Sets position to relative */
     margin-bottom: 20px; /* Adds margin at the bottom */
 }
-
-
-/* Styling for the close button */
-.close {
-    position: absolute; /* Sets position to absolute */
-    top: 10px; /* Positions 10px from the top */
-    right: 10px; /* Positions 10px from the right */
-    font-size: 20px; /* Sets font size to 20px */
-    cursor: pointer; /* Changes cursor to pointer */
-}
-
 
 /* Styling for the submit name button */
 #submitName {

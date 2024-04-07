@@ -99,6 +99,12 @@ KJ Vaughn
     margin-right: auto; /* Aligns horizontally to the right */
 }
 
+/* Styling for the content of the subcluster management page */
+#subm-content {
+    width: 100%; /* Sets width to 100% */
+    margin: 0; /* Sets margin to 0 */
+}
+
 /* Styling for the subcluster management list */
 .scmgmt_list {
     width: 90%; /* Sets width to 90% */
@@ -116,13 +122,15 @@ KJ Vaughn
     margin-top: 1rem; /* Adds margin at the top */
     margin-left: 2rem; /* Adds margin at the left */
     margin-right: 2rem; /* Adds margin at the right */
-    display: inline-block; /* Sets display to inline-block */
+    
+    display: inline-flex;
 }
 
 /* Styling for various form elements within the subcluster management */
 #subclusterDescrip, #growth-rate, #subclusterName, #subclusterSalary, #subclusterEducation, #select-cluster {
     border: 3px solid var(--green); /* Sets border */
     border-radius: 30px; /* Adds rounded corners to the border */
+    resize: none;
 }
 
 /* Styling for a popup window */
@@ -141,15 +149,6 @@ KJ Vaughn
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adds box shadow */
     position: relative; /* Sets position to relative */
     z-index: 10000; /* Sets z-index to 10000 */
-}
-
-/* Styling for the close button of a popup */
-.close {
-    position: absolute; /* Sets position to absolute */
-    top: 10px; /* Sets position from the top */
-    right: 10px; /* Sets position from the right */
-    font-size: 20px; /* Sets font size to 20px */
-    cursor: pointer; /* Sets cursor to pointer */
 }
 
 /* Styling for the submit button within the popup */

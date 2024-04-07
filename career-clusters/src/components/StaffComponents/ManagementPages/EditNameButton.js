@@ -90,7 +90,7 @@ const EditNameButton = ({ID}) => {
     //Return the HTML and elements used to populate Edit Name button, which has functionality to confirm and edit name for a Cluser within SQL database
     return (
         <div id="cluster-button">
-                <button className="manage-button" onClick={openPopup}>Edit Name</button>
+                <button className="management-button" onClick={openPopup}>Edit Name</button>
                 {isOpen && (
                     <div className="popup">
                         <div className="popup-content">  

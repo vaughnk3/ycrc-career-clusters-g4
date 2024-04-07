@@ -90,7 +90,7 @@ const EditEducationSubCluster = ({ID}) => {
     //Return the HTML and elements used to populate Edit Education Level button, which has functionality to confirm and edit education level for a Subcluster within SQL database
     return (
         <div className="Education">
-            <button className="manage-button" onClick={openPopup}>Edit Education Level</button>
+            <button className="management-button" onClick={openPopup}>Edit Education Level</button>
             {isOpen && (
                     <div className="popup">
                         <div className="popup-content">  

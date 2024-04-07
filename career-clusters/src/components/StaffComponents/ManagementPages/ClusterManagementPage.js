@@ -157,8 +157,18 @@ const ClusterManagementPage = () => {
     return (
         <div id="page">
             <div id="_topRectangle">
-                <button id="back_button" onClick={backButtonHandler}>Back</button>
-                <button onClick={openPopup} id="add_cluster">Add Cluster +</button>
+                <div className="management-header">
+                    <div class="management-button-header">
+                        <button class="management-header-button" onClick={backButtonHandler}>Back</button>
+                    </div>
+                    <div class="management-header-text">
+                        <h2>Cluster Management Page</h2>
+                        <h4>Please select an option for cluster management.</h4>
+                    </div>
+                    <div class="management-button-header">
+                        <button onClick={openPopup} class="management-header-button">Add Cluster +</button>
+                    </div>
+                </div>
                 {isOpen && (
                     <div className="popup">
                         <div className="popup-content">                           
@@ -181,8 +191,8 @@ const ClusterManagementPage = () => {
                         </div>
                     </div>
                 )}
-                <h2>Cluster Management Page</h2>
-                <h4>Please select an option for cluster management.</h4>
+
+
             </div>
 
             {error && (

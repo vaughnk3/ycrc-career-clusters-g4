@@ -95,7 +95,7 @@ const EditGrowthSubCluster = ({ID}) => {
     //Return the HTML and elements used to populate Edit Growth Rate button, which has functionality to confirm and edit growth rate for a Subcluster within SQL database
     return (
         <div className="GrowthRate">
-            <button className="manage-button" onClick={openPopup}>Edit Growth Rate</button>
+            <button className="management-button" onClick={openPopup}>Edit Growth Rate</button>
             {isOpen && (
                     <div className="popup">
                         <div className="popup-content">

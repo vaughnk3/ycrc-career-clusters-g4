@@ -26,67 +26,6 @@ KJ Vaughn
     padding-top: 15px; /* Adds padding at the top */
 }
 
-
-/* Styling for the 'Add Cluster' button */
-#add_cluster {
-    margin-left: 30%; /* Adds margin at the left */
-    position: absolute; /* Sets position to absolute */
-    margin-top: 2.4%; /* Adds margin at the top */
-    width: 15%; /* Sets width to 15% */
-    height: 40%; /* Sets height to 40% */
-    background-color: var(--green); /* Sets background color using a CSS variable */
-    border-radius: 40px; /* Adds rounded corners to the border */
-    border: 3px solid var(--green); /* Sets border */
-    font-size: 20px; /* Sets font size to 20px */
-}
-
-
-/* Styling for the 'Back' button */
-#back_button {
-    position: absolute; /* Sets position to absolute */
-    margin-left: -42%; /* Adds negative margin at the left */
-    margin-top: 2.4%; /* Adds margin at the top */
-    width: 15%; /* Sets width to 15% */
-    height: 40%; /* Sets height to 40% */
-    background-color: var(--green); /* Sets background color using a CSS variable */
-    border-radius: 40px; /* Adds rounded corners to the border */
-    border: 3px solid var(--green); /* Sets border */
-    font-size: 20px; /* Sets font size to 20px */
-}
-
-
-/* Styling for the left side of the popup */
-#popupLeft {
-    flex: 1 1; /* Sets flex properties */
-    display: inline-flex; /* Sets display to inline-flex */
-    flex-direction: column; /* Sets flex direction to column */
-    justify-content: center; /* Centers content vertically */
-    width: 50%; /* Sets width to 50% */
-    margin-top: -5%; /* Adds negative margin at the top */
-}
-
-
-/* Styling for the right side of the popup */
-#popupRight {
-    flex: 1 1; /* Sets flex properties */
-    color: black; /* Sets color of text to black */
-    display: inline-flex; /* Sets display to inline-flex */
-    flex-direction: column; /* Sets flex direction to column */
-    justify-content: space-around; /* Aligns content space-around */
-    padding-right: 50px; /* Adds padding at the right */
-}
-
-
-/* Styling for the close button */
-.close {
-    position: absolute; /* Sets position to absolute */
-    top: 10px; /* Positions 10px from the top */
-    right: 10px; /* Positions 10px from the right */
-    font-size: 20px; /* Sets font size to 20px */
-    cursor: pointer; /* Changes cursor to pointer */
-}
-
-
 /* Styling for the cancel button */
 .cancelButton {
     border-radius: 40px; /* Adds rounded corners to the border */
@@ -97,19 +36,6 @@ KJ Vaughn
     margin-right: 5%; /* Adds margin at the right */
     margin-bottom: 4%; /* Adds margin at the bottom */
 }
-
-
-/* Styling for the add button */
-.addButton {
-    border-radius: 40px; /* Adds rounded corners to the border */
-    border-color: #98ca41; /* Sets border color */
-    border: 3px solid var(--green); /* Sets border */
-    width: 100px; /* Sets width to 100px */
-    background-color: var(--green); /* Sets background color using a CSS variable */
-    height: 35px; /* Sets height to 35px */
-    margin-left: 5%; /* Adds margin at the left */
-}
-
 
 /* Styling for heading level 4 elements within popup content */
 .popup-content h4 {

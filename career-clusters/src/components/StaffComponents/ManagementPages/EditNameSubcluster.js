@@ -90,7 +90,7 @@ const EditNameSubcluster = ({ID}) => {
     //Return the HTML and elements used to populate Edit Name button, which has functionality to confirm and edit name for a Subcluser within SQL database
     return (
         <div className="cluster-button">
-            <button className="manage-button" onClick={openPopup}>Edit Name</button>
+            <button className="management-button" onClick={openPopup}>Edit Name</button>
             {isOpen && (
                     <div className="popup">
                         <div className="popup-content">
