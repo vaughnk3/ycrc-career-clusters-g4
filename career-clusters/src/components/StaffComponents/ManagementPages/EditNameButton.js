@@ -99,7 +99,7 @@ const EditNameButton = ({ID}) => {
                             <input type="text" id="clusterName" name="clusterName" placeholder="Enter the changed cluster name." value={clusterName} onChange={(e) => setClusterName(e.target.value)}></input>
                             <br/>
                             <div class="editbuttonrow">
-                            <button onClick={closePopup} className="standard-cancelButton">Cancel</button>
+                            <button onClick={closePopup}>Cancel</button>
                             <button id="standard-submitName" onClick={changeClusterName}>Submit</button>
                             </div>
                         </div>

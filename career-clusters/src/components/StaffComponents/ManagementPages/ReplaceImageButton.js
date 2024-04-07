@@ -114,7 +114,7 @@ const ReplaceImageButton = ({ID}) => {
                         <input type="file" id="img" name="img" accept="image/*" onChange={handleFileInputChange}></input>
                         <br/>
                         <div class="replacebuttonrow">
-                        <button onClick={closePopup} className="standard-cancelButton">Cancel</button>
+                        <button onClick={closePopup}>Cancel</button>
                         <button id="standard-submitImg" onClick={handleSubmit}>Submit</button>
                         </div>
                     </div>

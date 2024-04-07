@@ -139,8 +139,8 @@ const SchoolPod = ({ID, schoolName}) => {
         <div id="school_pod">
             <h1>{schoolName}</h1>
             <div id="school-pod-buttons">
-                <button onClick={openPopup} id="edit_school_name">Edit School Name</button>
-                <button onClick={openPopup2}>Delete</button>
+                <button onClick={openPopup} className="management-button">Edit School Name</button>
+                <button onClick={openPopup2}className="management-button">Delete</button>
             </div>
 
             {isOpen && (
@@ -151,7 +151,7 @@ const SchoolPod = ({ID, schoolName}) => {
                             <br/><br/>
                             <input type="text" id="new-school" name="newSchoolName" placeholder="Enter the new school name." value={newSchoolName} onChange={(e) => setSchoolName(e.target.value)}></input>
                             <br/><br/>
-                            <button className="cancelButton" onClick={closePopup}>Cancel</button>
+                            <button onClick={closePopup}>Cancel</button>
                             <button onClick={changeSchoolName}>Submit</button>
                         </div>
                     </div>

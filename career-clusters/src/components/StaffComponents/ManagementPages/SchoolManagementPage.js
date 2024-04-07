@@ -132,9 +132,20 @@ const SchoolManagementPage = () => {
     return (
         <div id="page">
             <div id="_topRectangle">
-                <button id="back_button_school" onClick={backButtonHandler}>Back</button>
-                <button  id="add_school" onClick={openPopup}>Add School +</button>
-                <h2>School Management Page</h2>
+                <div className="management-header">
+                    <div class="management-button-header">
+                        <button class="management-header-button" onClick={backButtonHandler}>Back</button>
+                    </div>
+                    <div class="management-header-text">
+                        <h2>School Management Page</h2>
+                        <h4>Please select an option for school management.</h4>
+                    </div>
+                    <div class="management-button-header">
+                        <button class="management-header-button" onClick={openPopup}>Add School +</button>
+                    </div>
+                    
+                </div>
+                
                 {isOpen && (
                     <div className="popup">
                         <div className="popup-content">                           

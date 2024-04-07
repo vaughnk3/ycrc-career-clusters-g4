@@ -185,8 +185,8 @@ const ClusterManagementPage = () => {
                             </div>
                             </div>
                             <div className="button-row">
-                                <button className="addcancelButton" onClick={closePopup}>Cancel</button>
-                                <button className="addaddButton" onClick={addCluster}>Add</button>
+                                <button onClick={closePopup}>Cancel</button>
+                                <button onClick={addCluster}>Add</button>
                             </div>
                         </div>
                     </div>

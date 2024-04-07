@@ -8,49 +8,19 @@ KJ Vaughn
 */
 
 
-/* Styling for the "Add School" button */
-#add_school {
-    margin-left: 30%; /* Sets margin from the left */
-    position: absolute; /* Sets position to absolute */
-    margin-top: 2.4%; /* Sets margin from the top */
-    width: 15%; /* Sets width to 15% */
-    height: 40%; /* Sets height to 40% */
-    background-color: var(--green); /* Sets background color using a CSS variable */
-    border-radius: 40px; /* Adds rounded corners to the border */
-    border: 3px solid var(--green); /* Sets border */
-    font-size: 20px; /* Sets font size to 20px */
-}
-
-/* Styling for the "Back" button within the school management */
-#back_button_school {
-    position: absolute; /* Sets position to absolute */
-    margin-left: -42%; /* Sets negative margin from the left */
-    margin-top: 2.4%; /* Sets margin from the top */
-    width: 15%; /* Sets width to 15% */
-    height: 40%; /* Sets height to 40% */
-    background-color: var(--green); /* Sets background color using a CSS variable */
-    border-radius: 40px; /* Adds rounded corners to the border */
-    border: 3px solid var(--green); /* Sets border */
-    font-size: 20px; /* Sets font size to 20px */
-}
 
 /* Styling for each school pod */
 #school_pod {
     width: 80%; /* Sets width to 80% */
-    height: 4rem; /* Sets height to 4rem */
+    height: auto; /* Sets height to 4rem */
     background-color: #D9D9D9; /* Sets background color */
-    margin-bottom: 1.5%; /* Adds margin at the bottom */
+    margin-bottom: 1rem; /* Adds margin at the bottom */
+    padding-bottom: 1rem;
     border-radius: 50px; /* Adds rounded corners to the border */
     border: 6px solid var(--green); /* Sets border */
     transition: .2s color, .2s background-color; /* Adds transition effect */
     display: inline-block; /* Sets display to inline-block */
     text-align: left; /* Aligns text to the left */
-}
-
-/* Styling for hover effect on school pods */
-#school_pod:hover {
-    background-color: var(--darkblue); /* Changes background color on hover */
-    color: white; /* Changes text color on hover */
 }
 
 /* Styling for heading level 1 within school pods */
@@ -65,23 +35,7 @@ KJ Vaughn
 #school-pod-buttons {
     float: right; /* Floats buttons to the right */
     padding-top: 6px; /* Adds padding at the top */
-}
-
-/* Styling for buttons within school pods */
-#school_pod button {
-    height: max(2rem, 4vw); /* Sets minimum height */
-    border-radius: 40px; /* Adds rounded corners to the border */
-    border: 3px solid var(--green); /* Sets border */
-    display: inline-block; /* Sets display to inline-block */
-    margin-right: 20px; /* Adds margin from the right */
-    padding-left: 20px; /* Adds padding from the left */
-    padding-right: 20px; /* Adds padding from the right */
-}
-
-/* Styling for hover effect on buttons within school pods */
-#school_pod:hover button:hover {
-    background-color: var(--green); /* Changes background color on hover */
-    color: white; /* Changes text color on hover */
+    margin-right: 1rem;
 }
 
 /* Styling for the "New School" input */

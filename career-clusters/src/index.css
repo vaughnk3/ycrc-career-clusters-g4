@@ -170,3 +170,7 @@ a, button {
   margin-top: 2rem;
   cursor: pointer;
 }
+
+.delete-popup-content label {
+  text-align: center;
+}
