@@ -43,6 +43,8 @@ const SubClusterManagementPage = () => {
     // State tracker for selecting Subclusters
     const [clusterPopup, setClusterPopup] = useState(false);
     
+    const [selectedClusterName, setSelectedClusterName] = useState('');
+
     // Initialize authentication 
     const auth = getAuth(app);
 
@@ -69,7 +71,6 @@ const SubClusterManagementPage = () => {
         window.location.reload();
     }
 
-
    // Fetch the selected Subclusters to be mapped to display.
     useEffect( () => {
         const fetchIDSubclusters = async () => {
@@ -88,6 +89,11 @@ const SubClusterManagementPage = () => {
                 // Success - set the data
                 const data = await response.json();
                 setSubClusters2(data);
+
+                var selectedCluster = clusters.find(cl => cl.id == clusterId);
+        
+                if (selectedCluster)
+                    setSelectedClusterName(selectedCluster.clusterName);
 
                 // Failure - close the popup, set error message, and display error popup. 
             }   catch (error){
@@ -123,6 +129,9 @@ const SubClusterManagementPage = () => {
                 const data = await response.json();
                 setClusters(data);
                 console.log("fetch----", data);
+
+                if (selectedClusterName == '')
+                    setSelectedClusterName(data[0].clusterName);
                 
             // Failure 
             } catch (error) {
@@ -392,6 +401,7 @@ return (
             
         <div className="content content-margin">
             <div id="subm-content">
+            <h2 id="subm-subcluster-name">{selectedClusterName}</h2>
             <button id="subm-cluster-button" onClick={openCluster}>Select Parent Cluster</button>
             <ul className="scmgmt_list">
                 {subClusters2.map((subcluster) => (

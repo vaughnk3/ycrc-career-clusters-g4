@@ -12,7 +12,7 @@ KJ Vaughn
     width: 95%; /* Sets width to 95% */
     height: auto; /* Sets height to auto */
     padding: 0; /* Resets padding */
-    padding-bottom: 2rem; /* Adds padding at the bottom */
+    padding-bottom: 6rem; /* Adds padding at the bottom */
     margin-left: auto; /* Aligns horizontally to the left */
     margin-right: auto; /* Aligns horizontally to the right */
     margin-bottom: 1.5rem; /* Adds margin at the bottom */
@@ -25,7 +25,7 @@ KJ Vaughn
 .subcluster_m h2 {
     margin: 2rem; /* Adds margin */
     margin-bottom: 0; /* Removes margin at the bottom */
-    font-size: 20px; /* Sets font size to 20px */
+    font-size: 16pt; /* Sets font size to 16pt */
 }
 
 /* Styling for the container of the add subcluster form */
@@ -105,6 +105,11 @@ KJ Vaughn
     margin: 0; /* Sets margin to 0 */
 }
 
+#subm-subcluster-name {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 /* Styling for the subcluster management list */
 .scmgmt_list {
     width: 90%; /* Sets width to 90% */
@@ -118,12 +123,13 @@ KJ Vaughn
 
 /* Styling for the subcluster edit bar */
 .sc_editbar {
-    width: 92%; /* Sets width to 92% */
+   
     margin-top: 1rem; /* Adds margin at the top */
     margin-left: 2rem; /* Adds margin at the left */
     margin-right: 2rem; /* Adds margin at the right */
     
     display: inline-flex;
+    float: right;
 }
 
 /* Styling for various form elements within the subcluster management */

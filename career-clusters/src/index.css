@@ -161,11 +161,12 @@ a, button {
 
 .management-header-button {
   width: 8.5rem;
+  height: 3rem;
   background-color: var(--green); /* Sets background color using a CSS variable */
   border-radius: 40px; /* Adds rounded corners to the border */
   border: 3px solid var(--green); /* Sets border */
   font-size: 12pt; /* Sets font size to 12pt */
 
   margin-top: 2rem;
-
+  cursor: pointer;
 }
