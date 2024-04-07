@@ -15,7 +15,7 @@ KJ Vaughn
     height: auto; /* Sets height to 4rem */
     background-color: #D9D9D9; /* Sets background color */
     margin-bottom: 1rem; /* Adds margin at the bottom */
-    padding-bottom: 1rem;
+    padding-bottom: .5rem;
     border-radius: 50px; /* Adds rounded corners to the border */
     border: 6px solid var(--green); /* Sets border */
     transition: .2s color, .2s background-color; /* Adds transition effect */
@@ -25,8 +25,8 @@ KJ Vaughn
 
 /* Styling for heading level 1 within school pods */
 #school_pod h1 {
-    font-size: 24px; /* Sets font size to 24px */
-    margin-left: 3%; /* Adds margin from the left */
+    font-size: min(3vw, 2rem);
+    margin-left: 5%; /* Adds margin from the left */
     align-self: center; /* Aligns self to center */
     display: inline-flex; /* Sets display to inline-flex */
 }
