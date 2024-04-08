@@ -87,6 +87,12 @@ const EditSalarySubCluster = ({ID}) => {
         //refreshPage();
     }
 
+    const handleSalaryChange = (event) => {
+        var salary = event.target.value;
+        if (salary >= 0 && salary <= 8000000)
+            setsubclusterSalary(salary);
+    }
+
     //Return the HTML and elements used to populate Edit Salary button, which has functionality to confirm and edit salary for a Subcluster within SQL database
     return (
         <div className="cluster-button">
@@ -96,7 +102,7 @@ const EditSalarySubCluster = ({ID}) => {
                         <div className="popup-content">  
                             <label for="subclusterSalary" className="standard-popup">Salary</label>
                             <p>Enter a whole number (80000, not $80,000)</p>
-                            <input type="number" id="subclusterSalary" className="standardIn-popup" name="subclusterSalary" placeholder="Enter the changed SubCluster salary." value={subclusterSalary} onChange={(e) => setsubclusterSalary(e.target.value)}></input>
+                            <input type="number" id="subclusterSalary" className="standardIn-popup" name="subclusterSalary" placeholder="Enter the changed SubCluster salary." value={subclusterSalary} onChange={handleSalaryChange}></input>
                             <br/>
                             <div className="replacebuttonrow">
                             <button onClick={closePopup}>Cancel</button>

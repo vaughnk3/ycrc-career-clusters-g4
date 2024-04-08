@@ -259,6 +259,11 @@ const SubClusterManagementPage = () => {
         setNewImage(e.target.files[0]);
     }
 
+    const handleSalaryChange = (event) => {
+        var salary = event.target.value;
+        if (salary >= 0 && salary <= 8000000)
+            setNewSalary(salary);
+    }
     
     //Sets a 5 second limit for the which the loading animation while display
     useEffect(() => {
@@ -329,7 +334,7 @@ return (
                             />
                         <br/>
                         <label className="label-addsc" for="subclusterSalary">Salary</label>
-                        <input type="number" id="subclusterSalary" name="subclusterSalary"  placeholder="Enter new Salary here" value={newSCSalary} onChange={(e) => setNewSalary(e.target.value)}></input>
+                        <input type="number" id="subclusterSalary" name="subclusterSalary"  placeholder="Enter new Salary here" value={newSCSalary} onChange={handleSalaryChange}></input>
 
                         <br/>
                         <label className="label-addsc" for="subclusterEducation">Education Level</label>
