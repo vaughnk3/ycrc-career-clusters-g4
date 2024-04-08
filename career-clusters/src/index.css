@@ -205,3 +205,8 @@ a, button {
 .delete-popup-content label {
   text-align: center;
 }
+
+#subm-select-cluster{
+  border: 2px solid var(--green);
+  border-radius:10px;
+}

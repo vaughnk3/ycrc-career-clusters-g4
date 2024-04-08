@@ -78,7 +78,7 @@ const SchoolPod = ({ID, schoolName}) => {
                     console.log('School name updated successfully');
                     console.log('POST request sent from edit button')
                     setIsOpen(false);
-                    // refreshPage();
+                    refreshPage();
                 //Otherwise, alert user of failure 
                 } else {
                     console.error('Failed to update school name');

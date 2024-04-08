@@ -164,4 +164,5 @@
     height: 1.5rem; /* Sets height to 1.5rem */
     width:4rem; /* Sets width to 4rem */
     border-radius:10px; /* Adds rounded corners tot he border */
+    border: 2px solid var(--green)
   }
