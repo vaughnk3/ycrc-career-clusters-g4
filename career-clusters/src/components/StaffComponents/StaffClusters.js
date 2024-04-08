@@ -156,6 +156,10 @@ const StaffClusters = () => {
         }
     };
 
+    if (loading) {
+        return <div id="loading-animation"></div>
+    }
+
     // JSX for rendering the Staff Clusters page
     return (
         <div id="page">
