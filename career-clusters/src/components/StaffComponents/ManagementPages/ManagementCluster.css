@@ -105,7 +105,7 @@ KJ Vaughn
 
 /* Styling for the submit name button */
 #submitName {
-    background-color: #98ca41; /* Sets background color */
+    background-color: var(--green); /* Sets background color */
     border-radius: 40px; /* Adds rounded corners to the border */
     border: 3px solid var(--green); /* Sets border */
     width: 100px; /* Sets width to 100px */
@@ -117,7 +117,7 @@ KJ Vaughn
 
 /* Styling for the delete cluster button */
 #deleteCluster {
-    background-color: #98ca41; /* Sets background color */
+    background-color: var(--green); /* Sets background color */
     border-radius: 40px; /* Adds rounded corners to the border */
     border: 3px solid var(--green); /* Sets border */
     width: 100px; /* Sets width to 100px */

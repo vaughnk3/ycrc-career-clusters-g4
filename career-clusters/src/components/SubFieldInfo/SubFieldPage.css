@@ -52,36 +52,26 @@ CSS styles for the row
 }
 
 /*
-CSS styles for the job postings button
-*/
-#jobPostings {
-    height: 3.5rem;         /* Set height */
-    width: 15rem;           /* Set width */
-    background-color: #98CA41; /* Set background color */
-    font-size: 1rem;        /* Set font size */
-    font-weight: 700;       /* Set font weight */
-    color: black;           /* Set text color */
-    border: 0;              /* Remove border */
-    border-radius: 5px;     /* Set border radius */
-    margin-left: 5%;        /* Set left margin */
-    cursor: pointer;        /* Set cursor style */
-}
-
-/*
 CSS styles for the view button
 */
 #view-button {
     display: inline-table;  /* Display as inline table */
     float: right;           /* Float to the right */
     height: 24px;           /* Set height */
-    background-color: #98ca41; /* Set background color */
-    color: white;           /* Set text color */
+    background-color: var(--green); /* Set background color */
+    color: black;           /* Set text color */
     padding: 10px 20px;     /* Set padding */
     border: none;           /* Remove border */
     border-radius: 5px;     /* Set border radius */
     text-decoration: none;  /* Remove text decoration */
-    cursor: pointer;        /* Set cursor style */
+    cursor: default;        /* Set cursor style */
+
+    transition: filter .1s;
 }
+
+#view-button:hover {
+    filter: brightness(1.1);
+  }
 
 /*
 CSS styles for the field statistic
@@ -99,7 +89,7 @@ CSS styles for the field statistic
 CSS styles for the field statistic heading
 */
 .field-statistic h1 {
-    color: #98CA41;         /* Set text color */
+    color: var(--green);         /* Set text color */
     font-size: 2.4rem;      /* Set font size */
     margin-top: 12px;       /* Set top margin */
 }

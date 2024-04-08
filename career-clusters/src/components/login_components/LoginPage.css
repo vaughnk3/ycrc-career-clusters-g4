@@ -47,17 +47,6 @@ LAST EDITED: 04/05/2024 Gavin T. Anderson
     width: 100%; /* Sets width to 100% */
     border: none; /* Removes border */
 }
-
-
-/* Styling for placeholder text in input fields */
-.field::placeholder {
-    height: 1.5rem; /* Sets height of placeholder text */
-    color: gray; /* Sets color of placeholder text */
-    font-size: 1rem; /* Sets font size */
-    bottom: 0; /* Positions placeholder text at the bottom */
-}
-
-
 /* Styling for paragraph elements inside the login form container */
 #login-form p {
     color: white; /* Sets color of text */
@@ -65,6 +54,8 @@ LAST EDITED: 04/05/2024 Gavin T. Anderson
     margin-top: 5%; /* Adds margin at the top */
     margin-bottom: 20%; /* Adds margin at the bottom */
     cursor: pointer; /* Changes cursor on hover */
+
+    transition: color .1s;
 }
 
 
@@ -128,19 +119,4 @@ LAST EDITED: 04/05/2024 Gavin T. Anderson
     margin-left: auto; /* Aligns to the left */
     margin-right: auto; /* Aligns to the right */
     margin-bottom: 10px; /* Adds margin at the bottom */
-}
-
-
-/* Styling for the forgot password submit button */
-.forgot-submit {
-    background-color: var(--green); /* Sets background color using a CSS variable */
-    border-radius: 20px; /* Adds rounded corners to the border */
-    border: solid var (--green); /* Sets border */
-    height: 30%; /* Sets height */
-}
-
-
-/* Styling for the forgot password box */
-#forgot-box {
-    border: 3px solid var(--green); /* Sets border */
 }

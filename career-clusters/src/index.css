@@ -45,14 +45,20 @@ html, body {
   position: relative;
   bottom: 20px;
   background-color: var(--green);
-  color: white;
+  color: black;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   text-decoration: none;
-  cursor: pointer;
+  cursor: default;
   font-size: 1em;
   font-family: 'Lato', sans-serif;
+
+  transition: filter .1s;
+}
+
+.demographic-button:hover {
+  filter: brightness(1.1);
 }
 
 /* Styling for pop-up modals */
@@ -87,11 +93,17 @@ html, body {
   border: none;
   border-radius: 5px;
   text-decoration: none;
-  cursor: pointer;
+  cursor: default;
   font-size: 1em;
   font-family: 'Lato', sans-serif;
   margin-left: 10px;
   margin-right: 10px;
+
+  transition: filter .1s;
+}
+
+.popup-content button:hover {
+  filter: brightness(1.1);
 }
 
 /* Styling for top rectangle paragraph */

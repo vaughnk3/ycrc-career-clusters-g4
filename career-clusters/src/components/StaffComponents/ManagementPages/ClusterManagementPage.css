@@ -29,7 +29,7 @@ KJ Vaughn
 /* Styling for the cancel button */
 .cancelButton {
     border-radius: 40px; /* Adds rounded corners to the border */
-    border-color: #98ca41; /* Sets border color */
+    border-color: var(--green); /* Sets border color */
     border: 3px solid var(--green); /* Sets border */
     width: 100px; /* Sets width to 100px */
     height: 35px; /* Sets height to 35px */

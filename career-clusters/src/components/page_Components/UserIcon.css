@@ -9,4 +9,10 @@
     height: auto; /* Maintains aspect ratio */
     z-index: 9000; /* Sets the stacking order */
     cursor: pointer; /* Changes cursor to pointer on hover */
+
+    transition: transform .1s;
+}
+
+.top-right-image:hover {
+    transform: scale(1.05);
 }
