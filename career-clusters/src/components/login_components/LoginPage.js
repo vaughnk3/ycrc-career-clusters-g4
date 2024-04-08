@@ -114,7 +114,7 @@ const LoginPage = () => {
               <form onSubmit={handleSubmit}>
                 <label htmlFor="usernameField"><h3>Username</h3></label>
                 <input
-                  type="text"
+                  type="email"
                   className="field"
                   placeholder='Input username here'
                   value={username}
