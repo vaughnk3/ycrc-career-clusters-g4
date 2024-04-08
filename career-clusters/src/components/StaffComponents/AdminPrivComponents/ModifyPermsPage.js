@@ -1,6 +1,7 @@
 import TopRectangle from "../../page_Components/TopRectangle";
 import BottomRectangle from "../../page_Components/BottomRectangle";
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { claimsList } from "./permissionsList";
 import './ModifyPermsPage.css'
 
@@ -152,14 +153,29 @@ const ModifyPermsPage = () => {
     const modifyPermissions = () => {
       setShowForm(!showForm);
     }
+
+    const navigate = useNavigate();
+
+    const handleBackButton = () => {
+      navigate('/login/adminpage/')
+  }
     
     //Return the HTML & elements used to populate staff user accounts, their corresponding permissions, and button which displays popup for admin to modify staff permissions  
     return (
         <div id="page">
-            <div id="topRectangle">
-              <button className="permsButton" onClick={modifyPermissions}>Modify Permissions</button>
-              <h1>Modify Permissions Page</h1>
-              <h3>View all user permissions, and make changes to them.</h3>
+            <div id="_topRectangle">
+              <div class="management-header">
+              <div class="management-button-header">
+                <button class="management-header-button single" onClick={handleBackButton}>Back</button>
+              </div>
+                <div class="management-header-text">
+                  <h2>Modify Permissions Page</h2>
+                  <h4>View all user permissions, and make changes to them.</h4>
+                </div>
+                <div class="management-button-header">
+                <button class="management-header-button single" onClick={modifyPermissions}>Modify Permissions</button>
+              </div>
+              </div>
             </div>
 
             <div className="content content-margin">
@@ -242,9 +258,9 @@ const ModifyPermsPage = () => {
               })}
             </select>
         </div>
-        <button id="doneButton" onClick={closeModifyPerms}>Cancel</button>
+        <button class="cancelButton" onClick={closeModifyPerms}>Cancel</button>
 
-        <button id="submitButton" type="submit">Submit</button>
+        <button id="submitName" type="submit">Submit</button>
 
     </form>
   </div>

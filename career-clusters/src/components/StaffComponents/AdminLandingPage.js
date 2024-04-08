@@ -191,7 +191,7 @@ return (
                         <div className="popup">
                             <div className="popup-content">
                                 <h1>Are you sure you want to clear Cluster Click Rates?</h1>
-                                <p>This action will automatically generate an Excel report and is irreversible</p>
+                                <p>This action will automatically generate an Excel report and is irreversible.</p>
                                 <button onClick={handleWipeClusterCounts}>Clear Click Rates</button>
                                 <button onClick={closeCluster}>Cancel</button>
                             </div>
@@ -202,7 +202,7 @@ return (
                         <div className="popup">
                             <div className="popup-content">
                                 <h1>Are you sure you want to clear stored Demographic Information?</h1>
-                                <p>This action will automatically generate an Excel report and is irreversible</p>
+                                <p>This action will automatically generate an Excel report and is irreversible.</p>
                                 <button onClick={handleWipeDemographicInfo}>Clear Demographic Info</button>
                                 <button onClick={closeDemographic}>Cancel</button>
                             </div>

@@ -34,8 +34,14 @@
     border-radius: 10px; /* Adds rounded corners to the border */
     margin-bottom: 40px; /* Adds margin at the bottom */
     text-decoration: none; /* Removes text decoration */
-    cursor: pointer; /* Sets cursor to pointer */
+    cursor: default; /* Sets cursor to pointer */
     font-size: 1.2em; /* Sets font size */
     display: inline-block; /* Sets display to inline-block */
     text-align: center; /* Aligns text to the center */
+
+    transition: filter .1s;
+}
+
+.admin-landing-content a:hover {
+    filter: brightness(1.1);
 }

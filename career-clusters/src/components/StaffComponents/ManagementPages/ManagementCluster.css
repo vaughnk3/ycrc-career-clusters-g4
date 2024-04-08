@@ -21,14 +21,6 @@ KJ Vaughn
     flex-flow: row; /* Sets flex direction to row */
     padding-top: 10px; /* Adds padding at the top */
     padding-bottom: 10px; /* Adds padding at the bottom */
-    transition: .2s color, .2s background-color; /* Adds transition effect */
-}
-
-
-/* Styling for the hover effect of each cluster element */
-.cluster_m:hover {
-    background-color: var(--darkblue); /* Changes background color on hover */
-    color: white; /* Changes text color on hover */
 }
 
 
@@ -103,27 +95,20 @@ KJ Vaughn
     margin-bottom: 20px; /* Adds margin at the bottom */
 }
 
-/* Styling for the submit name button */
-#submitName {
+/* Styling for the submit button within the popup */
+#submitName, #deleteCluster {
     background-color: var(--green); /* Sets background color */
     border-radius: 40px; /* Adds rounded corners to the border */
     border: 3px solid var(--green); /* Sets border */
     width: 100px; /* Sets width to 100px */
-    background-color: var(--green); /* Sets background color using a CSS variable */
     height: 35px; /* Sets height to 35px */
-    margin-left: 5%; /* Adds margin at the left */
+    transition: filter .1s;
 }
 
-
-/* Styling for the delete cluster button */
-#deleteCluster {
-    background-color: var(--green); /* Sets background color */
-    border-radius: 40px; /* Adds rounded corners to the border */
-    border: 3px solid var(--green); /* Sets border */
-    width: 100px; /* Sets width to 100px */
-    background-color: var(--green); /* Sets background color using a CSS variable */
-    height: 35px; /* Sets height to 35px */
+#submitName:hover, #deleteCluster:hover {
+    filter: brightness(1.1);
 }
+
 
 
 /* Styling for the management list */

@@ -97,6 +97,8 @@ KJ Vaughn
     display: block; /* Sets display to block */
     margin-left: auto; /* Aligns horizontally to the left */
     margin-right: auto; /* Aligns horizontally to the right */
+
+    transition: filter .1s;
 }
 
 /* Styling for the content of the subcluster management page */
@@ -157,15 +159,6 @@ KJ Vaughn
     z-index: 10000; /* Sets z-index to 10000 */
 }
 
-/* Styling for the submit button within the popup */
-#submitName, #deleteCluster {
-    background-color: var(--green); /* Sets background color */
-    border-radius: 40px; /* Adds rounded corners to the border */
-    border: 3px solid var(--green); /* Sets border */
-    width: 100px; /* Sets width to 100px */
-    background-color: var(--green); /* Sets background color using a CSS variable */
-    height: 35px; /* Sets height to 35px */
-}
 
 /* Styling for button rows */
 .button-row, .editbuttonrow, .replacebuttonrow, .deletebuttonrow, .left-add, .right-add {

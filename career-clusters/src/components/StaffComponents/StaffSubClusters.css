@@ -50,6 +50,12 @@ body {
 .home-button {
     height: 4rem; /* Set height */
     margin-top: 1rem;
+
+    transition: transform .1s;
+}
+
+.home-button:hover {
+    transform: scale(1.05);
 }
 
 /* Remove default list styles */

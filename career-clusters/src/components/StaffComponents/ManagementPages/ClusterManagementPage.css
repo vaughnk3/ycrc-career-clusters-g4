@@ -35,6 +35,11 @@ KJ Vaughn
     height: 35px; /* Sets height to 35px */
     margin-right: 5%; /* Adds margin at the right */
     margin-bottom: 4%; /* Adds margin at the bottom */
+    transition: background-color .1s;
+}
+
+.cancelButton:hover {
+    background-color: #ddd;
 }
 
 /* Styling for heading level 4 elements within popup content */
