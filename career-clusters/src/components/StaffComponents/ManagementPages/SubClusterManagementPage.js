@@ -281,14 +281,14 @@ return (
         <div id="_topRectangle">
             <div className="management-header">
                 <div class="management-button-header">
-                    <button class="management-header-button" onClick={handleBackButton}>Back</button>
+                    <button class="management-header-button single" onClick={handleBackButton}>Back</button>
                 </div>
                 <div class="management-header-text">
                     <h2>Subcluster Management Page</h2>
                     <h4>Please select an option for subcluster management.</h4>
                 </div>
                 <div class="management-button-header">
-                    <button class="management-header-button" onClick={openPopup}>Add Subcluster +</button>
+                    <button class="management-header-button single" onClick={openPopup}>Add Subcluster +</button>
                 </div>
             </div>
 

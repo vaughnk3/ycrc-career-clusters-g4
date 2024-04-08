@@ -134,14 +134,14 @@ const SchoolManagementPage = () => {
             <div id="_topRectangle">
                 <div className="management-header">
                     <div class="management-button-header">
-                        <button class="management-header-button" onClick={backButtonHandler}>Back</button>
+                        <button class="management-header-button single" onClick={backButtonHandler}>Back</button>
                     </div>
                     <div class="management-header-text">
                         <h2>School Management Page</h2>
                         <h4>Please select an option for school management.</h4>
                     </div>
                     <div class="management-button-header">
-                        <button class="management-header-button" onClick={openPopup}>Add School +</button>
+                        <button class="management-header-button single" onClick={openPopup}>Add School +</button>
                     </div>
                     
                 </div>

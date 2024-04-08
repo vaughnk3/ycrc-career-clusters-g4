@@ -159,14 +159,14 @@ const ClusterManagementPage = () => {
             <div id="_topRectangle">
                 <div className="management-header">
                     <div class="management-button-header">
-                        <button class="management-header-button" onClick={backButtonHandler}>Back</button>
+                        <button class="management-header-button single" onClick={backButtonHandler}>Back</button>
                     </div>
                     <div class="management-header-text">
                         <h2>Cluster Management Page</h2>
                         <h4>Please select an option for cluster management.</h4>
                     </div>
                     <div class="management-button-header">
-                        <button onClick={openPopup} class="management-header-button">Add Cluster +</button>
+                        <button onClick={openPopup} class="management-header-button single">Add Cluster +</button>
                     </div>
                 </div>
                 {isOpen && (

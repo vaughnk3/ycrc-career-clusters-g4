@@ -48,10 +48,8 @@ body {
 
 /* Home button */
 .home-button {
-    height: 75px; /* Set height */
-    position: absolute; /* Absolute positioning */
-    left: 5%; /* Align to the left with 5% offset */
-    top: 15%; /* Align to the top with 15% offset */
+    height: 4rem; /* Set height */
+    margin-top: 1rem;
 }
 
 /* Remove default list styles */

@@ -159,26 +159,46 @@ const StaffSubFields = () => {
           </div>
         </div>
       )}
-      <div id="topRectangle">
-        <div className="overlay">
-          <Link to="/login/staffclusters"><img src={require('./HomeButton.png')} alt="Home Button" className="home-button"></img></Link>
-          <div className="staff-button-column-one">
-            <a className="staff-button" onClick={handleButtonClickClusterManagement}>Cluster Management</a>
-            <a className="staff-button" onClick={handleButtonClickLogout}>Logout</a>
-          </div>
-          <div className="staff-button-column-two">
-            <a className="staff-button" onClick={handleButtonClickStaff}>Admin Landing Page</a>
-            <a className="staff-button" onClick={handleSchoolManagementClick}>School Management</a>
-          </div>
-          <div className="staff-button-column-three">
-            <a className="staff-button" onClick={handleSubclusterManagementClick}>SubCluster Management</a>
-            <a className="staff-button" onClick={handleExcelButtonClick}>Export Data (.xlsx)</a>
-          </div>
-          <div id="topTitle">
-            <h2>Staff View of SubCluster Fields</h2>
-          </div>
+      <div id="_topRectangle">
+                
+                <div className="overlay">
+                <div class="management-header">
+                    <div class="management-button-header">
+                        <Link to="/login/staffclusters">
+                            <img src={require('./HomeButton.png')} alt="Home Button" className="home-button" />
+                        </Link>
+                    </div>                       
+                    <div class="management-button-header">
+                        <a className="management-header-button " onClick={handleButtonClickStaff}>
+                            Admin Landing Page
+                        </a>
+                        <a className="management-header-button " onClick={handleSchoolManagementClick}>
+                            School Management
+                        </a>
+                    </div>
+                    <div class="management-header-text">
+                        <h2>Staff View of Subcluster Fields</h2>
+                    </div>
+                    <div class="management-button-header">
+                        <a className="management-header-button" onClick={handleButtonClickClusterManagement}>
+                            Cluster Management
+                        </a>
+                        <a className="management-header-button" onClick={handleButtonClickLogout}>
+                            Logout
+                        </a>
+                    </div>
+                    <div class="management-button-header">
+                        <a className="management-header-button " onClick={handleSubclusterManagementClick}>
+                            SubCluster Management
+                        </a>
+                        <a className="management-header-button " onClick={handleExcelButtonClick}>
+                            Export Data (.xlsx)
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
-      </div>
       <div className="content content-margin">
         <div id="subfield-content">
           <div id="row">

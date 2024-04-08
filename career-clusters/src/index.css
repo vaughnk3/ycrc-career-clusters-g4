@@ -152,23 +152,42 @@ a, button {
 
 .management-button-header {
   height: 100%;
-  padding: 1rem;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-left: .1rem;
+  padding-right: .1rem;
 
   flex-grow: 1;
+
+
+  text-align: center;
+
+  overflow: hidden;
 }
 
 .management-header-button {
-  width: 8.5rem;
-  height: 3rem;
+  max-width: 18rem;
+  height: 1.5rem;
   background-color: var(--green); /* Sets background color using a CSS variable */
   border-radius: 40px; /* Adds rounded corners to the border */
   border: 3px solid var(--green); /* Sets border */
-  font-size: 12pt; /* Sets font size to 12pt */
+  font-size: min(1.4vw, 1rem); /* Sets font size to 12pt */
 
-  margin-top: 2rem;
+  margin: auto;
+
+  margin-top: 1rem;
+  margin-bottom: 0;
   cursor: pointer;
+
+  color: black;
+  display: block;
+
+  text-align: center;
+}
+
+.single {
+  height: 3rem;
+  margin-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .delete-popup-content label {
