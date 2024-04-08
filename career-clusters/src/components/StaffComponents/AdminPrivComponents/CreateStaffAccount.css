@@ -57,18 +57,3 @@ KJ Vaughn
     margin-right: 10%; /* Adds margin at the right */
     text-align: center; /* Centers text */
 }
-
-
-/* Styling for the create account button */
-#createAcc {
-    position: relative; /* Sets position to relative */
-    bottom: 20px; /* Positions the button 20px from the bottom */
-    margin-top: 15%; /* Adds margin at the top */
-    background-color: var(--green); /* Sets background color using a CSS variable */
-    color: white; /* Sets color of text to white */
-    padding: 10px 20px; /* Adds padding */
-    border: none; /* Removes border */
-    border-radius: 5px; /* Adds rounded corners to the border */
-    text-decoration: none; /* Removes default text decoration */
-    cursor: pointer; /* Changes cursor to pointer */
-}
