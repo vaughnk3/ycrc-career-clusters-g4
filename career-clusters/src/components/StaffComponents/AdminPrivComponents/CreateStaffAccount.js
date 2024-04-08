@@ -1,9 +1,9 @@
 import TopRectangle from "../../page_Components/TopRectangle";
 import BottomRectangle from "../../page_Components/BottomRectangle";
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import app from "../../login_components/FirebaseConfig";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { useNavigate } from 'react-router-dom'
 import './CreateStaffAccount.css'
 
 
@@ -81,11 +81,23 @@ const CreateStaffAccount = () => {
         //navigate('/login/adminpage')
     }
 
+    const handleBackButton = () => {
+      navigate('/login/adminpage/')
+    }
+
     //Return the HTML & elements used to describe and display input form to create staff account
     return (    
     <div id="page">
         <div id="_topRectangle">
-            <p>Enter the email and password for the account to be created.</p>
+            <div class="management-header">
+                <div class="management-button-header">
+                    <button class="management-header-button single" onClick={handleBackButton}>Back</button>
+                </div>
+                <div class="management-header-text">
+                  <h4>Enter the email and password for the account to be created.</h4>
+                </div>
+                <div class="management-button-header"></div>
+            </div>
         </div>
 
         {error && (
