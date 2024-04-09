@@ -163,6 +163,7 @@ const DemographicBox = () => {
   
 
   useEffect(() => {
+    try {
     const input = document.getElementById('age-input');
 
     // Prevent non-numeric characters
@@ -195,6 +196,10 @@ const DemographicBox = () => {
       this.value = ''; // Clear the input if only one digit is left and backspace is pressed
     }
   });
+}
+  catch (error) {
+    console.log(error);
+  }
   
   }, []);
 
