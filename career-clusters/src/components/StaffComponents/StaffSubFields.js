@@ -206,7 +206,7 @@ const StaffSubFields = () => {
               <h2 id="fName">{field.fieldName}</h2>
               <h2 id="fDesc">{field.description} </h2>
             </div>
-            <a id="view-button" href="https://business.yorkcountychamber.com/jobs">View Job Postings</a>
+            <a id="view-button" href="https://business.yorkcountychamber.com/jobs" target="_blank" rel="noopener noreferrer">View Job Postings</a>
           </div>
           <div id="bottomMiddle">
             <div className="field-statistic">

@@ -212,7 +212,7 @@ return (
                 <div class="admin-landing-column">
                     <a href="/login/adminpage/modifyperms">Modify User Permissions</a>
                     <a href="/login/staffclusters/clustermanagementpage">Cluster Management</a> 
-                    <a href="https://business.yorkcountychamber.com/jobs">View Job Postings</a>
+                    <a href="https://business.yorkcountychamber.com/jobs" target="_blank" rel="noopener noreferrer">View Job Postings</a>
                     <a onClick={openSubCluster}>Clear SubCluster Click Counts</a>
                     <a  onClick={ExcelGenerationQueue}>Export Data (.xlsx)</a>
                     {/* Popup for confirming subcluster wipe */}
