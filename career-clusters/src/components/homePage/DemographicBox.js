@@ -168,6 +168,7 @@ const DemographicBox = () => {
 
       // Define event handlers
       const handleKeypress = (event) => {
+        console.log("In handler")
         const charCode = event.which ? event.which : event.keyCode;
         // Allow only numeric characters
         if (charCode > 31 && (charCode < 48 || charCode > 57)) {
@@ -216,9 +217,9 @@ const DemographicBox = () => {
   return ( 
     <div id="demographic-box">
       <div id="demographic-box-container">
-        <div class="demographic-item">
+        <div className="demographic-item">
           <h3>School *</h3>
-          <select id="school-select" name="school" class="select" onChange={handleSchoolChange}>
+          <select id="school-select" name="school" className="select" onChange={handleSchoolChange}>
             <option value="" disabled selected hidden className="hidden">Select one</option>
             {schools.map((school) => (
                 <option key={school.id} value={school.id} >
@@ -240,10 +241,10 @@ const DemographicBox = () => {
           )}
 
         </div>
-        <div class="demographic-item">
+        <div className="demographic-item">
           <h3>Desired Career Field</h3>
-          <select name="dField" class="select" onChange={(e) => setDesiredCareerField(e.target.selectedOptions[0].text)} >
-            <option value="" disabled selected hidden class="hidden">Select one</option>
+          <select name="dField" className="select" onChange={(e) => setDesiredCareerField(e.target.selectedOptions[0].text)} >
+            <option value="" disabled selected hidden className="hidden">Select one</option>
             {clusters.map((cluster) => (
                 <option key={cluster.id} value={cluster.id} >
                     {cluster.clusterName}
@@ -251,10 +252,10 @@ const DemographicBox = () => {
             ))}
           </select>
         </div>
-        <div class="demographic-item">
+        <div className="demographic-item">
           <h3>Grade *</h3>
-          <select id="grade" class="select" onChange={(e) => setGradeLevel(e.target.value)}>
-          <option value="" disabled selected hidden class="hidden">Select one</option>
+          <select id="grade" className="select" onChange={(e) => setGradeLevel(e.target.value)}>
+          <option value="" disabled selected hidden className="hidden">Select one</option>
            <option value="1">1</option>
            <option value="2">2</option>
            <option value="3">3</option>
@@ -271,15 +272,15 @@ const DemographicBox = () => {
            <option value="12+">12+</option>
           </select>
         </div>
-        <div class="demographic-item">
+        <div className="demographic-item">
           <h3>Age</h3>
-          <input id="age-input" type="number" min="0" class="select" name="fname" placeholder='Please input your age here' value={currentAge} onChange={handleAgeChange}></input>
+          <input id="age-input" type="number" min="0" className="select" name="fname" placeholder='Please input your age here' value={currentAge} onChange={handleAgeChange}></input>
           
         </div>
       </div>
 
 
-      <a href="#" class="demographic-button" onClick={sendDemographicInfo}>Submit</a>
+      <a href="#" className="demographic-button" onClick={sendDemographicInfo}>Submit</a>
     </div>
   );
 };

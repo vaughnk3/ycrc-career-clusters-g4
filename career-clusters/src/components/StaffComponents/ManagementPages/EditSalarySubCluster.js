@@ -3,6 +3,7 @@ import './ManagementCluster.css'
 import React, { useState } from "react";
 import { getAuth } from "firebase/auth";
 import app from "../../login_components/FirebaseConfig";
+import { useEffect } from 'react';
 
 /*
 This file contains the Javascript code and POST requests utilized by staff accounts to update the salary for any given
@@ -93,6 +94,63 @@ const EditSalarySubCluster = ({ID}) => {
             setsubclusterSalary(salary);
     }
 
+    /*
+    useEffect(() => {
+        try {
+          const input = document.getElementById('subclusterSalary');
+      
+          // Define event handlers
+          console.log("listener")
+          const handleKeypress = function(event) {
+            console.log("IN EVENT LISTENER KEYPRESS");
+            const charCode = event.which ? event.which : event.keyCode;
+            // Allow only numeric characters
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+              event.preventDefault();
+            }
+          };
+      
+          
+          const handlePaste = function(event) {
+            const pasteData = event.clipboardData.getData('text/plain');
+            if (pasteData.match(/[^0-9]/)) {
+              event.preventDefault();
+            }
+          };
+      
+          
+          const handleInput = function() {
+            if (this.value < 0) {
+              this.value = '';
+            }
+          };
+      
+          const handleKeydown = function(event) {
+            if (event.key === 'Backspace' && this.value.length <= 1) {
+              this.value = ''; // Clear the input if only one digit is left and backspace is pressed
+            }
+          };
+      
+          // Attach event listeners
+          input.addEventListener('keypress', handleKeypress);
+          input.addEventListener('paste', handlePaste);
+          input.addEventListener('input', handleInput);
+          input.addEventListener('keydown', handleKeydown);
+      
+          // Cleanup function to remove the event listeners
+          return () => {
+            input.removeEventListener('keypress', handleKeypress);
+            input.removeEventListener('paste', handlePaste);
+            input.removeEventListener('input', handleInput);
+            input.removeEventListener('keydown', handleKeydown);
+          };
+      
+        } catch (error) {
+          console.log(error);
+        }
+      }, []); 
+      */
+
     //Return the HTML and elements used to populate Edit Salary button, which has functionality to confirm and edit salary for a Subcluster within SQL database
     return (
         <div className="cluster-button">
@@ -102,7 +160,7 @@ const EditSalarySubCluster = ({ID}) => {
                         <div className="popup-content">  
                             <label for="subclusterSalary" className="standard-popup">Salary</label>
                             <p>Enter a whole number (80000, not $80,000)</p>
-                            <input type="number" id="subclusterSalary" className="standardIn-popup" name="subclusterSalary" placeholder="Enter the changed SubCluster salary." value={subclusterSalary} onChange={handleSalaryChange}></input>
+                            <input type="number" min="0" id="subclusterSalary" className="standardIn-popup" name="subclusterSalary" placeholder="Enter the changed SubCluster salary." value={subclusterSalary} onChange={handleSalaryChange}></input>
                             <br/>
                             <div className="replacebuttonrow">
                             <button onClick={closePopup}>Cancel</button>

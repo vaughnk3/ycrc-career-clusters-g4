@@ -26,7 +26,7 @@ const DemographicInfo = () => {
         <UserIcon/>
       </div>
 
-      <div class="content">
+      <div className="content">
         <div id="demographic-content">
         <h2>To gain access to the career cluster tool,</h2>
         <h2>please enter your demographic information below</h2> 
