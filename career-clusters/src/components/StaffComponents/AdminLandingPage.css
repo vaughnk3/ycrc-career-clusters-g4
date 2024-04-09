@@ -28,7 +28,7 @@
     width: 90%; /* Sets width to 90% */
     height: auto; /* Sets height to auto */
     background-color: var(--green); /* Sets background color using a CSS variable */
-    color: white; /* Sets text color to white */
+    color: black; /* Sets text color to white */
     padding: 20px 20px; /* Adds padding */
     border: none; /* Removes border */
     border-radius: 10px; /* Adds rounded corners to the border */

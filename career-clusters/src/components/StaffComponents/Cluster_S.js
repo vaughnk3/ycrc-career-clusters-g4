@@ -42,10 +42,15 @@ const Cluster_S = ({ id, clusterName, onClick }) => {
     fetchImage(); // Call fetchImage function
   }, [id]); // Depend on id to refetch image when id changes
 
+
+  // Create a dynamic alt tag for disability usability.  Append "cluster picture" to the name 
+    // Example:    Agriculture cluster picture. 
+    const altTag = clusterName + " Cluster picture";
+
   return (
     <div onClick={() => onClick(id)} className="cluster">
       {/* Display cluster image */}
-      <img src={imageSrc} alt="Cluster Picture" className="cluster-pics"></img>
+      <img src={imageSrc} alt={altTag} className="cluster-pics"></img>
       {/* Display cluster name */}
       <h2>{clusterName}</h2>
     </div>

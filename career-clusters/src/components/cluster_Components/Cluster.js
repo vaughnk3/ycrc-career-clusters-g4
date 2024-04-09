@@ -35,10 +35,14 @@ const Cluster = ( {id, clusterName, onClick} ) => {
       }
     }, [id]);
 
+    // Create a dynamic alt tag for disability usability.  Append "cluster picture" to the name 
+    // Example:    Agriculture cluster picture. 
+    const altTag = clusterName + " Cluster picture";
+
     // Return an individual cluster with the proper image and name, with styling from Cluster.css
   return (
     <div onClick={() => onClick(id)} class="cluster">
-        <img src={imageSrc} alt="Cluster Picture" className="cluster-pics"></img>
+        <img src={imageSrc} alt={altTag} className="cluster-pics"></img>
         <h2> {clusterName}
         </h2>
     </div>

@@ -47,6 +47,9 @@ const SubCluster = ( {ID, subclusterName, onClick} ) => {
         }
     }, [ID]);
 
+    // Create a dynamic alt tag for disability usability.  Append "cluster picture" to the name 
+    // Example:    Agriculture cluster picture. 
+    const altTag = subclusterName + " SubCluster picture";
 
     // Handles navigation to the subcluster information page
     const handleNav = () => {
@@ -80,7 +83,7 @@ const SubCluster = ( {ID, subclusterName, onClick} ) => {
     return (
         
         <div onClick={handleNav} class="subcluster"> 
-        <img src={ imageSrc } alt="SubCluster Picture" className="subcluster-pics"></img>
+        <img src={ imageSrc } alt={altTag} className="subcluster-pics"></img>
         <h2>{subclusterName}</h2>
         </div>
         
