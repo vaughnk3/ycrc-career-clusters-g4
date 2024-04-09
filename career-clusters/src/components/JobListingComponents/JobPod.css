@@ -1,0 +1,12 @@
+.job-pod {
+    width: 95%; /* Sets width to 95% */
+    height: auto; /* Sets height to auto */
+    padding: 0; /* Resets padding */
+    padding-bottom: 6rem; /* Adds padding at the bottom */
+    margin-left: auto; /* Aligns horizontally to the left */
+    margin-right: auto; /* Aligns horizontally to the right */
+    margin-bottom: 1.5rem; /* Adds margin at the bottom */
+    background-color: #D9D9D9; /* Sets background color */
+    border: 6px solid var(--green); /* Sets border */
+    border-radius: 60px; /* Adds rounded corners to the border */
+}
