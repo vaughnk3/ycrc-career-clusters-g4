@@ -37,15 +37,15 @@ const JobListingPage = () => {
         </div>
 
 
-      <JobPod jobTitle={"New job"}> </JobPod>
+        <JobPod jobTitle={"New job"}> </JobPod>
 
-      <JobPod jobTitle={"second job"}> </JobPod>
-      <JobPod jobTitle={"third job"}> </JobPod>
-
-
+        <JobPod jobTitle={"second job"}> </JobPod>
+        <JobPod jobTitle={"third job"}> </JobPod>
 
 
 
+
+        <BottomRectangle/>
       </div>
     )
 }
