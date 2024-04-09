@@ -94,7 +94,7 @@ const CreateStaffAccount = () => {
                     <button class="management-header-button single" onClick={handleBackButton}>Back</button>
                 </div>
                 <div class="management-header-text">
-                  <h4>Enter the email and password for the account to be created.</h4>
+                  <h2>Enter the email and password for the account to be created.</h2>
                 </div>
                 <div class="management-button-header"></div>
             </div>
