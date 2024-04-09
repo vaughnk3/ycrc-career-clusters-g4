@@ -164,43 +164,52 @@ const DemographicBox = () => {
 
   useEffect(() => {
     try {
-    const input = document.getElementById('age-input');
+      const input = document.getElementById('age-input');
 
-    // Prevent non-numeric characters
-    input.addEventListener('keypress', function(event) {
-      const charCode = event.which ? event.which : event.keyCode;
-      // Allow only numeric characters
-      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-        event.preventDefault();
-      }
-    });
+      // Define event handlers
+      const handleKeypress = (event) => {
+        const charCode = event.which ? event.which : event.keyCode;
+        // Allow only numeric characters
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+          event.preventDefault();
+        }
+      };
 
-    // Prevent paste of non-numeric characters
-    input.addEventListener('paste', function(event) {
-      const pasteData = event.clipboardData.getData('text/plain');
-      if (pasteData.match(/[^0-9]/)) {
-        event.preventDefault();
-      }
-    });
+      const handlePaste = (event) => {
+        const pasteData = event.clipboardData.getData('text/plain');
+        if (pasteData.match(/[^0-9]/)) {
+          event.preventDefault();
+        }
+      };
 
-    // Validate on input change to ensure positive numbers only
-    input.addEventListener('input', function() {
-      if (this.value < 0) {
-        this.value = '';
-      }
-    });
+      const handleInput = () => {
+        if (input.value < 0) {
+          input.value = '';
+        }
+      };
 
-    // This allows users to clear the field using backspace
-  input.addEventListener('keydown', function(event) {
-    if (event.key === 'Backspace' && this.value.length <= 1) {
-      this.value = ''; // Clear the input if only one digit is left and backspace is pressed
+      const handleKeydown = (event) => {
+        if (event.key === 'Backspace' && input.value.length <= 1) {
+          input.value = ''; // Clear the input if only one digit is left and backspace is pressed
+        }
+      };
+
+      // Attach event listeners
+      input.addEventListener('keypress', handleKeypress);
+      input.addEventListener('paste', handlePaste);
+      input.addEventListener('input', handleInput);
+      input.addEventListener('keydown', handleKeydown);
+
+      // Cleanup function to remove the event listeners
+      return () => {
+        input.removeEventListener('keypress', handleKeypress);
+        input.removeEventListener('paste', handlePaste);
+        input.removeEventListener('input', handleInput);
+        input.removeEventListener('keydown', handleKeydown);
+      };
+    } catch (error) {
+      console.log(error);
     }
-  });
-}
-  catch (error) {
-    console.log(error);
-  }
-  
   }, []);
 
   // Return the HTML for the demographic info box.  CSS is in DemographicBox.css
