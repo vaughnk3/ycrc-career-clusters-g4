@@ -137,7 +137,7 @@ const LoginPage = () => {
                     <div className="pass-popup-content">
                         <label>
                           <h3 className="title">Email</h3>
-                          <input type="email" placeholder="Enter the email associated with your account." value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+                          <input id="forgot-input" type="email" placeholder="Enter the email associated with your account." value={email} onChange={(e) => setEmail(e.target.value)} required></input>
                         </label>
                         <button class="demographic-button" type="submit" onClick={handleForgotPassSubmit}>Send Password Reset Email</button>
                         <button class="demographic-button" onClick={closePopup}>Cancel</button>

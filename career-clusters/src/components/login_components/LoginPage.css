@@ -120,3 +120,8 @@ LAST EDITED: 04/05/2024 Gavin T. Anderson
     margin-right: auto; /* Aligns to the right */
     margin-bottom: 10px; /* Adds margin at the bottom */
 }
+
+#forgot-input {
+    border-radius:10px;
+    border: 2px solid var(--green);
+}
