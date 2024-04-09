@@ -45,6 +45,9 @@ const ModifyPermsPage = () => {
     //Close popup for modification of permissions
     const closeModifyPerms = () => {
       setShowForm(false);
+      setAction('');
+      setSelectedPermission('');
+      setSelectedUser('');
     }
 
 
