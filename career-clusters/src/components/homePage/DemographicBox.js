@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import './DemographicBox.css';
 
+
 /*
 This file contains all the JSX code for the Demographic box in the center
 of the home page of the application.  It has all 4 fields a user can give their anonymous 
@@ -159,6 +160,44 @@ const DemographicBox = () => {
     setOtherSelected(false);
   }
 
+  
+
+  useEffect(() => {
+    const input = document.getElementById('age-input');
+
+    // Prevent non-numeric characters
+    input.addEventListener('keypress', function(event) {
+      const charCode = event.which ? event.which : event.keyCode;
+      // Allow only numeric characters
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        event.preventDefault();
+      }
+    });
+
+    // Prevent paste of non-numeric characters
+    input.addEventListener('paste', function(event) {
+      const pasteData = event.clipboardData.getData('text/plain');
+      if (pasteData.match(/[^0-9]/)) {
+        event.preventDefault();
+      }
+    });
+
+    // Validate on input change to ensure positive numbers only
+    input.addEventListener('input', function() {
+      if (this.value < 0) {
+        this.value = '';
+      }
+    });
+
+    // This allows users to clear the field using backspace
+  input.addEventListener('keydown', function(event) {
+    if (event.key === 'Backspace' && this.value.length <= 1) {
+      this.value = ''; // Clear the input if only one digit is left and backspace is pressed
+    }
+  });
+  
+  }, []);
+
   // Return the HTML for the demographic info box.  CSS is in DemographicBox.css
   return ( 
     <div id="demographic-box">
@@ -220,7 +259,8 @@ const DemographicBox = () => {
         </div>
         <div class="demographic-item">
           <h3>Age</h3>
-          <input type="number" class="select" name="fname" placeholder='Please input your age here' value={currentAge} onChange={handleAgeChange}></input>
+          <input id="age-input" type="number" min="0" class="select" name="fname" placeholder='Please input your age here' value={currentAge} onChange={handleAgeChange}></input>
+          
         </div>
       </div>
 
