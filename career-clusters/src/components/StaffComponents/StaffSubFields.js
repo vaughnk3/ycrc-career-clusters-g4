@@ -147,6 +147,38 @@ const StaffSubFields = () => {
   // Retrieve the first subfield from subFields array
   const field = subFields.length > 0 ? subFields[0] : {};
 
+  // Initialize variable to store the display content
+  let displayWords = [];
+
+  try {
+    // Make sure that field and schoolList is defined
+    if (field && field.schoolList) {
+      // Split the text into an array of words
+      const arrayOfSchoolWords = field.schoolList.split(/\s+/);
+      
+      // Map each word accordingly. 
+      displayWords = arrayOfSchoolWords.map((item, index) => {
+        // If the word is really a link, return an <a> tag with the reference link and open in a new tab.  
+          if (item.startsWith('http') || item.startsWith('www') || item.includes('://')) {
+              return(
+                  <a key={index} href={item} target="_blank" rel="noopener noreferrer">
+                      {item}
+                      <br></br>
+                  </a>
+                  
+              )
+          }
+          // If it is just a normal word, return the word with breaks for spacing.  
+          else {
+              return <span key={index}> <br></br> {item} <br></br></span>
+          }
+      })
+    }
+  }
+  catch (error) {
+    console.log(error);
+  }
+
   // Render JSX content
   return (
     <div id="page">
@@ -223,7 +255,7 @@ const StaffSubFields = () => {
             </div>
             <div class="field-statistic">
                 <h2>Higher Education Opportunities</h2>
-                <h1>{field.schoolList}</h1>
+                <div>{displayWords}</div>
             </div>
           </div>
         </div>
