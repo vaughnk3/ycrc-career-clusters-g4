@@ -6,6 +6,7 @@ import EditGrowthSubCluster from './EditGrowthSubCluster';
 import EditEducationSubCluster from './EditEducationSubCluster';
 import DeleteSubClusterButton from './DeleteSubClusterButton';
 import EditImageSubCluster from './EditImageSubCluster';
+import EditSchoolsSubCluster from './EditSchoolsSubCluster';
 
 
 /*
@@ -39,6 +40,7 @@ const ManagementSubCluster = ({ID, subclusterName}) => {
             <EditSalarySubCluster ID={ID} />
             <EditGrowthSubCluster ID={ID} />
             <EditEducationSubCluster ID={ID} />
+            <EditSchoolsSubCluster ID={ID} />
             <DeleteSubClusterButton ID={ID} />
             </div>
         </div>

@@ -26,6 +26,8 @@ const SubClusterManagementPage = () => {
     const [newSCEdLevel, setNewEdLevel] = useState(' ');
     // New subcluster Growth Rate
     const [newSCGrowthRate, setNewGrowthRate] = useState(' ');
+    //New subclusters school list
+    const [newSchools, setNewSchools] = useState(' ');
     // Selcted cluster ID from Parent Cluster Dropdown
     const [clusterID, setClusterID] = useState('');
     // New Subcluster Image
@@ -224,7 +226,7 @@ const SubClusterManagementPage = () => {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type' : 'application/json'
                     },
-                    body: JSON.stringify({subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate})
+                    body: JSON.stringify({subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate, newSchools})
                 }));
 
                 // If successful, close the popup and put the new popup up with the success status message. 
@@ -376,6 +378,18 @@ return (
                             <option value="Medium">Medium</option>
                             <option value="Low">Low</option>
                         </select>
+
+                        <label className="label-addsc" for="newSchools">School List</label>
+                        <textarea
+                            id="subclusterDescrip"
+                            maxLength="300"
+                            name='newSchools'
+                            placeholder="Enter schools list."
+                            value={newSchools.trim().length ? newSchools : ''}
+                            onChange={(e) => setNewSchools(e.target.value || ' ')}
+                        />
+                        
+                        
 
                         <label className="label-addsc" for="img">Image</label>
                         <div id="imgWrapper">

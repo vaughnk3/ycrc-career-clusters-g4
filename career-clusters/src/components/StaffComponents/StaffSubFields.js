@@ -221,6 +221,10 @@ const StaffSubFields = () => {
               <h2>Growth Rate</h2>
               <h1>{field.growthRate}</h1>
             </div>
+            <div class="field-statistic">
+                <h2>Higher Education Opportunities</h2>
+                <h1>{field.schoolList}</h1>
+            </div>
           </div>
         </div>
       </div>
