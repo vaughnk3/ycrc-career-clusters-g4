@@ -113,9 +113,9 @@ const CreateStaffAccount = () => {
             <form id="staff-account-form" onSubmit={handleSignUp}>
                 <div id="staff-account-form-content">
                     <label><h3>New Email</h3></label>
-                        <input type="email" value={email} onChange={(e) => setUserEmail(e.target.value)} required />
+                        <input type="email" placeholder="Enter the new account email." value={email} onChange={(e) => setUserEmail(e.target.value)} required />
                     <label><h3>New Password</h3></label>
-                        <input type="password" minLength="6" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        <input type="password" placeholder="Enter a new password for the new account." minLength="6" value={password} onChange={(e) => setPassword(e.target.value)} required />
 
                         <button class="demographic-button" type="submit">Create Account</button>
                     </div>
