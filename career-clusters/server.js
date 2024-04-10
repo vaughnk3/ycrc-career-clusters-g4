@@ -640,6 +640,23 @@ app.post('/subclustermanagementpage/edit-subcluster-growthrate', checkAuth, (req
 })
 //************************************************************************/
 
+app.post('/subclustermanagementpage/change-schools', checkAuth, (req, res) => {
+  const { updatedSchools, ID } = req.body;
+  pool.query(
+    'UPDATE Field SET schoolList = ? WHERE subclusterId = ?', 
+    [updatedSchools, ID],
+    (error, results, fields) => {
+      if(error) {
+        console.error('Error updating school list, ', error);
+        res.status(500).send('Error updating school name');
+      } else {
+        console.log('School list updated successfully');
+        res.status(200).send('School list updated successfully')
+      }
+    }
+  )
+})
+
 
 //************************************************************************/
 // Insert request for adding subcluster into subcluster table
@@ -666,10 +683,10 @@ app.post('/subclustermanagementpage/add-subcluster', upload.single('image'), che
 
 app.post('/subclustermanagementpage/add-subcluster-field', checkAuth, (req, res) => {
   //look at req (in headers)
-  const { subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate} = req.body;
+  const { subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate, newSchools} = req.body;
   pool.query(
-    'INSERT INTO Field (subclusterID, fieldName, description, avgSalary, educationLvl, growthRate) VALUES (?, ?, ?, ?, ?, ?)',
-    [subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate],
+    'INSERT INTO Field (subclusterID, fieldName, description, avgSalary, educationLvl, growthRate, schoolList) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [subclusterID, newSCName, newSCDescrip, newSCSalary, newSCEdLevel, newSCGrowthRate, newSchools],
     (error, results, fields) => {
       if(error) {
         console.error("Error inserting field: ", error);
