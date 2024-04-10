@@ -135,10 +135,17 @@ KJ Vaughn
 }
 
 /* Styling for various form elements within the subcluster management */
-#subclusterDescrip, #growth-rate, #subclusterName, #subclusterSalary, #subclusterEducation, #select-cluster {
+#growth-rate, #subclusterName, #subclusterSalary, #subclusterEducation, #select-cluster {
     border: 3px solid var(--green); /* Sets border */
     border-radius: 30px; /* Adds rounded corners to the border */
     resize: none;
+}
+
+#subclusterDescrip {
+    border-radius:10px;
+    border: 2px solid var(--green);
+    resize:none;
+    height:20%;
 }
 
 /* Styling for a popup window */
