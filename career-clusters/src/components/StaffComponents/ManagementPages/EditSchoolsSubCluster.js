@@ -94,7 +94,7 @@ const EditSchoolsSubCluster = ( {ID} ) => {
                         <label className='standard-popup'>Edit School List</label>
                         <br></br>
                         <br></br>
-                        <textarea id="subclusterDescrip" type="text" className="standardIn-popup" maxLength="300" placeholder='Enter the changed School List here' value={updatedSchools} onChange={(e) => setUpdatedSchools(e.target.value)}></textarea>
+                        <textarea id="subclusterDescripEdit" type="text" className="standardIn-popup" maxLength="300" placeholder='Enter the changed School List here' value={updatedSchools} onChange={(e) => setUpdatedSchools(e.target.value)}></textarea>
                         <br></br>
                         <br></br>
                         <br></br>

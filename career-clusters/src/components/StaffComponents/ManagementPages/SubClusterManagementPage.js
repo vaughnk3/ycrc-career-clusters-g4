@@ -323,83 +323,81 @@ return (
             {isOpen && (
                 <div className="popup">
                     <div className="addsc-container">  
-                        <div className="newsc-left">
-                        
-                        <label className="label-addsc" for="subclusterName">Name</label>
-                        <input
-                            type="text"
-                            id="subclusterName"
-                            name="subclusterName"
-                            placeholder="Enter new Name"
-                            value={newSCName.trim().length ? newSCName : ''}
-                            onChange={(e) => setNewName(e.target.value || ' ')}
+                        <div className="newsc-column">
+
+                            <label className="label-addsc" for="subclusterName">Name</label>
+                            <input
+                                type="text"
+                                id="subclusterName"
+                                name="subclusterName"
+                                placeholder="Enter new Name"
+                                value={newSCName.trim().length ? newSCName : ''}
+                                onChange={(e) => setNewName(e.target.value || ' ')}
+                                />
+
+                            <label className="label-addsc" for="subclusterSalary">Salary</label>
+                            <input type="number" id="subclusterSalary" name="subclusterSalary"  placeholder="Enter new Salary here" value={newSCSalary} onChange={handleSalaryChange}></input>
+
+
+                            <label className="label-addsc" for="subclusterEducation">Education Level</label>
+                            <input
+                                type="text"
+                                id="subclusterEducation"
+                                name="subclusterEducation"
+                                placeholder="Enter new education level"
+                                value={newSCEdLevel.trim().length ? newSCEdLevel : ''}
+                                onChange={(e) => setNewEdLevel(e.target.value || ' ')}
                             />
-                        <br/>
-                        <label className="label-addsc" for="subclusterSalary">Salary</label>
-                        <input type="number" id="subclusterSalary" name="subclusterSalary"  placeholder="Enter new Salary here" value={newSCSalary} onChange={handleSalaryChange}></input>
 
-                        <br/>
-                        <label className="label-addsc" for="subclusterEducation">Education Level</label>
-                        <input
-                            type="text"
-                            id="subclusterEducation"
-                            name="subclusterEducation"
-                            placeholder="Enter new education level"
-                            value={newSCEdLevel.trim().length ? newSCEdLevel : ''}
-                            onChange={(e) => setNewEdLevel(e.target.value || ' ')}
-                        />
+                            <label className="label-addsc">Parent Cluster</label>
+                            <select id="select-cluster" value={clusterID} onChange={(e) => setClusterID(e.target.value)} >
+                                <option value="" disabled selected hidden className="hidden">Select Parent Cluster</option>
+                                {clusters.map((cluster) => (
+                                    <option key={cluster.id} value={cluster.id} >
+                                        {cluster.clusterName}
+                                    </option>
+                                ))}
+                            </select>
+                            <label className="label-addsc" for="img">Image</label>
+                            <div id="imgWrapper">
+                                <input type="file" id="img" name="img" accept="image/*" onChange={handleFileInputChange}></input>
+                            </div>
+                        </div>
+                        <div className="newsc-column">
+                            <label className="label-addsc" for="subclusterDescrip">Description</label>
+                            <textarea
+                                id="subclusterDescrip"
+                                maxLength="200"
+                                name="subclusterDescrip"
+                                placeholder="Enter new description."
+                                value={newSCDescrip.trim().length ? newSCDescrip : ''}
+                                onChange={(e) => setNewDescrip(e.target.value || ' ')}
+                            />
 
-                        <label className="label-addsc">Parent Cluster</label>
-                        <select id="select-cluster" value={clusterID} onChange={(e) => setClusterID(e.target.value)} >
-                            <option value="" disabled selected hidden className="hidden">Select Parent Cluster</option>
-                            {clusters.map((cluster) => (
-                                <option key={cluster.id} value={cluster.id} >
-                                    {cluster.clusterName}
-                                </option>
-                            ))}
-                        </select>
+                            <label className="label-addsc" for="newSchools">School List</label>
+                            <textarea
+                                id="subclusterDescrip"
+                                maxLength="300"
+                                name='newSchools'
+                                placeholder="Enter schools list."
+                                value={newSchools.trim().length ? newSchools : ''}
+                                onChange={(e) => setNewSchools(e.target.value || ' ')}
+                            />
+
+                            <label className="label-addsc" for="rate">Growth Rate</label>
+                            <select id="growth-rate" name="rate" value={newSCGrowthRate} onChange={(e) => setNewGrowthRate(e.target.value)} >
+                                <option>Select Growth Rate</option>
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
+
 
                         </div>
-                        <div className="newsc-right">
-                        <label className="label-addsc" for="subclusterDescrip">Description</label>
-                        <textarea
-                            id="subclusterDescrip"
-                            maxLength="200"
-                            name="subclusterDescrip"
-                            placeholder="Enter new description."
-                            value={newSCDescrip.trim().length ? newSCDescrip : ''}
-                            onChange={(e) => setNewDescrip(e.target.value || ' ')}
-                        />
-                        
-                        <label className="label-addsc" for="rate">Growth Rate</label>
-                        <select id="growth-rate" name="rate" value={newSCGrowthRate} onChange={(e) => setNewGrowthRate(e.target.value)} >
-                            <option>Select Growth Rate</option>
-                            <option value="High">High</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Low">Low</option>
-                        </select>
 
-                        <label className="label-addsc" for="newSchools">School List</label>
-                        <textarea
-                            id="subclusterDescrip"
-                            maxLength="300"
-                            name='newSchools'
-                            placeholder="Enter schools list."
-                            value={newSchools.trim().length ? newSchools : ''}
-                            onChange={(e) => setNewSchools(e.target.value || ' ')}
-                        />
-                        
-                        
-
-                        <label className="label-addsc" for="img">Image</label>
-                        <div id="imgWrapper">
-                            <input type="file" id="img" name="img" accept="image/*" onChange={handleFileInputChange}></input>
-                        </div>
-                        </div>
-                        <br/>
                         <div className="newsc-buttonrow">
-                        <button onClick={closePopup} className="cancelButton">Cancel</button>
-                        <button id="submitName" onClick={addSubCluster}>Submit</button>
+                            <button onClick={closePopup} className="cancelButton">Cancel</button>
+                            <button id="submitName" onClick={addSubCluster}>Submit</button>
                         </div>
                     </div>
                 </div>

@@ -121,7 +121,6 @@ const SubFieldsPage = () => {
 
                     <div class="field-statistic">
                         <h2>Higher Education Opportunities</h2>
-                        <br></br>
                         <div>{displayWords}</div>
             
                     </div>

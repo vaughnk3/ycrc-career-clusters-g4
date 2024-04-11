@@ -73,9 +73,9 @@ KJ Vaughn
     flex-flow: column wrap; /* Sets flex direction to column and wrap */
     justify-content: center; /* Centers content vertically */
     align-content: center; /* Centers content horizontally */
-    width: 40%; /* Sets width to 40% */
-    height: 30%; /* Sets height to 30% */
-    padding: 20px; /* Adds padding */
+    width: 30rem; /* Sets width */
+    height: fit-content; /* Sets height */
+    padding: 40px; /* Adds padding */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adds box shadow */
     position: relative; /* Sets position to relative */
     z-index: 10000; /* Sets the stacking order */

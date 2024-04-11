@@ -56,13 +56,14 @@ KJ Vaughn
     border: 3px solid var(--green); /* Sets border */
     border-radius: 30px; /* Adds rounded corners to the border */
     height: 20%; /* Sets height to 20% */
+    width: 20rem;
 }
 
 
 /* Styling for the cluster image */
 #imgN {
     margin-left: 20%; /* Adds margin at the left */
-    width: 181px; /* Sets width to 181px */
+    width: 27rem;
 }
 
 
@@ -91,4 +92,5 @@ KJ Vaughn
 #imgWrapper {
     margin: 0; /* Resets margin */
     padding: 0; /* Resets padding */
+    text-align: left;
 }
