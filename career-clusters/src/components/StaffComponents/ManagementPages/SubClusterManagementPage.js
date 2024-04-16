@@ -44,6 +44,8 @@ const SubClusterManagementPage = () => {
     const [clusterId, setClusterId] = useState('0');
     // State tracker for selecting Subclusters
     const [clusterPopup, setClusterPopup] = useState(false);
+    // Re-render tracker
+    const [reRender, setReRender] = useState(false);
     
     const [selectedClusterName, setSelectedClusterName] = useState('');
 
@@ -53,7 +55,7 @@ const SubClusterManagementPage = () => {
     /* Define popup manipulations */
 
     // Closes status popup and refreshes page
-    const closeAddState = () => { setAddState(false); refreshPage() }
+    const closeAddState = () => { setAddState(false); setReRender(!reRender)/*refreshPage()*/ }
     // Opens add subcluster popup
     const openPopup = () => { setIsOpen(true); }
     // Closes add subcluster popup
@@ -93,7 +95,8 @@ const SubClusterManagementPage = () => {
                 setSubClusters2(data);
 
                 var selectedCluster = clusters.find(cl => cl.id == clusterId);
-        
+
+                
                 if (selectedCluster)
                     setSelectedClusterName(selectedCluster.clusterName);
 
@@ -107,7 +110,7 @@ const SubClusterManagementPage = () => {
         }
         // Call the function
         fetchIDSubclusters();
-    }, [clusterId]);
+    }, [clusterId, reRender]);
 
     
 
