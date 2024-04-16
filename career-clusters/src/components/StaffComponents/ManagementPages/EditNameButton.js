@@ -63,7 +63,7 @@ const EditNameButton = ({ID}) => {
             if (response.ok) {
                 console.log('Cluster updated successfully');
                 setIsOpen(false);
-                setMessage(`Successfully changed cluster name to: ${clusterName}`);
+                setMessage(`Successfully changed Cluster name to: ${clusterName}`);
                 setEditStatus(true);
             //Otherwise, alert user of failure and display error message
             } else {

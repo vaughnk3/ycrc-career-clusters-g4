@@ -32,7 +32,7 @@ const ReplaceImageButton = ({ID}) => {
         setIsOpen(true);
     }
 
-    //Close popup to edit image of a subcluster
+    //Close popup to edit image of a cluster
     const closePopup = () => {
         setIsOpen(false);
     }
@@ -59,13 +59,13 @@ const ReplaceImageButton = ({ID}) => {
                 //If POST request goes through, alert user of success and updated image
                 if (dbResponse.ok) {
                     closePopup()
-                    setMessage('Successfully uploaded new SubCluster image.');
+                    setMessage('Successfully uploaded new Cluster image.');
                     setImageStatus(true);
                 }
                 //Otherwise, alert user of failure and display error message
                 else {
                     closePopup()
-                    setMessage('Failed to upload new SubCluster image.')
+                    setMessage('Failed to upload new Cluster image.')
                     setImageStatus(true);
                 }
             }
@@ -76,7 +76,7 @@ const ReplaceImageButton = ({ID}) => {
         } catch (error) {
             console.log("Error", error);
             closePopup()
-            setMessage('Failed to upload new SubCluster image.');
+            setMessage('Failed to upload new Cluster image.');
             setImageStatus(true);
         }
     }
@@ -125,7 +125,7 @@ const ReplaceImageButton = ({ID}) => {
                 <div className="popup">
                     <div className="popup-content">
                         <h1>{message}</h1>
-                        <button onClick={closeStatus}>Acknowledge and Close</button>
+                        <button onClick={closeStatus}>Acknowledge and Refresh</button>
                     </div>
                 </div>
             )}
