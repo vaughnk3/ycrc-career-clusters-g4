@@ -163,14 +163,14 @@ const StaffSubFields = () => {
               return(
                   <a key={index} href={item} target="_blank" rel="noopener noreferrer">
                       {item}
-                      <br></br>
+                      <br></br><br></br>
                   </a>
                   
               )
           }
           // If it is just a normal word, return the word with breaks for spacing.  
           else {
-              return <span key={index}> <br></br> {item} <br></br></span>
+              return <span key={index}> {item} </span>
           }
       })
     }
@@ -255,6 +255,7 @@ const StaffSubFields = () => {
             </div>
             <div class="field-statistic">
                 <h2>Higher Education Opportunities</h2>
+                <br></br>
                 <div>{displayWords}</div>
             </div>
           </div>
