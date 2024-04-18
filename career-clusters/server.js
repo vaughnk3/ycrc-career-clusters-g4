@@ -6,7 +6,7 @@ Required modules:
 - 'multer': For handling multipart/form-data, primarily used for file uploads.
 - 'firebase-admin': For Firebase authentication.
 
-LAST EDITED 04/05/2024 Gavin T. Anderson
+LAST EDITED 04/17/2024 Ross Friend
 */
 
 // Import required modules
@@ -827,7 +827,7 @@ app.post('/login/adminpage/modifyperms/remove-user-permission', async (req, res)
 //************************************************************************/
 
 
-
+// Get all certified users in the Firebase app
 app.get('/login/adminpage/modifyperms/list-users', async (req, res) => {
   try {
     const listUsersResult = await admin.auth().listUsers();
@@ -844,7 +844,7 @@ app.get('/login/adminpage/modifyperms/list-users', async (req, res) => {
   }
 });
 
-
+// Request to create a user
 app.post('/login/adminpage/create-user', async (req, res) => {
   const { email, password } = req.body;
   //Try to create the user
@@ -888,6 +888,7 @@ app.post('/login/adminpage/create-user', async (req, res) => {
   }
 });
 
+// Get the claims list for a user by uid
 app.post('/get-unique-claims', async (req, res) => {
   const { uid } = req.body;
 
